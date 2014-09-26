@@ -19,7 +19,10 @@ span{
 	text-align: center;
 }
 
-
+table{
+	text-align: center;
+	align: center;
+}
 h3{
 	background-color: lightgray;
 	outline-color: black;

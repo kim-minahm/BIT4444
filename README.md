@@ -8,6 +8,9 @@ Andrew Knittle (andrk11)
 Marcella Krzywicki (makrzy93)
 Minahm Kim (minahm92)
 
+Questions for Professor:
+1) his code doesnt pass validation
+2) why do center tags not work, how to make things be centered
 
 TODO:
 Rename password.php to login.php ?
