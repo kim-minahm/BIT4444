@@ -1,5 +1,5 @@
 body{
-	background-color: gray;	
+	background-color: lightgray;	
 }
 
 select{
@@ -16,7 +16,7 @@ h2{
 }
 
 h3{
-	background-color: darkgray;
+	background-color: lightgray;
 	outline-color: black;
 	outline-style: solid;
 	outline-width: thin;	
