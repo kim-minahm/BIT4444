@@ -1,23 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<html>
 		<head>
+			<title>Receipt</title>
 			<link rel="stylesheet" type="text/css" href="hw2.css"/>
-<title>Receipt</title>
-	<h1 align = "center">
-		Order Submitted:
-	</h1>
 		</head>
 		<body>
+					<h1 align = "center"> Order Submitted:</h1>
 		<center>
-				Order Number: <?php echo $_POST["ordernumber"]; ?></br>
-				Order Date: <?php echo $_POST["orderdate"]; ?></br>
-				Customer: <?php echo $_POST["customer"]; ?></br>
-				Sales Agent: <?php echo $_POST["salesagent"]; ?></br>
-				Order Status: <?php echo $_POST["orderstatus"]; ?></br>
+				Order Number: <?php echo $_POST["ordernumber"]; ?><br/>
+				Order Date: <?php echo $_POST["orderdate"]; ?><br/>
+				Customer: <?php echo $_POST["customer"]; ?><br/>
+				Sales Agent: <?php echo $_POST["salesagent"]; ?><br/>
+				Order Status: <?php echo $_POST["orderstatus"]; ?><br/>
 		</center>
-		</br></br>
+		<p/><p/>
 		<table border = "1" width = "50%" align = "center">
 			<tr>
 				<th>Product</th>
