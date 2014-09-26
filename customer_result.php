@@ -1,12 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>New Customer Processed</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="hw2.css">
 </head>
 <body>
+	<h1><a href="http://tinyurl.com/mstgdqk" target="_blank"><img src="http://tinyurl.com/on58dwh" border="0" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
+	<hr/>
 	<?
 		$customer = $_POST['custID'];
 		$region = $_POST['region'];
