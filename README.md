@@ -10,5 +10,15 @@ Minahm Kim (minahm92)
 
 
 TODO:
+Rename password.php to login.php ?
+evaluate main menu and home pages
+Appropriate Titles and headings
+After submission, data should be displayed as text
 New Customer PHP
 New Customer Edit
+Order Form edit
+Validation
+
+DONE:
+Hardcode password, furnish and manager
+
