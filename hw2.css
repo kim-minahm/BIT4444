@@ -26,6 +26,10 @@ h3{
 	outline-style: solid;
 	outline-width: thin;	
 }
+
+h5{
+	text-align: left;
+}
 #header {
     background-color:black;
     color:white;
