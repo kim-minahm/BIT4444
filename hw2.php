@@ -14,7 +14,7 @@
 		header("Location: userpage.html");
 		break;
 	case 'manager':
-		header("Location: new_order_form.html");
+		header("Location: manage.html");
 		break;
 	case 'order':
 		header("Location: new_order_form.html");

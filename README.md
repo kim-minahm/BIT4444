@@ -17,7 +17,12 @@ After submission, data should be displayed as text
 New Customer PHP
 New Customer Edit
 Order Form edit
-Validation
+Validation	
+	hw2.php
+	item.html
+	new customer form.php
+	order result.php
+	report.html
 
 DONE:
 Hardcode password, furnish and manager
