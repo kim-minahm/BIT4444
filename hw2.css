@@ -19,6 +19,12 @@ span{
 	text-align: center;
 }
 
+table{
+	width="50%";
+	margin-left:15%; 
+    margin-right:15%;
+}
+
 
 h3{
 	background-color: lightgray;
