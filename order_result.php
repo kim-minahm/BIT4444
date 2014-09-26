@@ -6,7 +6,7 @@
 			<link rel="stylesheet" type="text/css" href="hw2.css"/>
 		</head>
 		<body>
-					<h1 align = "center"> Order Submitted:</h1>
+					<h1> Order Submitted:</h1>
 		<center>
 				Order Number: <?php echo $_POST["ordernumber"]; ?><br/>
 				Order Date: <?php echo $_POST["orderdate"]; ?><br/>
@@ -15,7 +15,7 @@
 				Order Status: <?php echo $_POST["orderstatus"]; ?><br/>
 		</center>
 		<p/><p/>
-		<table border = "1" width = "50%" align = "center">
+		<table border = "1">
 			<tr>
 				<th>Product</th>
 				<th>Quantity</th>
