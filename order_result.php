@@ -3,13 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<html>
 		<head>
-			<link rel="stylesheet" type="text/css" href="hw2.css" />
+			<link rel="stylesheet" type="text/css" href="hw2.css"/>
 <title>Receipt</title>
 	<h1 align = "center">
 		Order Submitted:
 	</h1>
-		</br>
-		
 		</head>
 		<body>
 		<center>
@@ -46,6 +44,5 @@
 				<td><?php echo $_POST["T3"]; ?></td>
 			</tr>
 		</table>
-		
 		</body>
 </html>
