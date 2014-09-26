@@ -25,7 +25,7 @@
 		<?header("Location: managerpage.html");?>
 	<? } else { ?>
 		<center><h3>Wrong Password! Try again.
-		<form method="POST" action="password.php">
+		<form method="POST" action="login.php">
 			Password: <input type="password" NAME="pword" /><br /><br />
 			<input type="submit" name="page2_submit" value="SUBMIT" />
 			<input type="reset" value="RESET" /><br />
@@ -46,7 +46,7 @@
 		<?header("Location: managerpage.html");?>
 	<? } else { ?>
 		<center><h3>Wrong Password Again! This was your second try.
-		<form method="POST" action="password.php">
+		<form method="POST" action="login.php">
 			Password: <input type = "password" name="pword" /><br /><br />
 			<input type="submit" name="page3_submit" value="SUBMIT" />
 			<input type="reset" value="RESET" /><br />
@@ -74,7 +74,7 @@
 <!-- This is the first pass for the user – page 1 -->
 
 <center><h3>Please enter your password to access this site!<br />
-<form method="POST" action="password.php">
+<form method="POST" action="login.php">
 Password: <input type="password" name="pword"><br /><br />
 <input type="submit" name="page1_submit" value="SUBMIT" />
 <input type="reset" value="RESET" /><br />
