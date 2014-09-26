@@ -26,7 +26,7 @@
 		header("Location: new_customer_form.html");
 		break;
 	case 'manage':
-		header("Location: managerpage.html");
+		header("Location: manage.html");
 		break;
 	case 'report':
 		header("Location: report.html");
