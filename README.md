@@ -14,7 +14,7 @@ Rename password.php to login.php ?
 evaluate main menu and home pages
 Appropriate Titles and headings
 After submission, data should be displayed as text
-New Customer PHP
+X	New Customer PHP
 New Customer Edit
 Order Form edit
 Validation	
