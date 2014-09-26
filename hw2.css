@@ -6,6 +6,21 @@ select{
 	font-size: 10px;
 	width: 100%;
 }
+
+h1{
+	text-align: center;
+}
+
+h2{
+	text-align: left;
+}
+
+h3{
+	background-color: darkgray;
+	outline-color: black;
+	outline-style: solid;
+	outline-width: thin;	
+}
 #header {
     background-color:black;
     color:white;
