@@ -20,12 +20,9 @@ span{
 }
 
 table{
-	width="50%";
-	margin-left:15%; 
-    margin-right:15%;
+	text-align: center;
+	align: center;
 }
-
-
 h3{
 	background-color: lightgray;
 	outline-color: black;
