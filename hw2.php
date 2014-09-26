@@ -10,6 +10,12 @@
 	<?
 	$page = $_POST['page'];
 	switch($page){
+	case 'user':
+		header("Location: userpage.html");
+		break;
+	case 'manager':
+		header("Location: new_order_form.html");
+		break;
 	case 'order':
 		header("Location: new_order_form.html");
 		break;
