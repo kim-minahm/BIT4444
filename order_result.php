@@ -46,5 +46,6 @@
 				<td><?php echo $_POST["T3"]; ?></td>
 			</tr>
 		</table>
+		
 		</body>
 </html>
