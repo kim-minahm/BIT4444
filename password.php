@@ -10,7 +10,7 @@
 <h1><a href="http://tinyurl.com/mstgdqk" target="_blank"><img src="http://tinyurl.com/on58dwh" border="0" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
 <hr />
 </center>
-<br /><br /><br />
+<p/><p/><p/>
 
 <? if (isset($_REQUEST['page1_submit'])) {
 // __________________________________________________ DISPLAY PAGE 2  ?>
