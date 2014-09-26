@@ -7,3 +7,8 @@ Nathan Egbert (egbertnd)
 Andrew Knittle (andrk11)
 Marcella Krzywicki (makrzy93)
 Minahm Kim (minahm92)
+
+
+TODO:
+New Customer PHP
+New Customer Edit
