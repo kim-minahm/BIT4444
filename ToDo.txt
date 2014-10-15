@@ -1,0 +1,16 @@
+Fix HW 2
+1) Make sure Itemized Sales Report is management only (add a flag/hidden variable to check the available pages)
+2) Add page for performance analysis and businesses analysis. Can be empty
+3) Add navigation to form pages to go back to home page (Minahm: Currently working on this)
+4) Add a project description
+5) Itemized sales report, performance analysis, business analysis reports
+
+
+HW 4
+1a) Retreive password/username from database
+1b) Check entered username/password to the database
+2) Display the user's first and last name on the page once logged in
+3a) Manage available menu's
+3b) Set available order's
+
+Input Form

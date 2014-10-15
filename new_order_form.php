@@ -10,7 +10,8 @@
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
 	<hr/>
 	</center>
-    <form method="post" action=order_result.php>
+    <form method="post" action="order_result.php">
+		<input type="hidden" name="acct" value="<?=$_GET['acct'];?>"/>
 		<table>
 			<tr>
 				<td>Order Number:</td>

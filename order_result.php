@@ -6,6 +6,7 @@
 			<link rel="stylesheet" type="text/css" href="hw2.css"/>
 		</head>
 		<body>
+		<?=$_POST['acct'];?>
 					<h1> Order Submitted:</h1>
 		<center>
 				Order Number: <?php echo $_POST["ordernumber"]; ?><br/>
@@ -15,6 +16,9 @@
 				Order Status: <?php echo $_POST["orderstatus"]; ?><br/>
 		</center>
 		<p/><p/>
+		<form method="post" action="hw2.php">
+		<input type="hidden" name="acct" value="<?=$_POST['acct'];?>"/>
+		<input type="hidden" name="page" value="<?=$_POST['acct'];?>"/>
 		<table border = "1">
 			<tr>
 				<th>Product</th>
@@ -41,6 +45,11 @@
 				<td><?php echo $_POST["T3"]; ?></td>
 			</tr>
 		</table>
+		<center>
+			<input type="submit" value="Return"/>
+			<!--<input type="reset" value="Reset"/>-->
+		</center>
+		</form>
 		<h5>Last Modified: 9/26/2014</h5>
 		</body>
 </html>

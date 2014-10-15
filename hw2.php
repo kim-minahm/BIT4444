@@ -9,6 +9,7 @@
 	<p>
 	<?
 	$page = $_POST['page'];
+	$account = $_POST['acct'];
 	switch($page){
 	case 'user':
 		header("Location: userpage.html");
@@ -17,23 +18,22 @@
 		header("Location: manage.html");
 		break;
 	case 'order':
-		header("Location: new_order_form.html");
+		header("Location: new_order_form.php?acct=".$account);
 		break;
 	case 'item':
-		header("Location: item.html");
+		header("Location: item.php?acct=".$account);
 		break;
 	case 'customer':
-		header("Location: new_customer_form.html");
+		header("Location: new_customer_form.php?acct=".$account);
 		break;
 	case 'manage':
-		header("Location: manage.html");
+		header("Location: manage.php?acct=".$account);
 		break;
 	case 'report':
-		header("Location: report.html");
+		header("Location: report.php?acct=".$account);
 		break;
 	default:
 	}
-		break;
 	
 	?>
 	
