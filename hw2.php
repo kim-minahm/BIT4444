@@ -15,7 +15,7 @@
 		header("Location: userpage.html");
 		break;
 	case 'manager':
-		header("Location: manage.html");
+		header("Location: managerpage.html");
 		break;
 	case 'order':
 		header("Location: new_order_form.php?acct=".$account);
