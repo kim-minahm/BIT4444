@@ -1,9 +1,9 @@
 Fix HW 2
 1) Make sure Itemized Sales Report is management only (add a flag/hidden variable to check the available pages)
-2) Add page for performance analysis and businesses analysis. Can be empty
+2) Add page for performance analysis and businesses analysis. Can be empty (Andrew: I can take a shot at this and maybe 5)
 3) Add navigation to form pages to go back to home page (Minahm: Currently working on this)
-4) Add a project description
-5) Itemized sales report, performance analysis, business analysis reports
+4) Add a project description 
+5) Itemized sales report, performance analysis, business analysis reports 
 
 
 HW 4

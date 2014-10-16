@@ -13,7 +13,10 @@
 	<body>
 	
 			<p>Report goes here</p>
-		
+			//Goes to the performanceData page, which has all the analysis stuff.
+			<form method="POST" action="performanceData.php">
+				<input type="submit" value="SUBMIT" />
+			</form>
 		<h5>Last Modified: 9/26/2014</h5>
 	</body>
 </html>
