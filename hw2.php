@@ -32,6 +32,12 @@
 	case 'report':
 		header("Location: report.php?acct=".$account);
 		break;
+	case 'performance':
+		header("Location: performanceData.php?acct=".$account);
+		break;
+	case 'business':
+		header("Location: businessData.php?acct=".$account);
+		break;
 	default:
 	}
 	

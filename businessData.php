@@ -2,7 +2,7 @@
  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Report</title>
+	<title>Business</title>
 	<link rel="stylesheet" href="hw2.css"/>
 	
 </head>
@@ -12,7 +12,7 @@
 </center>
 	<body>
 	
-			<p>Report goes here</p>
+			<p>Business goes here</p>
 			
 		<h5>Last Modified: 9/26/2014</h5>
 	</body>
