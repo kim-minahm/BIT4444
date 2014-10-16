@@ -18,7 +18,6 @@
 				<option value="order">New Order Form/Edit Order Form</option>
 				<option value="customer">New Customer Form/Edit Customer</option>
 				<option value="manage">Management Access Only</option>
-				<option value="report">Itemized Sales Report</option>
 				<option value="performance">Performance Report</option>
 				<option value="business">Business Report</option>
 			</select>
