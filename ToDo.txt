@@ -10,6 +10,9 @@ Just get commands to pull all orders, and command to pull all orders from a part
 Nathan:
 Setup login to connect to DB and validate credentials
 
+Minahm:
+Forward data from page to page and display as header
+
 Fix HW 2
 1) Make sure Itemized Sales Report is management only (add a flag/hidden variable to check the available pages) (Andrew: Done).
 2) Add page for performance analysis and businesses analysis. Can be empty (Andrew: Done)
