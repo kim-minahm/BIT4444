@@ -55,6 +55,23 @@
 			Andrew Knittle<br/>
 			Nathan Egbert
 	</div>';}?>
+	
+	 <?
+	// Establish a connection with the data source, and define the SQL
+	$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
+
+	$strSQL = "SELECT product_name, product_cost FROM product";
+
+	$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+	?>
+	<?$row = mysqli_fetch_array($rs)?>
+	<form method="post">
+		<select name="preference"  value="$row[1]">
+						<?while($row = mysqli_fetch_array($rs)){?>
+						<?print '<option value="' . $row[0] . '">' . $row[0] . ' ' . $row[1] . '</option>' . "\n";}//This is uses the datebase values?>
+		</select>
+	</form>
+	
     <form method="post" action="order_result.php">
 		<input type="hidden" name="acct" value="<?=$_GET['acct'];?>"/>
 		<table>
