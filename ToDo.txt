@@ -1,3 +1,15 @@
+Andrew:
+In new order form, add a dropbox populated with items from the database. Make the dropbox dynamically
+
+
+Marcella:
+The client has requested that both sales agents and managers be provided with access to the order forms and customer 
+forms. Managers can view and edit all orders, but sales agents should only be able to view and edit their own orders.
+Just get commands to pull all orders, and command to pull all orders from a particular salesman
+
+Nathan:
+Setup login to connect to DB and validate credentials
+
 Fix HW 2
 1) Make sure Itemized Sales Report is management only (add a flag/hidden variable to check the available pages) (Andrew: Done).
 2) Add page for performance analysis and businesses analysis. Can be empty (Andrew: Done)
@@ -15,4 +27,3 @@ HW 4
 3a) Manage available menu's
 3b) Set available order's
 
-Input Form
