@@ -65,12 +65,7 @@
 	$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
 	?>
 	<?$row = mysqli_fetch_array($rs)?>
-	<form method="post">
-		<select name="preference"  value="$row[1]">
-						<?while($row = mysqli_fetch_array($rs)){?>
-						<?print '<option value="' . $row[0] . '">' . $row[0] . ' ' . $row[1] . '</option>' . "\n";}//This is uses the datebase values?>
-		</select>
-	</form>
+	
 	
     <form method="post" action="order_result.php">
 		<input type="hidden" name="acct" value="<?=$_GET['acct'];?>"/>
@@ -119,6 +114,10 @@
 				<td><input type = 'text' name = "T3"/></td>
 			</tr>
 		</table> 
+		<select name="preference"  value="$row[1]">
+						<?while($row = mysqli_fetch_array($rs)){?>
+						<?print '<option value="' . $row[0] . '">' . $row[0] . ' ' . $row[1] . '</option>' . "\n";}//This is uses the datebase values?>
+		</select>
 		<center>
 			<input type="submit" value="Submit"/>
 			<input type="reset" value="Reset"/>
