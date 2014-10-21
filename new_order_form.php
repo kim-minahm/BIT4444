@@ -31,7 +31,8 @@
 		Group 6 Team Members:<br/>
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
-			Nathan Egbert
+			Nathan Egbert<br/>
+			Marcella Krzywicki
 	</div>
 	';}
 	else if($_GET['acct']=="user"){
@@ -53,7 +54,8 @@
 		Group 6 Team Members:<br/>
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
-			Nathan Egbert
+			Nathan Egbert<br/>
+			Marcella Krzywicki
 	</div>';}?>
 	
 	 <?
@@ -67,24 +69,32 @@
 	<?$row = mysqli_fetch_array($rs)?>
 	
 	
+	<?
+	// Establish a connection with the data source, and define the SQL for the orders
+	$strSQL2 = "SELECT* FROM salesorder"; //WHERE emp_id == $username";
+
+	$rs2 = mysqli_query($db, $strSQL2)  or die("Error in SQL statement: " . mysqli_error());  
+	?>
+	<?$row2 = mysqli_fetch_array($rs2)?>
+	
     <form method="post" action="order_result.php">
 		<input type="hidden" name="acct" value="<?=$_GET['acct'];?>"/>
 		<table>
 			<tr>
 				<td>Order Number:</td>
-				<td><input type="text" name="ordernumber"/></td>
+				<td><input type="text" name="ordernumber" value="<?=$row2[0]?>"/></td>
 				<td>Order Date:</td>
-				<td><input type="text" name="orderdate"/></td>
+				<td><input type="text" name="orderdate" value="<?=$row2[2]?>"/></td>
 			</tr>
 			<tr>
 				<td> Customer:</td>
-				<td><input type="text" name="customer"/></td>
+				<td><input type="text" name="customer" value="<?=$row2[1]?>"/></td>
 			</tr>
 			<tr>
 				<td>Sale Agent:</td>
-				<td><input type="text" name="salesagent"/></td>
+				<td><input type="text" name="salesagent" value="<?=$row2[3]?>"/></td>
 				<td>Order Status:</td>
-				<td><input type="text" name="orderstatus"/></td>
+				<td><input type="text" name="orderstatus value="<?=$row2[4]?>""/></td>
 			</tr>
 		</table>
         

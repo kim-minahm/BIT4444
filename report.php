@@ -27,9 +27,10 @@
 		</form>
 		8:00 a.m. BIT 4444<br/>
 		Group 6 Team Members:<br/>
-			Minahm Kim<br/>
-			Andrew Knittle<br/>
-			Nathan Egbert
+		Minahm Kim<br/>
+		Andrew Knittle<br/>
+		Nathan Egbert<br/>
+		Marcella Krzywicki
 	</div>
 </center>
 	<body>

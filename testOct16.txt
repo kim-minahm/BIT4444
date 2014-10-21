@@ -1,0 +1,15 @@
+<? $x=$_POST["numstocks"]; //number of stocks to invest in ?>
+
+<?// what are the stock names> Textbox needed for each one?>
+
+<form method="post" action="page2.php">
+
+	<? for($i<= $x ++$i){ ?>
+		<input type="text" name="stock<?=$i?>"
+	
+
+input type="text" name="stock".$
+
+input type="submit" />
+
+</form>

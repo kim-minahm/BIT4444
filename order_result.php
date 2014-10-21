@@ -29,7 +29,8 @@
 		Group 6 Team Members:<br/>
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
-			Nathan Egbert
+			Nathan Egbert<br/>
+			Marcella Krzywicki
 	</div>
 		<center>
 				Order Number: <?php echo $_POST["ordernumber"]; ?><br/>

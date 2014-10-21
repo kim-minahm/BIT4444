@@ -12,6 +12,8 @@
 </center>
 <p/><p/><p/>
 
+global $username
+
 <? if (isset($_REQUEST['page1_submit'])) {
 // __________________________________________________ DISPLAY PAGE 2  ?>
 

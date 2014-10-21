@@ -29,7 +29,8 @@
 		Group 6 Team Members:<br/>
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
-			Nathan Egbert
+			Nathan Egbert<br/>
+			Marcella Krzywicki
 	</div>
     <form name="form1" method="post" action="customer_result.php">
 	<table>
