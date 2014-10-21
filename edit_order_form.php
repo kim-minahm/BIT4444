@@ -56,19 +56,26 @@
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
 			Marcella Krzywicki
-	</div>';}
+	</div>';}?>
+	
+	 <?
 	// Establish a connection with the data source, and define the SQL
 	$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
 
 	$strSQL = "SELECT product_name, product_cost FROM product";
 
 	$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
-	$row = mysqli_fetch_array($rs);
+	?>
+	<?$row = mysqli_fetch_array($rs)?>
+	
+	
+	<?
 	// Establish a connection with the data source, and define the SQL for the orders
 	$strSQL2 = "SELECT* FROM salesorder"; //WHERE emp_id == $username";
 
 	$rs2 = mysqli_query($db, $strSQL2)  or die("Error in SQL statement: " . mysqli_error());  
-	$row2 = mysqli_fetch_array($rs2)?>
+	?>
+	<?$row2 = mysqli_fetch_array($rs2)?>
 	
     <form method="post" action="order_result.php">
 		<input type="hidden" name="acct" value="<?=$_GET['acct'];?>"/>
@@ -95,34 +102,34 @@
 			<tr>
 				<th>Product</th>
 				<th>Quantity</th>
+				<th>Unit Price</th>
 				<th>Total Price</th>
 			</tr>
 			<tr>
-				<td><select name="P1"  value="$row[1]">
-						<?while($row = mysqli_fetch_array($rs)){
-						print '<option value="' . $row[0] . '">' . $row[0] . ' ' . $row[1] . '</option>' . "\n";}//This is uses the datebase values?>
-						</select></td>
-				<td><select name="Q1"  value="$row[1]">
-						<?for($i = 0; $i < 10; $i++){
-						print "<option value=$i>$i</option>";}//This is uses the datebase values?>
-						</select></td>
+				<td><input type = 'text' name = "P1"/></td>
+				<td><input type = 'text' name = "Q1"/></td>
+				<td><input type = 'text' name = "U1"/></td>
 				<td><input type = 'text' name = "T1"/></td>
 			</tr>
 			<tr>
 				<td><input type = 'text' name = "P2"/></td>
 				<td><input type = 'text' name = "Q2"/></td>
+				<td><input type = 'text' name = "U2"/></td>
 				<td><input type = 'text' name = "T2"/></td>
 			</tr>
 			<tr>
 				<td><input type = 'text' name = "P3"/></td>
 				<td><input type = 'text' name = "Q3"/></td>
+				<td><input type = 'text' name = "U3"/></td>
 				<td><input type = 'text' name = "T3"/></td>
 			</tr>
 		</table> 
-		
+		<select name="preference"  value="$row[1]">
+						<?while($row = mysqli_fetch_array($rs)){?>
+						<?print '<option value="' . $row[0] . '">' . $row[0] . ' ' . $row[1] . '</option>' . "\n";}//This is uses the datebase values?>
+		</select>
 		<center>
 			<input type="submit" value="Submit"/>
-			<input type="submit" value="Save"/>
 			<input type="reset" value="Reset"/>
 		</center>
     </form>

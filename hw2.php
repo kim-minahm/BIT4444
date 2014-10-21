@@ -20,6 +20,9 @@
 	case 'order':
 		header("Location: new_order_form.php?acct=".$account);
 		break;
+	case 'edit':
+		header("Location: edit_order_form.php?acct=".$account);
+		break;
 	case 'item':
 		header("Location: item.php?acct=".$account);
 		break;
