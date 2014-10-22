@@ -102,6 +102,7 @@
 				{?>
 					<tr>
 					<td><select name="P<?$x?>"  value="$row[1]">
+							<?$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());?>
 							<?while($row = mysqli_fetch_array($rs)){
 							print '<option value="' . $row[0] . '">' . $row[0] . ' ' . $row[1] . '</option>' . "\n";}//This is uses the datebase values?>
 							</select></td>
