@@ -48,27 +48,15 @@
 			<tr>
 				<th>Product</th>
 				<th>Quantity</th>
-				<th>Unit Price</th>
 				<th>Total Price</th>
 			</tr>
-			<tr>
-				<td><?php echo $_POST["P1"]; ?></td>
-				<td><?php echo $_POST["Q1"]; ?></td>
-				<td><?php echo $_POST["U1"]; ?></td>
-				<td><?php echo $_POST["T1"]; ?></td>
-			</tr>
-			<tr>
-				<td><?php echo $_POST["P2"]; ?></td>
-				<td><?php echo $_POST["Q2"]; ?></td>
-				<td><?php echo $_POST["U2"]; ?></td>
-				<td><?php echo $_POST["T2"]; ?></td>
-			</tr>
-			<tr>
-				<td><?php echo $_POST["P3"]; ?></td>
-				<td><?php echo $_POST["Q3"]; ?></td>
-				<td><?php echo $_POST["U3"]; ?></td>
-				<td><?php echo $_POST["T3"]; ?></td>
-			</tr>
+			<?for($x=0; $x <= 10; $x++){?>
+				<tr>
+					<td><?php echo $_POST["P$x"]; ?></td>
+					<td><?php echo $_POST["Q$x"]; ?></td>
+					<td><?php echo $_POST["T$x"]; ?></td>
+				</tr>
+			<?}?>
 		</table>
 		<center>
 			<input type="submit" value="Return"/>
