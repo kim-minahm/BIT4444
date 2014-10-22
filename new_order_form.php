@@ -97,32 +97,25 @@
 				<th>Quantity</th>
 				<th>Total Price</th>
 			</tr>
-			<tr>
-				<td><select name="P1"  value="$row[1]">
-						<?while($row = mysqli_fetch_array($rs)){
-						print '<option value="' . $row[0] . '">' . $row[0] . ' ' . $row[1] . '</option>' . "\n";}//This is uses the datebase values?>
-						</select></td>
-				<td><select name="Q1"  value="$row[1]">
-						<?for($i = 0; $i < 10; $i++){
-						print "<option value=$i>$i</option>";}//This is uses the datebase values?>
-						</select></td>
-				<td><input type = 'text' name = "T1"/></td>
-			</tr>
-			<tr>
-				<td><input type = 'text' name = "P2"/></td>
-				<td><input type = 'text' name = "Q2"/></td>
-				<td><input type = 'text' name = "T2"/></td>
-			</tr>
-			<tr>
-				<td><input type = 'text' name = "P3"/></td>
-				<td><input type = 'text' name = "Q3"/></td>
-				<td><input type = 'text' name = "T3"/></td>
-			</tr>
+			
+			<?for($x=0; $x <= 10; $x++)
+				{?>
+					<tr>
+					<td><select name="P<?$x?>"  value="$row[1]">
+							<?while($row = mysqli_fetch_array($rs)){
+							print '<option value="' . $row[0] . '">' . $row[0] . ' ' . $row[1] . '</option>' . "\n";}//This is uses the datebase values?>
+							</select></td>
+					<td><select name="Q<?$x?>"  value="$row[1]">
+							<?for($i = 0; $i < 10; $i++){
+							print "<option value=$i>$i</option>";}//This uses the datebase values?>
+							</select></td>
+					<td><input type = 'text' name = "T<?$x?>"/></td>
+					</tr>
+			  <?}?>
+			
 		</table> 
-		
 		<center>
 			<input type="submit" value="Submit"/>
-			<input type="submit" value="Save"/>
 			<input type="reset" value="Reset"/>
 		</center>
     </form>
