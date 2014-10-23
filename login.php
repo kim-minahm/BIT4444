@@ -20,9 +20,22 @@
 	//$row = mysqli_fetch_array($rs);
 	?>
 <? if (isset($_REQUEST['page1_submit'])) {
-// __________________________________________________ DISPLAY PAGE 2  ?>
+// __________________________________________________ DISPLAY PAGE 2  
+$un = $_REQUEST['username'];
+$pw = $_REQUEST['pword'];
+$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
+#$strSQL = "SELECT * FROM employee	";
+$rs = mysqli_query($db, $strSQL);
 
-	<? if ($_REQUEST['pword'] == "furnish") { ?>
+if(false){
+	print $strSQL;
+	print "$un";
+	print "$pw";
+}elseif($rs) {
+$nm = mysqli_fetch_array($rs);
+print $nm['emp_fname'];
+}else if(false){
+	   #if ($_REQUEST['pword'] == "furnish") { ?>
 		<center><h3>You entered the correct password on the first try!</h3>
       	</center>
 		<?
@@ -37,7 +50,6 @@
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
 		$_SESSION["password"] = $_POST['password'];
-		session_start();
 		header("Location: managerpage.html");
 	} else { ?>
 		<center><h3>Wrong Password! Try again.
@@ -49,7 +61,6 @@
        </form>
 	</h3></center>
 	<? } ?>
-
 <? } elseif (isset($_REQUEST['page2_submit'])) {
 // __________________________________________________ DISPLAY PAGE 3  
 
@@ -60,7 +71,6 @@
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
 		$_SESSION["password"] = $_POST['password'];
-		session_start();
 		header("Location: userpage.html");
 	 } else if ($_REQUEST['pword'] == "manager") { ?>
 		<center><h3>You entered the correct password on the first try!</h3>
@@ -69,7 +79,6 @@
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
 		$_SESSION["password"] = $_POST['password'];
-		session_start();
 		header("Location: managerpage.html");
 	 } else { ?>
 		<center><h3>Wrong Password Again! This was your second try.
@@ -92,7 +101,6 @@
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
 		$_SESSION["password"] = $_POST['password'];
-		session_start();
 		header("Location: userpage.html");
 	   } else if ($_REQUEST['pword'] == "manager") { ?>
 		<center><h3>You entered the correct password on the first try!</h3>
@@ -101,7 +109,6 @@
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
 		$_SESSION["password"] = $_POST['password'];
-		session_start();
 		header("Location: managerpage.html");
 	 } else { ?>
 		<center><h3>Wrong Password Again! You're out of luck.</h3></center>
