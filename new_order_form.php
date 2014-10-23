@@ -97,20 +97,20 @@
 				<th>Quantity</th>
 				<th>Total Price</th>
 			</tr>
-			
-			<?for($x=0; $x <= 10; $x++)
+			<?$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());?>
+			<?for($x=0; $x <= 14; $x++)
+			//just needs to post quantity not which
 				{?>
 					<tr>
-					<td><select name="P<?$x?>"  value="$row[1]">
-							<?$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());?>
-							<?while($row = mysqli_fetch_array($rs)){
-							print '<option value="' . $row[0] . '">' . $row[0] . ' ' . $row[1] . '</option>' . "\n";}//This is uses the datebase values?>
+					<td><select name="P<?=$x?>"  value="$row[1]">
+							<?$row = mysqli_fetch_array($rs)?>
+							<?print '<option value="' . $row[0] . '">' . $row[0] . ' ' . $row[1] . '</option>' . "\n";//This is uses the datebase values?>
 							</select></td>
-					<td><select name="Q<?$x?>"  value="$row[1]">
+					<td><select name="Q<?=$x?>"  value="$row[1]">
 							<?for($i = 0; $i < 10; $i++){
 							print "<option value=$i>$i</option>";}//This uses the datebase values?>
 							</select></td>
-					<td><input type = 'text' name = "T<?$x?>"/></td>
+					<td><input type = 'text' name = "T<?=$x?>"/></td>
 					</tr>
 			  <?}?>
 			
