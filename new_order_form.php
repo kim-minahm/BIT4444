@@ -90,7 +90,6 @@
 				<td><input type="text" name="orderstatus value="<?=$row2[4]?>""/></td>
 			</tr>
 		</table>
-        
         <table border = "1">
 			<tr>
 				<th>Product</th>
@@ -120,6 +119,8 @@
 			<input type="reset" value="Reset"/>
 		</center>
     </form>
+        <?$today = date("F j, Y, g:i a");?>
+		<?print $today?>
 	<h5>Last Modified: 9/26/2014</h5>
 </body>
 </html>
