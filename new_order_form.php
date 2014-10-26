@@ -94,6 +94,7 @@
         <table border = "1">
 			<tr>
 				<th>Product</th>
+				<th>Price</th>
 				<th>Quantity</th>
 			</tr>
 			<?$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());?>
@@ -103,8 +104,10 @@
 					<tr>
 					<td><label name="P<?=$x?>"  value="$row[1]">
 							<?$row = mysqli_fetch_array($rs)?>
-							<?print '<option value="' . $row[0] . '">' . $row[0] . ' ' . $row[1] . '</option>' . "\n";//This is uses the datebase values?>
+							<?print '<option value="' . $row[0] . '">' . $row[0] . '</option>' . "\n";//This is uses the datebase values?>
 							</label></td>
+					<td><label name="M<?=$x?>"  value="$row[1]">
+							<?print '<option value="' . $row[0] . '"> ' . $row[1] . '</option>' . "\n";//This is uses the datebase values?>
 					<td><select name="Q<?=$x?>"  value="$row[1]">
 							<?for($i = 0; $i < 10; $i++){
 							print "<option value=$i>$i</option>";}//This uses the datebase values?>

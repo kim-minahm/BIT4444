@@ -54,7 +54,7 @@
 				<tr>
 					<td><?php echo $_POST["P$x"]; ?></td>
 					<td><?php echo $_POST["Q$x"]; ?></td>
-					<td><?php echo ($_POST["P$x"]*$_POST["Q$x"]); //Since multiplication is just there to remind me what I was doing. I know it's not synatically correct.?></td>
+					<td><?php echo ($_POST["M$x"]*$_POST["Q$x"]); //Since multiplication is just there to remind me what I was doing. I know it's not synatically correct.?></td>
 				</tr>
 			<?}?>
 		</table>
