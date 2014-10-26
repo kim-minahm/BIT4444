@@ -1,21 +1,19 @@
 Andrew:
-In new order form, add a dropbox populated with items from the database. Make the dropbox dynamically
+Submitting form to database
 
 Marcella:
-The client has requested that both sales agents and managers be provided with access to the order forms and customer 
-forms. Managers can view and edit all orders, but sales agents should only be able to view and edit their own orders.
-Just get commands to pull all orders, and command to pull all orders from a particular salesman
+Load order from database into form similar to new orderform.
 
 Nathan:
-Setup login to connect to DB and validate credentials
+Work on logout
 
 Minahm:
-Forward data from page to page and display as header
+
 
 HW 4
-1a) Retreive password/username from database
-1b) Check entered username/password to the database
-2) Display the user's first and last name on the page once logged in
+1a) <DONE> Retreive password/username from database
+1b) <DONE> Check entered username/password to the database
+2)  <DONE> Display the user's first and last name on the page once logged in
 3a) Manage available menu's
 3b) Set available order's
 4) Do the edit order form
@@ -23,6 +21,14 @@ HW 4
 4b)Pull selected order
 4c)Repopulate form with order
 4d)Resubmit form and push to database
+5) New Order Form
+5a)Find unused order number value to assign to order
+5b)Customer ID
+5c)Status ID
+5d)employee ID
+
+OPTIONAL
+Logout
 
 
 Questions

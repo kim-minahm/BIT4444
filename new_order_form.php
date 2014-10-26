@@ -4,18 +4,20 @@
 <head>
     <title>New Order Form/Edit Order Form</title>
 	<link rel="stylesheet" href="hw2.css"/>
+	<?session_start();?>
 </head>
 <body>
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
 	<hr/>
 	<h2>New Order Form</h2>
-	<?if($_GET['acct']=="manager"){
+	<?if($_SESSION['account']=="manager"){
 	print '
 	<div id="nav">
 		<h3>Navigation</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
+				<option value="home">Home Page</option>
 				<option value="order">New Order Form/Edit Order Form</option>
 				<option value="customer">New Customer Form/Edit Customer</option>
 				<option value="manage">Management Access Only</option>
@@ -23,7 +25,6 @@
 				<option value="performance">Performance Report</option>
 				<option value="business">Business Report</option>
 			</select>
-			<input type="hidden" name="acct" value="manager"/>
 			</div>
 			<p><input type="submit" value="Submit" /></p>
 		</form>
@@ -35,18 +36,18 @@
 			Marcella Krzywicki
 	</div>
 	';}
-	else if($_GET['acct']=="user"){
+	else if($_SESSION['account']=="user"){
 	print '
 	<div id="nav">
 		<h3>Navigation</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
+				<option value="home">Home Page</option>
 				<option value="order">New Order Form/Edit Order Form</option>
 				<option value="customer">New Customer Form/Edit Customer</option>
 				<option value="item">Itemize sales report</option>
 			</select>
-			<input type="hidden" name="acct" value="user"/>
 			</div>
 			<p><input type="submit" value="Submit" /></p>
 		</form>
@@ -71,7 +72,6 @@
 	$row2 = mysqli_fetch_array($rs2)?>
 	
     <form method="post" action="order_result.php">
-		<input type="hidden" name="acct" value="<?=$_GET['acct'];?>"/>
 		<table>
 			<tr>
 				<td>Order Number:</td>
@@ -102,10 +102,10 @@
 			//just needs to post quantity not which
 				{?>
 					<tr>
-					<td><select name="P<?=$x?>"  value="$row[1]">
+					<td><label name="P<?=$x?>"  value="$row[1]">
 							<?$row = mysqli_fetch_array($rs)?>
 							<?print '<option value="' . $row[0] . '">' . $row[0] . ' ' . $row[1] . '</option>' . "\n";//This is uses the datebase values?>
-							</select></td>
+							</label></td>
 					<td><select name="Q<?=$x?>"  value="$row[1]">
 							<?for($i = 0; $i < 10; $i++){
 							print "<option value=$i>$i</option>";}//This uses the datebase values?>
