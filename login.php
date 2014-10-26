@@ -31,8 +31,8 @@
 		print $nm['emp_fname'];
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
+		$_SESSION["id"] = $nm['emp_id'];
 		$_SESSION["name"] = $nm['emp_fname']." ".$nm['emp_lname'];
-		$_SESSION["password"] = $_POST['password'];
 		if($nm['job_id'] == 4){
 			$_SESSION["account"] = "sales";
 			header("Location: home.php");
@@ -61,7 +61,6 @@
 		$nm = mysqli_fetch_array($rs);
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
-		$_SESSION["password"] = $_POST['password'];
 		$_SESSION["name"] = $nm['emp_fname']." ".$nm['emp_lname'];
 		if($nm['job_id'] == 4){
 			$_SESSION["account"] = "sales";
@@ -92,7 +91,6 @@
 		$nm = mysqli_fetch_array($rs);
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
-		$_SESSION["password"] = $_POST['password'];
 		$_SESSION["name"] = $nm['emp_fname']." ".$nm['emp_lname'];
 		if($nm['job_id'] == 4){
 			$_SESSION["account"] = "sales";
