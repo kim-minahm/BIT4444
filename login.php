@@ -21,36 +21,25 @@
 	?>
 <? if (isset($_REQUEST['page1_submit'])) {
 // __________________________________________________ DISPLAY PAGE 2  
-$un = $_REQUEST['username'];
-$pw = $_REQUEST['pword'];
-$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
-#$strSQL = "SELECT * FROM employee	";
-$rs = mysqli_query($db, $strSQL);
-
-if(false){
-	print $strSQL;
-	print "$un";
-	print "$pw";
-}elseif($rs) {
-$nm = mysqli_fetch_array($rs);
-print $nm['emp_fname'];
-}else if(false){
-	   #if ($_REQUEST['pword'] == "furnish") { ?>
-		<center><h3>You entered the correct password on the first try!</h3>
-      	</center>
-		<?
+	$un = $_REQUEST['username'];
+	$pw = $_REQUEST['pword'];
+	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
+	$rs = mysqli_query($db, $strSQL);
+	//means that an entry was found in the database wither username & password
+	if($rs) {
+		$nm = mysqli_fetch_array($rs);
+		print $nm['emp_fname'];
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
 		$_SESSION["password"] = $_POST['password'];
-		header("Location: userpage.html");
-		} else if ($_REQUEST['pword'] == "manager") { ?>
-		<center><h3>You entered the correct password on the first try!</h3>
-      	</center>
-		<?
-		session_start();
-		$_SESSION["username"] = $_POST['username'];
-		$_SESSION["password"] = $_POST['password'];
-		header("Location: managerpage.html");
+		$_SESSION["name"] = $nm['emp_fname'];
+		if($nm['job_id'] == 4){
+			$_SESSION["account"] = "sales";
+			header("Location: userpage.html");
+		}else{
+			$_SESSION["account"] = "manager";
+			header("Location: managerpage.html");
+		}
 	} else { ?>
 		<center><h3>Wrong Password! Try again.
 		<form method="POST" action="login.php">
@@ -63,23 +52,25 @@ print $nm['emp_fname'];
 	<? } ?>
 <? } elseif (isset($_REQUEST['page2_submit'])) {
 // __________________________________________________ DISPLAY PAGE 3  
-
-	 if ($_REQUEST['pword'] == "furnish") { ?>
-		<center><h3>You entered the correct password on the first try!</h3>
-      	</center>
-		<?
+	$un = $_REQUEST['username'];
+	$pw = $_REQUEST['pword'];
+	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
+	$rs = mysqli_query($db, $strSQL);
+	//means that an entry was found in the database wither username & password
+	if($rs) {
+		$nm = mysqli_fetch_array($rs);
+		print $nm['emp_fname'];
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
 		$_SESSION["password"] = $_POST['password'];
-		header("Location: userpage.html");
-	 } else if ($_REQUEST['pword'] == "manager") { ?>
-		<center><h3>You entered the correct password on the first try!</h3>
-      	</center>
-		<?
-		session_start();
-		$_SESSION["username"] = $_POST['username'];
-		$_SESSION["password"] = $_POST['password'];
-		header("Location: managerpage.html");
+		$_SESSION["name"] = $nm['emp_fname'];
+		if($nm['job_id'] == 4){
+			$_SESSION["account"] = "sales";
+			header("Location: userpage.html");
+		}else{
+			$_SESSION["account"] = "manager";
+			header("Location: managerpage.html");
+		}
 	 } else { ?>
 		<center><h3>Wrong Password Again! This was your second try.
 		<form method="POST" action="login.php">
@@ -93,23 +84,25 @@ print $nm['emp_fname'];
 
    } elseif (isset($_REQUEST['page3_submit'])) {
 // ________________________________________________ DISPLAY FINAL PAGE  
-
-	   if ($_REQUEST['pword'] == "furnish") { ?>
-		<center><h3>You entered the correct password on the first try!</h3>
-      	</center>
-		<?
+	$un = $_REQUEST['username'];
+	$pw = $_REQUEST['pword'];
+	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
+	$rs = mysqli_query($db, $strSQL);
+	//means that an entry was found in the database wither username & password
+	if($rs) {
+		$nm = mysqli_fetch_array($rs);
+		print $nm['emp_fname'];
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
 		$_SESSION["password"] = $_POST['password'];
-		header("Location: userpage.html");
-	   } else if ($_REQUEST['pword'] == "manager") { ?>
-		<center><h3>You entered the correct password on the first try!</h3>
-      	</center>
-		<?
-		session_start();
-		$_SESSION["username"] = $_POST['username'];
-		$_SESSION["password"] = $_POST['password'];
-		header("Location: managerpage.html");
+		$_SESSION["name"] = $nm['emp_fname'];
+		if($nm['job_id'] == 4){
+			$_SESSION["account"] = "sales";
+			header("Location: userpage.html");
+		}else{
+			$_SESSION["account"] = "manager";
+			header("Location: managerpage.html");
+		}
 	 } else { ?>
 		<center><h3>Wrong Password Again! You're out of luck.</h3></center>
 	<? } 
