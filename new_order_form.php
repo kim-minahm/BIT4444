@@ -71,13 +71,14 @@
 	$rs2 = mysqli_query($db, $strSQL2)  or die("Error in SQL statement: " . mysqli_error());  
 	$row2 = mysqli_fetch_array($rs2)?>
 	
+    <?$today = date("F j, Y, g:i a");?>
     <form method="post" action="order_result.php">
 		<table>
 			<tr>
 				<td>Order Number:</td>
 				<td><input type="text" name="ordernumber" value="<?=$row2[0]?>"/></td>
 				<td>Order Date:</td>
-				<td><input type="text" name="orderdate" value="<?=$row2[2]?>"/></td>
+				<td><input type="text" name="orderdate" value="<?=$today?>"/></td>
 			</tr>
 			<tr>
 				<td> Customer:</td>
@@ -94,7 +95,6 @@
 			<tr>
 				<th>Product</th>
 				<th>Quantity</th>
-				<th>Total Price</th>
 			</tr>
 			<?$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());?>
 			<?for($x=0; $x <= 14; $x++)
@@ -109,7 +109,6 @@
 							<?for($i = 0; $i < 10; $i++){
 							print "<option value=$i>$i</option>";}//This uses the datebase values?>
 							</select></td>
-					<td><input type = 'text' name = "T<?=$x?>"/></td>
 					</tr>
 			  <?}?>
 			
@@ -119,8 +118,6 @@
 			<input type="reset" value="Reset"/>
 		</center>
     </form>
-        <?$today = date("F j, Y, g:i a");?>
-		<?print $today?>
 	<h5>Last Modified: 9/26/2014</h5>
 </body>
 </html>

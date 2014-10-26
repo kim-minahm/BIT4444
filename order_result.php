@@ -54,7 +54,7 @@
 				<tr>
 					<td><?php echo $_POST["P$x"]; ?></td>
 					<td><?php echo $_POST["Q$x"]; ?></td>
-					<td><?php echo $_POST["T$x"]; ?></td>
+					<td><?php echo ($_POST["P$x"]*$_POST["Q$x"]); ?></td>
 				</tr>
 			<?}?>
 		</table>
@@ -63,8 +63,6 @@
 			<!--<input type="reset" value="Reset"/>-->
 		</center>
 		</form>
-		<?$today = date("F j, Y, g:i a");?>
-		<?print $today?>
 		<h5>Last Modified: 9/26/2014</h5>
 		</body>
 </html>
