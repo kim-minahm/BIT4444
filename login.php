@@ -31,14 +31,14 @@
 		print $nm['emp_fname'];
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
-		$_SESSION["password"] = $_POST['password'];
-		$_SESSION["name"] = $nm['emp_fname'];
+		$_SESSION["id"] = $nm['emp_id'];
+		$_SESSION["name"] = $nm['emp_fname']." ".$nm['emp_lname'];
 		if($nm['job_id'] == 4){
 			$_SESSION["account"] = "sales";
-			header("Location: userpage.html");
+			header("Location: home.php");
 		}else{
 			$_SESSION["account"] = "manager";
-			header("Location: managerpage.html");
+			header("Location: home.php");
 		}
 	} else { ?>
 		<center><h3>Wrong Password! Try again.
@@ -59,17 +59,15 @@
 	//means that an entry was found in the database wither username & password
 	if($rs) {
 		$nm = mysqli_fetch_array($rs);
-		print $nm['emp_fname'];
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
-		$_SESSION["password"] = $_POST['password'];
-		$_SESSION["name"] = $nm['emp_fname'];
+		$_SESSION["name"] = $nm['emp_fname']." ".$nm['emp_lname'];
 		if($nm['job_id'] == 4){
 			$_SESSION["account"] = "sales";
-			header("Location: userpage.html");
+			header("Location: home.php");
 		}else{
 			$_SESSION["account"] = "manager";
-			header("Location: managerpage.html");
+			header("Location: home.php");
 		}
 	 } else { ?>
 		<center><h3>Wrong Password Again! This was your second try.
@@ -91,17 +89,15 @@
 	//means that an entry was found in the database wither username & password
 	if($rs) {
 		$nm = mysqli_fetch_array($rs);
-		print $nm['emp_fname'];
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
-		$_SESSION["password"] = $_POST['password'];
-		$_SESSION["name"] = $nm['emp_fname'];
+		$_SESSION["name"] = $nm['emp_fname']." ".$nm['emp_lname'];
 		if($nm['job_id'] == 4){
 			$_SESSION["account"] = "sales";
-			header("Location: userpage.html");
+			header("Location: home.php");
 		}else{
 			$_SESSION["account"] = "manager";
-			header("Location: managerpage.html");
+			header("Location: home.php");
 		}
 	 } else { ?>
 		<center><h3>Wrong Password Again! You're out of luck.</h3></center>
