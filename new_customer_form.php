@@ -117,10 +117,8 @@ $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_err
 			<td> City: </td>
 			<td><input type='text' name="city"  value="city"></td>
 			<td> State: </td>
-			<td><select name="state"  value="$row[0]">
-					<?while($row = mysqli_fetch_array($rs)){?>
-					<?print '<option value="' . $row[1] . '">' . $row[6] .   '</option>' . "\n";}//This is uses the datebase values?>
-				</select></td>
+			<td><input type='text' name="state"  value="DC">
+					</td>
 							
 			<td> Zip: </td>
 			<td><input type='text' name="zip"  value="Zip"></td>
