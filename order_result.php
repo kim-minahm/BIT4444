@@ -81,7 +81,7 @@
 				<tr>
 					<td><?php echo $_POST["P$x"]; ?></td>
 					<td><?php echo $_POST["Q$x"]; ?></td>
-					<td><?php echo $_POST["M$x"]*$_POST["Q$x"]; //Since multiplication is just there to remind me what I was doing. I know it's not synatically correct.?></td>
+					<td><?php echo (intval($_POST["M$x"])*$_POST["Q$x"]); //Since multiplication is just there to remind me what I was doing. I know it's not synatically correct.?></td>
 				</tr>
 			<?}?>
 		</table>
@@ -90,6 +90,8 @@
 			<!--<input type="reset" value="Reset"/>-->
 		</center>
 		</form>
+		<?php echo $_POST["Q$x"]; ?>
+		<?php echo $_POST["M$x"]; ?>
 		<h5>Last Modified: 9/26/2014</h5>
 		</body>
 </html>
