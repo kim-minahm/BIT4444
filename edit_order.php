@@ -108,9 +108,12 @@
 								$quan = mysqli_fetch_array($quantity);
 								$val = $quan['item_quantity'];
 							}
-							?><option selected="<?=$val?>"><?=$val?></option><?
+							?><?
 							for($i = 0; $i < 20; $i++){
-							print "<option value=$i>$i</option>";}//This uses the datebase values?>
+								if($val==$i){
+									print "<option value=$i selected>$i</option>";
+								}else{
+							print "<option value=$i>$i</option>";}}//This uses the datebase values?>
 							
 							</select></td>
 					</tr>
