@@ -1,6 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+ <?
+// Establish a connection with the data source, and define the SQL
+$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
+
+$strSQL = "SELECT *FROM customer";
+
+$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+?>
+ <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>New Customer Form</title>
 	<link rel="stylesheet" href="hw2.css"/>
@@ -63,44 +71,77 @@
 	<table>
 		<tr>
 			<td>Customer ID: </td>
-			<td><input type="text" name="custID"/></td>
+			<td><select name="custID"  value="$row[0]">
+					<?while($row = mysqli_fetch_array($rs)){?>
+					<?print '<option value="' . $row[0] . '">' . $row[0] .   '</option>' . "\n";}//This is uses the datebase values?>
+				</select></td>
 			<td>Region: </td>
-			<td><input type="text" name="region"/></td>
+			<td><select name="region"  value="$row[1]">
+					<?while($row = mysqli_fetch_array($rs)){?>
+					<?print '<option value="' . $row[0] . '">' . $row[9] .   '</option>' . "\n";}//This is uses the datebase values?>
+				</select></td>
 		</tr>
 		<tr>
 			<td> Company Name: </td>
-			<td><input type="text" name="companyname"/></td>
+			<td><select name="companyname"  value="$row[0]">
+					<?while($row = mysqli_fetch_array($rs)){?>
+					<?print '<option value="' . $row[1] . '">' . $row[2] .   '</option>' . "\n";}//This is uses the datebase values?>
+				</select></td>
 		</tr>
 		<tr>
 			<td> Contact Information:</td>
 		</tr>
         <tr>
 			<td> Last Name: </td>
-			<td><input type="text" name="lastname"/></td>
+			<td><select name="lastname"  value="$row[0]">
+					<?while($row = mysqli_fetch_array($rs)){?>
+					<?print '<option value="' . $row[1] . '">' . $row[3] .   '</option>' . "\n";}//This is uses the datebase values?>
+				</select></td>
 		</tr>
 		<tr>
 			<td> First Name: </td>
-			<td><input type="text" name="firstname"/></td>
+			<td><select name="firstname"  value="$row[0]">
+					<?while($row = mysqli_fetch_array($rs)){?>
+					<?print '<option value="' . $row[1] . '">' . $row[4] .   '</option>' . "\n";}//This is uses the datebase values?>
+				</select></td>
 		</tr>
 		<tr>
 			<td> Street Address 1: </td>
-			<td><input type="text" name="address1"/></td>
+			<td><select name="address1"  value="$row[0]">
+					<?while($row = mysqli_fetch_array($rs)){?>
+					<?print '<option value="' . $row[1] . '">' . $row[5] .   '</option>' . "\n";}//This is uses the datebase values?>
+				</select></td>
 		</tr>
 		<tr>
 			<td> Street Address 2: </td>
-			<td><input type="text" name="address2"/></td>
+			<td><select name="address2"  value="$row[0]">
+					<?while($row = mysqli_fetch_array($rs)){?>
+					<?print '<option value="' . $row[1] . '">' . $row[5] .   '</option>' . "\n";}//This is uses the datebase values?>
+				</select></td>
 		</tr>
 		<tr>
 			<td> City: </td>
-			<td><input type="text" name="city"/></td>
+			<td><select name="city"  value="$row[0]">
+					<?while($row = mysqli_fetch_array($rs)){?>
+					<?print '<option value="' . $row[1] . '">' . $row[6] .   '</option>' . "\n";}//This is uses the datebase values?>
+				</select></td>
 			<td> State: </td>
-			<td><input type="text" name="state"/></td>
+			<td><select name="state"  value="$row[0]">
+					<?while($row = mysqli_fetch_array($rs)){?>
+					<?print '<option value="' . $row[1] . '">' . $row[7] .   '</option>' . "\n";}//This is uses the datebase values?>
+				</select></td>
 			<td> Zip: </td>
-			<td><input type="text" name="zip"/></td>
+			<td><select name="zip"  value="$row[0]">
+					<?while($row = mysqli_fetch_array($rs)){?>
+					<?print '<option value="' . $row[1] . '">' . $row[8] .   '</option>' . "\n";}//This is uses the datebase values?>
+				</select></td>
 		</tr>
 		<tr>
 			<td> Phone: </td>
-			<td><input type="text" name="phone"/></td>
+			<td><select name="address2"  value="$row[0]">
+					<?while($row = mysqli_fetch_array($rs)){?>
+					<?print '<option value="' . $row[1] . '">' . $row[10] .   '</option>' . "\n";}//This is uses the datebase values?>
+				</select></td>
 			<td> Fax: </td>
 			<td><input type="text" name="fax"/></td>
 			<td> Email: </td>
