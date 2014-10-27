@@ -77,7 +77,11 @@
 		<table>
 			<tr>
 				<td>Order Number:</td>
-				<td><input type="text" name="ordernumber" value="<?=$row2[0]?>"/></td>
+				<td><input type="text" name="ordernumber" value="<?=$row2[0]?>"/>
+				<?php
+					echo (mysql_num_rows($rs2, ordernumber) == 0) ? 'NO' : 'YES';
+				?>
+				</td>
 				<td>Order Date:</td>
 				<td><input type="text" name="orderdate" value="<?=$today?>"/></td>
 			</tr>
