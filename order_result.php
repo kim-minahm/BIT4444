@@ -61,17 +61,15 @@
 			Marcella Krzywicki
 	</div>';}?>
 		<center>
-				Order Number: <?php echo $_POST["ordernumber"]; ?><br/>
-				Order Date: <?php echo $_POST["orderdate"]; ?><br/>
-				Customer: <?php echo $_POST["customer"]; ?><br/>
-				Sales Agent: <?php echo $_POST["salesagent"]; ?><br/>
-				Order Status: <?php echo $_POST["orderstatus"]; ?><br/>
+				Order Number: <? echo $_POST["ordernumber"]; ?><br/>
+				Order Date: <? echo $_POST["orderdate"]; ?><br/>
+				Customer: <? echo $_POST["customer"]; ?><br/>
+				Sales Agent: <? echo $_POST["salesagent"]; ?><br/>
+				Order Status: <? echo $_POST["orderstatus"]; ?><br/>
 		</center>
 		<p/><p/>
 		<form method="post" action="hw2.php">
 		<input type="hidden" name="page" value="home"/>
-		<input type="hidden" name="acct" value="<?=$_POST['acct'];?>"/>
-		<input type="hidden" name="page" value="<?=$_POST['acct'];?>"/>
 		<table border = "1">
 			<tr>
 				<th>Product</th>
@@ -80,9 +78,9 @@
 			</tr>
 			<?for($x=0; $x <= 10; $x++){?>
 				<tr>
-					<td><?php echo $_POST["P$x"]; ?></td>
-					<td><?php echo $_POST["Q$x"]; ?></td>
-					<td><?php echo $_POST["Q$x"]; echo $_POST["M$x"]; //Since multiplication is just there to remind me what I was doing. I know it's not synatically correct.?></td>
+					<td><?= $_POST["P$x"]; ?></td>
+					<td><?= $_POST["Q$x"]; ?></td>
+					<td><?= $_POST["Q$x"]; echo $_POST["M$x"]; //Since multiplication is just there to remind me what I was doing. I know it's not synatically correct.?></td>
 				</tr>
 			<?}?>
 		</table>

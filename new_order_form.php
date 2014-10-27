@@ -73,7 +73,7 @@
 	$row2 = mysqli_fetch_array($rs2)?>
 	
     <?$today = date("F j, Y");?>
-    <form method="post" action="order_result.php">
+    <form method="POST" action="order_result.php">
 		<table>
 			<tr>
 				<td>Order Number:</td>
@@ -102,13 +102,11 @@
 			<?for($x=0; $x <= 14; $x++)
 			//just needs to post quantity not which
 				{?>
+					<?$row = mysqli_fetch_array($rs)?>
 					<tr>
+					<td><label name="P<?=$x?>" value="$row[0]"><?=$row[0]?></label></td>
 					<td><label value="$row[1]">
-							<?$row = mysqli_fetch_array($rs)?>
-							<?print '<option value="' . $row[0] . '" name="P"' . $x . '">' . $row[0] . '</option>' . "\n";//This is uses the datebase values?>
-							</label></td>
-					<td><label value="$row[1]">
-							<?print '<option value="' . $row[0] . '" name="M"' . $x . '"> ' . $row[1] . '</option>' . "\n";//This is uses the datebase values?>
+							<?print "<option value=$row[0]name=M$x >$row[1]</option>\n";//This is uses the datebase values?>
 					<td><select name="Q<?=$x?>"  value="$row[1]">
 							<?for($i = 0; $i < 10; $i++){
 							print "<option value=$i>$i</option>";}//This uses the datebase values?>
