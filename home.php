@@ -41,6 +41,7 @@
 	else{print '
 
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
+	<hr/>
 	<div id="nav">
 		<h3>Navigation - User Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
