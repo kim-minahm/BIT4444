@@ -80,11 +80,18 @@
 				<tr>
 					<td><?= $_POST["P$x"]; ?></td>
 					<td><?= $_POST["Q$x"]; ?></td>
-					<td><?= $_POST["Q$x"]; echo $_POST["M$x"]; //Since multiplication is just there to remind me what I was doing. I know it's not synatically correct.?></td>
+					<td><?= $_POST["M$x"]*$_POST["Q$x"];//Since multiplication is just there to remind me what I was doing. I know it's not synatically correct.?></td>
 				</tr>
 			<?}?>
 		</table>
 		<center>
+		<?php
+		$total = 0;
+		for($x=0; $x <= 10; $x++){
+					 $total = $total + ($_POST["M$x"]*$_POST["Q$x"]);
+		}
+		echo print $total;
+		?>
 			<input type="submit" value="Return"/>
 			<!--<input type="reset" value="Reset"/>-->
 		</center>
