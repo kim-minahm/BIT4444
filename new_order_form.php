@@ -10,8 +10,9 @@
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
 	<hr/>
 	<h2>New Order Form</h2>
+	
 	<?if($_SESSION['account']=="manager"){
-	print '
+	print '<h4>Welcome '.$_SESSION['name'].'</h4>
 	<div id="nav">
 		<h3>Navigation</h3>
 		<form name="form1" method="post" action="hw2.php">
@@ -37,7 +38,7 @@
 	</div>
 	';}
 	else if($_SESSION['account']=="user"){
-	print '
+	print '<h4>Welcome '.$_SESSION['name'].'</h4>
 	<div id="nav">
 		<h3>Navigation</h3>
 		<form name="form1" method="post" action="hw2.php">

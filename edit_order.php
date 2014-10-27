@@ -2,16 +2,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-		<head>
-			<title>Receipt</title>
-			<link rel="stylesheet" type="text/css" href="hw2.css"/>
-		</head>
-		<body>
-		<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
-		<hr/>
-		<h2> Order Submitted:</h2>
-		<?if($_SESSION['account'] == "manager"){print '
-	<h2>Manager Portal</h2>
+<head>
+	<title>Edit Order</title>
+	<link rel="stylesheet" href="hw2.css"/>
+	<?connectDB();?>
+	<?session_start();?>
+</head>
+	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
+	<hr/>
+	<h2> Edit Order:</h2>
+<?if($_SESSION['account'] == "manager"){print '
 	<h4>Welcome '.$_SESSION['name'].'</h4>
 	<div id="nav">
 		<h3>Navigation</h3>
@@ -38,7 +38,6 @@
 			Marcella Krzywicki<br/>
 	</div>';}
 	else{print '
-	<h2>User Homepage</h2>
 	<h4>Welcome '.$_SESSION['name'].'</h4>
 	<div id="nav">
 		<h3>Navigation</h3>
@@ -60,36 +59,20 @@
 			Nathan Egbert<br/>
 			Marcella Krzywicki
 	</div>';}?>
-		<center>
-				Order Number: <?php echo $_POST["ordernumber"]; ?><br/>
-				Order Date: <?php echo $_POST["orderdate"]; ?><br/>
-				Customer: <?php echo $_POST["customer"]; ?><br/>
-				Sales Agent: <?php echo $_POST["salesagent"]; ?><br/>
-				Order Status: <?php echo $_POST["orderstatus"]; ?><br/>
-		</center>
-		<p/><p/>
-		<form method="post" action="hw2.php">
-		<input type="hidden" name="acct" value="<?=$_POST['acct'];?>"/>
-		<input type="hidden" name="page" value="<?=$_POST['acct'];?>"/>
-		<table border = "1">
-			<tr>
-				<th>Product</th>
-				<th>Quantity</th>
-				<th>Total Price</th>
-			</tr>
-			<?for($x=0; $x <= 10; $x++){?>
-				<tr>
-					<td><?php echo $_POST["P$x"]; ?></td>
-					<td><?php echo $_POST["Q$x"]; ?></td>
-					<td><?php echo $_POST["T$x"]; ?></td>
-				</tr>
-			<?}?>
-		</table>
-		<center>
-			<input type="submit" value="Return"/>
-			<!--<input type="reset" value="Reset"/>-->
-		</center>
-		</form>
+	<body>
+	<?if(isset($_REQUEST['order_select'])){
+	
+	}else{?>
+		<form method="POST" action"edit_order.php">
+			<select name="order"
+		
+		</form><?
+	}
+	
+	?>
+	
+			<p>Report goes here</p>
+			
 		<h5>Last Modified: 9/26/2014</h5>
-		</body>
+	</body>
 </html>

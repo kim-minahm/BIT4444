@@ -14,7 +14,7 @@ HW 4
 1a) <DONE> Retreive password/username from database
 1b) <DONE> Check entered username/password to the database
 2)  <DONE> Display the user's first and last name on the page once logged in
-3a) Manage available menu's
+3a) <DONE> Manage available menu's
 3b) Set available order's
 4) Do the edit order form
 4a)Make screen to select an order
@@ -33,3 +33,56 @@ Logout
 
 Questions
 Does the name need to be displayed on every page?
+
+
+Navigation bar code:
+<?if($_SESSION['account'] == "manager"){print '
+	<h2>Manager Portal</h2>
+	<h4>Welcome '.$_SESSION['name'].'</h4>
+	<div id="nav">
+		<h3>Navigation</h3>
+		<form name="form1" method="post" action="hw2.php">
+			<div>
+			<select name="page">
+				<option value="order">New Order Form</option>
+				<option value="edit">Edit Order Form</option>
+				<option value="customer">New Customer Form/Edit Customer</option>
+				<option value="manage">Management Access Only</option>
+				<option value="report">Itemized Sales Report</option>
+				<option value="performance">Performance Report</option>
+				<option value="business">Business Report</option>
+			</select>
+			<input type="hidden" name="acct" value="manager"/>
+			</div>
+			<p><input type="submit" value="Submit" /></p>
+		</form>
+		8:00 a.m. BIT 4444<br/>
+		Group 6 Team Members:<br/>
+			Minahm Kim<br/>
+			Andrew Knittle<br/>
+			Nathan Egbert<br/>
+			Marcella Krzywicki<br/>
+	</div>';}
+	else{print '
+	<h2>User Homepage</h2>
+	<h4>Welcome '.$_SESSION['name'].'</h4>
+	<div id="nav">
+		<h3>Navigation</h3>
+		<form name="form1" method="post" action="hw2.php">
+			<div>
+			<select name="page">
+				<option value="order">New Order Form/Edit Order Form</option>
+				<option value="customer">New Customer Form/Edit Customer</option>
+				<option value="item">Itemize sales report</option>
+			</select>
+			<input type="hidden" name="acct" value="user"/>
+			</div>
+			<p><input type="submit" value="Submit" /></p>
+		</form>
+		8:00 a.m. BIT 4444:<br/>
+		Group 6 Team Members:<br/>
+			Minahm Kim<br/>
+			Andrew Knittle<br/>
+			Nathan Egbert<br/>
+			Marcella Krzywicki
+	</div>';}?>
