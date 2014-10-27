@@ -117,7 +117,7 @@ $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_err
 		</tr>
         <tr>
 			<td> Last Name: </td>
-			<td><select name="lastname"  value="$row[0]">
+			<td><select name="lastname"  value="$row[1]">
 					<?while($row = mysqli_fetch_array($rs)){?>
 					<?print '<option value="' . $row[1] . '">' . $row[2] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
@@ -132,7 +132,7 @@ $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_err
 		</tr>
 		<tr>
 			<td> First Name: </td>
-			<td><select name="firstname"  value="$row[0]">
+			<td><select name="firstname"  value="$row[2]">
 					<?while($row = mysqli_fetch_array($rs)){?>
 					<?print '<option value="' . $row[1] . '">' . $row[3] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
@@ -147,7 +147,7 @@ $strSQL = "SELECT *FROM customer";
 $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
 ?>
 			<td> Street Address 1: </td>
-			<td><select name="address1"  value="$row[0]">
+			<td><select name="address1"  value="$row[3]">
 					<?while($row = mysqli_fetch_array($rs)){?>
 					<?print '<option value="' . $row[1] . '">' . $row[4] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
@@ -162,7 +162,7 @@ $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_err
 		</tr>
 		<tr>
 			<td> Street Address 2: </td>
-			<td><select name="address2"  value="$row[0]">
+			<td><select name="address2"  value="$row[4]">
 					<?while($row = mysqli_fetch_array($rs)){?>
 					<?print '<option value="' . $row[1] . '">' . $row[4] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
@@ -177,7 +177,7 @@ $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_err
 		</tr>
 		<tr>
 			<td> City: </td>
-			<td><select name="city"  value="$row[0]">
+			<td><select name="city"  value="$row[5]">
 					<?while($row = mysqli_fetch_array($rs)){?>
 					<?print '<option value="' . $row[1] . '">' . $row[5] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
@@ -190,7 +190,7 @@ $strSQL = "SELECT *FROM customer";
 $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
 ?>
 			<td> State: </td>
-			<td><select name="state"  value="$row[0]">
+			<td><select name="state"  value="$row[6]">
 					<?while($row = mysqli_fetch_array($rs)){?>
 					<?print '<option value="' . $row[1] . '">' . $row[6] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
@@ -203,7 +203,7 @@ $strSQL = "SELECT *FROM customer";
 $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
 ?>
 			<td> Zip: </td>
-			<td><select name="zip"  value="$row[0]">
+			<td><select name="zip"  value="$row[7]">
 					<?while($row = mysqli_fetch_array($rs)){?>
 					<?print '<option value="' . $row[1] . '">' . $row[7] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
@@ -218,7 +218,7 @@ $strSQL = "SELECT *FROM customer";
 $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
 ?>
 			<td> Phone: </td>
-			<td><select name="address2"  value="$row[0]">
+			<td><select name="phone"  value="$row[8]">
 					<?while($row = mysqli_fetch_array($rs)){?>
 					<?print '<option value="' . $row[1] . '">' . $row[9] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
@@ -234,6 +234,10 @@ $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_err
 			<input type="reset" value="Reset"/><p/>
 		</center>
     </form>
+		<?	
+				mysqli_free_result($rs);  // release the recordset memory resources
+				mysqli_close($db);   // close the database
+			?>
 	<h5>Last Modified: 9/26/2014</h5>
 </body>
 </html>
