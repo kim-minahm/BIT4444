@@ -13,12 +13,7 @@
 <hr />
 </center>
 <p/><p/><p/>
-<?
-//$strSQL = "SELECT * FROM product";
 
-	//$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
-	//$row = mysqli_fetch_array($rs);
-	?>
 <? if (isset($_REQUEST['page1_submit'])) {
 // __________________________________________________ DISPLAY PAGE 2  
 	$un = $_REQUEST['username'];
@@ -26,8 +21,7 @@
 	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
 	$rs = mysqli_query($db, $strSQL);
 	//means that an entry was found in the database wither username & password
-	if($rs) {
-		$nm = mysqli_fetch_array($rs);
+	if($nm = mysqli_fetch_array($rs)) {
 		print $nm['emp_fname'];
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
@@ -35,7 +29,7 @@
 		$_SESSION["name"] = $nm['emp_fname']." ".$nm['emp_lname'];
 		if($nm['job_id'] == 4){
 			$_SESSION["account"] = "sales";
-			header("Location: home.php");
+			#header("Location: home.php");
 		}else{
 			$_SESSION["account"] = "manager";
 			header("Location: home.php");
@@ -57,8 +51,7 @@
 	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
 	$rs = mysqli_query($db, $strSQL);
 	//means that an entry was found in the database wither username & password
-	if($rs) {
-		$nm = mysqli_fetch_array($rs);
+	if($nm = mysqli_fetch_array($rs)) {
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
 		$_SESSION["name"] = $nm['emp_fname']." ".$nm['emp_lname'];
@@ -87,8 +80,7 @@
 	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
 	$rs = mysqli_query($db, $strSQL);
 	//means that an entry was found in the database wither username & password
-	if($rs) {
-		$nm = mysqli_fetch_array($rs);
+	if($nm = mysqli_fetch_array($rs)) {
 		session_start();
 		$_SESSION["username"] = $_POST['username'];
 		$_SESSION["name"] = $nm['emp_fname']." ".$nm['emp_lname'];
