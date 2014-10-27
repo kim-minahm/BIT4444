@@ -13,9 +13,8 @@
 	
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
 	
-	<h2>Manager Portal</h2>
 	<div id="nav">
-		<h3>Navigation</h3>
+		<h3>Navigation - Manager Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
@@ -36,13 +35,14 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Marcella Krzywicki<br/>
+			Last Modified: 9/26/2014
+	
 	</div>';}
 	else{print '
-	<h2>User Homepage</h2>
+
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
 	<div id="nav">
-		<h3>Navigation</h3>
+		<h3>Navigation - User Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
@@ -60,16 +60,13 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Marcella Krzywicki
+			Last Modified: 9/26/2014
 	</div>';}?>
 	<div id="section">
-		<center>
-			This project has been designed and developed by Minahm Kim, Nathan Egbert, Andrew Knittle, and Marcella Krzywicki.
-		</center>
+		
 		Building a web based decision support system (DSS) to assist managers and sales staff at Piedmont Furnishings with sale orders, customer forms, 
 		itemized sales report, and performance/business analysis reports. This web based DSS is designed to help the day-to-day activities at Piedmont 
 		Furnishings be more organized and streamline sales for the managers and sales staff to prevent errors and increase customer’s satisfaction. 
 	</div>
-	<h5>Last Modified: 9/26/2014</h5>
 </body>
 </html>
