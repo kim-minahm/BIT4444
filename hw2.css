@@ -15,6 +15,10 @@ h2{
 	text-align: left;
 }
 
+h4{
+	text-align: right;
+}
+
 span{
 	text-align: center;
 }
@@ -60,4 +64,8 @@ h5{
     clear:both;
     text-align:center;
     padding:5px; 
+}
+
+.boxed {
+  border: 1px solid green ;
 }

@@ -10,8 +10,10 @@
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
 	<hr/>
 	<?if($_SESSION['account'] == "manager"){print '
-	<h2>Manager Portal</h2>
-	<h4>Welcome '.$_SESSION['name'].'</h4>
+	<div class="boxed">
+	<h1>Manager Portal</h1>
+	<h4>Welcome '.$_SESSION['name'].' <input type="submit" value="Logout" /><br /></h4>
+	</div>
 	<div id="nav">
 		<h3>Navigation</h3>
 		<form name="form1" method="post" action="hw2.php">
