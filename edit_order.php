@@ -12,7 +12,7 @@
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
 	<hr/>
 	<h2> Edit Order:</h2>
-<?if($_SESSION['account'] == "manager"){print '
+	<?if($_SESSION['account'] == "manager"){print '
 	<h4>Welcome '.$_SESSION['name'].'</h4>
 	<div id="nav">
 		<h3>Navigation</h3>
@@ -59,28 +59,25 @@
 			Nathan Egbert<br/>
 	</div>';}
 	if(isset($_REQUEST['order_select'])){
-	
+		
 	}else{
 		if($_SESSION['account']=="manager"){
 			$strSQL = "SELECT * FROM salesorder";
-			$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());
+			$rs = mysqli_query($db, $strSQL) or die("Error in SQL statement: " . mysqli_error());
 		}else{
 			$strSQL = "SELECT * FROM salesorder WHERE emp_id=".$_SESSION['id'];
 			$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());
 		}
-		?><form method="POST" action"edit_order.php"><?
+		?><div id="section"><form method="POST" action"edit_order.php">
+		<select name="order"><?
 		while($row = mysqli_fetch_array($rs)){?>
-			<select name="order"><? echo $row['order_id']."\t".$row['order_date']?></select>
-			<option value="<?=$order_id?>
-		}
-		
-		</form><?
+			<option value="<?= $row['order_id']?>><? echo "Order Number: ".$row['order_id']." Placed: ".$row['order_date']?></option><?
+		}?>
+		</select>
+		<input type="submit" value="Submit"></input>
+		</form></div><?
 	}
-	
 	?>
-	
-			<p>Report goes here</p>
-			
-		<h5>Last Modified: 9/26/2014</h5>
+	<h5>Last Modified: 9/26/2014</h5>
 	</body>
 </html>
