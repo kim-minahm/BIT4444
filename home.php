@@ -10,9 +10,9 @@
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
 	<hr/>
 	<?if($_SESSION['account'] == "manager"){print '
-	<div class="boxed">
+	
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
-	</div>
+	
 	<h2>Manager Portal</h2>
 	<div id="nav">
 		<h3>Navigation</h3>
@@ -40,7 +40,7 @@
 	</div>';}
 	else{print '
 	<h2>User Homepage</h2>
-	<h4>Welcome '.$_SESSION['name'].'</h4>
+	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
 	<div id="nav">
 		<h3>Navigation</h3>
 		<form name="form1" method="post" action="hw2.php">
