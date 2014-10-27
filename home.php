@@ -11,9 +11,9 @@
 	<hr/>
 	<?if($_SESSION['account'] == "manager"){print '
 	<div class="boxed">
-	<h1>Manager Portal</h1>
-	<h4>Welcome '.$_SESSION['name'].' <input type="submit" value="Logout" /><br /></h4>
+	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
 	</div>
+	<h2>Manager Portal</h2>
 	<div id="nav">
 		<h3>Navigation</h3>
 		<form name="form1" method="post" action="hw2.php">
