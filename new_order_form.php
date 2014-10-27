@@ -104,7 +104,9 @@
 				{?>
 					<?$row = mysqli_fetch_array($rs)?>
 					<tr>
-					<td><label name="P<?=$x?>" value="$row[0]"><?=$row[0]?></label></td>
+					<td><label ><?=$row[0]?></label>
+					<input type="hidden"name="P<?=$x?>" value="<?=$row[0]?>"></input>
+					<input type="hidden"name="M<?=$x?>" value="<?=$row[1]?>"></input></td>
 					<td><label value="$row[1]">
 							<?print "<option value=$row[0]name=M$x >$row[1]</option>\n";//This is uses the datebase values?>
 					<td><select name="Q<?=$x?>"  value="$row[1]">
