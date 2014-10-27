@@ -29,7 +29,7 @@
 		$_SESSION["name"] = $nm['emp_fname']." ".$nm['emp_lname'];
 		if($nm['job_id'] == 4){
 			$_SESSION["account"] = "sales";
-			#header("Location: home.php");
+			header("Location: home.php");
 		}else{
 			$_SESSION["account"] = "manager";
 			header("Location: home.php");
