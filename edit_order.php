@@ -59,7 +59,7 @@
 			Nathan Egbert<br/>
 	</div>';}
 	if(isset($_REQUEST['order_select'])){
-		$strSQL = "SELECT * FROM salesorder";
+		$strSQL = "SELECT * FROM orderitem WHERE order_id=".$_POST[';
 		$rs = mysqli_query($db, $strSQL) or die("Error in SQL statement: " . mysqli_error());
 	}else{
 		if($_SESSION['account']=="manager"){
