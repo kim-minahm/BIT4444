@@ -27,7 +27,7 @@ HW 4
 5d)employee ID
 
 OPTIONAL
-Logout
+<done>Logout
 
 
 Questions
