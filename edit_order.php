@@ -59,7 +59,8 @@
 			Nathan Egbert<br/>
 	</div>';}
 	if(isset($_REQUEST['order_select'])){
-		$strItems = "SELECT product_name, product_cost,product_id FROM product";
+		$strItems = "SELECT product.product_name, product.product_cost,product.product_id,orderitem.item_quantity FROM product LEFT JOIN orderitem 
+		ON product.product_id=orderitem.product_id";
 		$strOrder = "SELECT * FROM salesorder WHERE order_id ='".$_POST['order']."'";
 		$ord = mysqli_query($db, $strOrder) or die("Error in SQL statement: " . mysqli_error());
 		$order = mysqli_fetch_array($ord);
@@ -93,7 +94,7 @@
 			<?for($x=0; $x <= 14; $x++)
 			//just needs to post quantity not which
 				{?>
-					<?$row = mysqli_fetch_array($item)?>
+					<?$row = mysqli_fetch_array($item);?>
 					<tr>
 					<td><label ><?=$row[0]?></label>
 					<input type="hidden"name="P<?=$x?>" value="<?=$row[0]?>"></input>
@@ -102,9 +103,10 @@
 							<?print "<option value=$row[0]name=M$x >$row[1]</option>\n";//This is uses the datebase values?>
 					<td><select name="Q<?=$x?>"  value="<?=$row[1]?>">
 							<?
-							#$orderQ = "SELECT * FROM orderitem WHERE order_id='".$_POST['order']."' AND product_id='".$row[2]."'";
+							$orderQ = "SELECT * FROM orderitem WHERE order_id='".$_POST['order']."' AND product_id='".$row[2]."'";
+							#$orderQ = "SELECT * FROM orderitem WHERE order_id='".$_POST['order']."'";
 							$val = "0";
-							if($quantity = mysqli_query($db, "SELECT * FROM orderitem WHERE order_id='".$_POST['order']."' AND product_id='".$row[2]."'")){
+							if($quantity = mysqli_query($db, $orderQ)){
 								$quan = mysqli_fetch_array($quantity);
 								$val = $quan['item_quantity'];
 							}
