@@ -12,6 +12,7 @@ $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_err
 <head>
     <title>New Customer Form</title>
 	<link rel="stylesheet" href="hw2.css"/>
+	<?session_start();?>
 </head>
 <body>
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
