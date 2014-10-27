@@ -85,13 +85,16 @@
 			<?}?>
 		</table>
 		<center>
+		Total Cost of Order: $
 		<?php
 		$total = 0;
 		for($x=0; $x <= 10; $x++){
 					 $total = $total + ($_POST["M$x"]*$_POST["Q$x"]);
 		}
+		
 		echo print $total;
 		?>
+		</br>
 			<input type="submit" value="Return"/>
 			<!--<input type="reset" value="Reset"/>-->
 		</center>
