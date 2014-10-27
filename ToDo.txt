@@ -20,6 +20,7 @@ HW 4
 4b)Pull selected order
 4c)Repopulate form with order
 4d)Resubmit form and push to database
+4e)Order_result should submit the form to database
 5) <PROGRESS>New Order Form
 5a)Find unused order number value to assign to order
 5b)Customer ID
