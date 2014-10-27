@@ -8,11 +8,11 @@
 </head>
 <body>
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
-	<hr/>
+	
 	<?if($_SESSION['account'] == "manager"){print '
 	
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
-	
+<hr/>
 	<div id="nav">
 		<h3>Navigation - Manager Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
