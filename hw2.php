@@ -24,7 +24,7 @@
 		header("Location: new_order_form.php");
 		break;
 	case 'edit':
-		header("Location: edit_order_form.php");
+		header("Location: edit_order.php");
 		break;
 	case 'item':
 		header("Location: item.php?acct=");

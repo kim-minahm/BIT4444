@@ -12,6 +12,7 @@ Minahm:
 HW 4
 1a) <DONE> Retreive password/username from database
 1b) <DONE> Check entered username/password to the database
+1c) People can login with invalid data
 2)  <DONE> Display the user's first and last name on the page once logged in
 3a) <DONE> Manage available menu's
 3b) <PROGRESS> Set available order's
@@ -24,7 +25,6 @@ HW 4
 5a)Find unused order number value to assign to order
 5b)Customer ID
 5c)Status ID
-5d)employee ID
 
 OPTIONAL
 <done>Logout

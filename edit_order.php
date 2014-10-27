@@ -8,6 +8,7 @@
 	<?connectDB();?>
 	<?session_start();?>
 </head>
+<body>
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
 	<hr/>
 	<h2> Edit Order:</h2>
@@ -35,7 +36,6 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Marcella Krzywicki<br/>
 	</div>';}
 	else{print '
 	<h4>Welcome '.$_SESSION['name'].'</h4>
@@ -57,14 +57,22 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Marcella Krzywicki
-	</div>';}?>
-	<body>
-	<?if(isset($_REQUEST['order_select'])){
+	</div>';}
+	if(isset($_REQUEST['order_select'])){
 	
-	}else{?>
-		<form method="POST" action"edit_order.php">
-			<select name="order"
+	}else{
+		if($_SESSION['account']=="manager"){
+			$strSQL = "SELECT * FROM salesorder";
+			$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());
+		}else{
+			$strSQL = "SELECT * FROM salesorder WHERE emp_id=".$_SESSION['id'];
+			$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());
+		}
+		?><form method="POST" action"edit_order.php"><?
+		while($row = mysqli_fetch_array($rs)){?>
+			<select name="order"><? echo $row['order_id']."\t".$row['order_date']?></select>
+			<option value="<?=$order_id?>
+		}
 		
 		</form><?
 	}
