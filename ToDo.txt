@@ -28,6 +28,9 @@ HW 4
 
 BUGS
 A) <RESOLVED> People can login with invalid data
+B) edit_order defualt value line 111
+C) edit order isnt working right. need to pass variables better
+D) some pages are missing names
 
 OPTIONAL
 <done>Logout
