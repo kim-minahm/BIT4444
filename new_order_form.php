@@ -72,7 +72,7 @@
 	$rs2 = mysqli_query($db, $strSQL2)  or die("Error in SQL statement: " . mysqli_error());  
 	$row2 = mysqli_fetch_array($rs2)?>
 	
-    <?$today = date("F j, Y, g:i a");?>
+    <?$today = date("F j, Y");?>
     <form method="post" action="order_result.php">
 		<table>
 			<tr>

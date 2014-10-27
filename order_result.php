@@ -3,6 +3,7 @@
  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
+			<input type="hidden" name="page" value="home"/>
 			<title>Receipt</title>
 			<link rel="stylesheet" type="text/css" href="hw2.css"/>
 		</head>
