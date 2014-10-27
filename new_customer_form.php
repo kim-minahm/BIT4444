@@ -1,13 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
- <?
-// Establish a connection with the data source, and define the SQL
-$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
 
-$strSQL = "SELECT *FROM customer";
-
-$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
-?>
  <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>New Customer Form</title>
@@ -16,11 +9,12 @@ $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_err
 </head>
 <body>
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
-	<hr/>
-	<h2> Order Submitted:</h2>
+	
 		<?if($_SESSION['account'] == "manager"){print '
-	<h2>Order Submitted</h2>
-	<h4>Welcome '.$_SESSION['name'].'</h4>
+
+	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
+<hr/>
+<h2> Order Submitted:</h2>
 	<div id="nav">
 		<h3>Navigation</h3>
 		<form name="form1" method="post" action="hw2.php">
@@ -43,11 +37,14 @@ $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_err
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Marcella Krzywicki<br/>
+			Last Modified: 9/26/2014
+			
 	</div>';}
 	else{print '
-	<h2>Order Submitted</h2>
-	<h4>Welcome '.$_SESSION['name'].'</h4>
+
+	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
+<hr/>
+<h2> Order Submitted:</h2>
 	<div id="nav">
 		<h3>Navigation</h3>
 		<form name="form1" method="post" action="hw2.php">
@@ -66,8 +63,17 @@ $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_err
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Marcella Krzywicki
+			Last Modified: 9/26/2014
 	</div>';}?>
+	
+	 <?
+// Establish a connection with the data source, and define the SQL
+$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
+
+$strSQL = "SELECT *FROM customer";
+
+$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+?>
     <form name="form1" method="post" action="customer_result.php">
 	<table>
 		<tr>
@@ -239,6 +245,5 @@ $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_err
 				mysqli_free_result($rs);  // release the recordset memory resources
 				mysqli_close($db);   // close the database
 			?>
-	<h5>Last Modified: 9/26/2014</h5>
 </body>
 </html>
