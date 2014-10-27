@@ -11,14 +11,14 @@
 <body>
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
 	<hr/>
-	<h2> Edit Order:</h2>
 	<?if($_SESSION['account'] == "manager"){print '
 	<h4>Welcome '.$_SESSION['name'].'</h4>
 	<div id="nav">
-		<h3>Navigation</h3>
+		<h3>Navigation - Edit Order</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
+				<option value="home">Home</option>
 				<option value="order">New Order Form</option>
 				<option value="edit">Edit Order Form</option>
 				<option value="customer">New Customer Form/Edit Customer</option>
@@ -36,15 +36,21 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
+			Last Modified: 9/26/2014
+	
 	</div>';}
 	else{print '
-	<h4>Welcome '.$_SESSION['name'].'</h4>
+
+	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
+	<hr/>
 	<div id="nav">
-		<h3>Navigation</h3>
+		<h3>Navigation - User Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
-				<option value="order">New Order Form/Edit Order Form</option>
+				 <option value="home">Home</option>
+				<option value="order">New Order Form</option>
+				<option value="edit">Edit Order</option>
 				<option value="customer">New Customer Form/Edit Customer</option>
 				<option value="item">Itemize sales report</option>
 			</select>
@@ -57,6 +63,7 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
+			Last Modified: 9/26/2014
 	</div>';}
 	if(isset($_REQUEST['order_select'])){
 		$strItems = "SELECT product.product_name, product.product_cost,product.product_id,orderitem.item_quantity FROM product LEFT JOIN orderitem 

@@ -12,12 +12,13 @@
 	<?if($_SESSION['account'] == "manager"){print '
 	
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
-<hr/>
+	<hr/>
 	<div id="nav">
 		<h3>Navigation - Manager Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
+				<option value="home">Home</option>
 				<option value="order">New Order Form</option>
 				<option value="edit">Edit Order Form</option>
 				<option value="customer">New Customer Form/Edit Customer</option>
@@ -47,6 +48,7 @@
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
+				 <option value="home">Home</option>
 				<option value="order">New Order Form</option>
 				<option value="edit">Edit Order</option>
 				<option value="customer">New Customer Form/Edit Customer</option>
