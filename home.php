@@ -47,7 +47,7 @@
 			<div>
 			<select name="page">
 				<option value="order">New Order Form</option>
-				<option value="edit"><Edit Order</option>
+				<option value="edit">Edit Order</option>
 				<option value="customer">New Customer Form/Edit Customer</option>
 				<option value="item">Itemize sales report</option>
 			</select>
