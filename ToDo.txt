@@ -2,7 +2,6 @@ Andrew:
 Submitting form to database
 
 Marcella:
-Load order from database into form similar to new orderform.
 
 Nathan:
 Work on logout

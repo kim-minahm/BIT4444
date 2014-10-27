@@ -17,6 +17,9 @@
 	case 'manager':
 		header("Location: home.php");
 		break;
+	case 'home':
+		header("Location: home.php");
+		break;
 	case 'order':
 		header("Location: new_order_form.php");
 		break;
