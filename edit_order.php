@@ -59,7 +59,8 @@
 			Nathan Egbert<br/>
 	</div>';}
 	if(isset($_REQUEST['order_select'])){
-		
+		$strSQL = "SELECT * FROM salesorder";
+		$rs = mysqli_query($db, $strSQL) or die("Error in SQL statement: " . mysqli_error());
 	}else{
 		if($_SESSION['account']=="manager"){
 			$strSQL = "SELECT * FROM salesorder";
@@ -68,13 +69,16 @@
 			$strSQL = "SELECT * FROM salesorder WHERE emp_id=".$_SESSION['id'];
 			$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());
 		}
-		?><div id="section"><form method="POST" action"edit_order.php">
+		?><div id="section">
+		<form method="POST" action"edit_order.php">
 		<select name="order"><?
 		while($row = mysqli_fetch_array($rs)){?>
-			<option value="<?= $row['order_id']?>><? echo "Order Number: ".$row['order_id']." Placed: ".$row['order_date']?></option><?
-		}?>
+			<option value="<?= $row['order_id']?>"><? echo "Order Number: ".$row['order_id']." Placed: ".$row['order_date'];?></option>
+		<?}?>
 		</select>
-		<input type="submit" value="Submit"></input>
+		<br/>
+		<br/>
+		<input type="submit" value="Submit" name="order_select"></input>
 		</form></div><?
 	}
 	?>
