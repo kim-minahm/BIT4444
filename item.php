@@ -66,6 +66,6 @@
 	</div>';}?>
 			<p>Report goes here</p>
 	
-		<h5>Last Modified: 9/26/2014</h5>
+		
 	</body>
 </html>
