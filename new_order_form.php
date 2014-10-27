@@ -89,7 +89,7 @@
 				<td>Sale Agent:</td>
 				<td><input type="text" name="salesagent" value="<?=$row2[3]?>"/></td>
 				<td>Order Status:</td>
-				<td><input type="text" name="orderstatus value="<?=$row2[4]?>""/></td>
+				<td><input type="text" name="orderstatus" value="<?=$row2[4]?>""/></td>
 			</tr>
 		</table>
         <table border = "1">
@@ -103,12 +103,12 @@
 			//just needs to post quantity not which
 				{?>
 					<tr>
-					<td><label name="P<?=$x?>"  value="$row[1]">
+					<td><label value="$row[1]">
 							<?$row = mysqli_fetch_array($rs)?>
-							<?print '<option value="' . $row[0] . '">' . $row[0] . '</option>' . "\n";//This is uses the datebase values?>
+							<?print '<option value="' . $row[0] . '" name="P"' . $x . '">' . $row[0] . '</option>' . "\n";//This is uses the datebase values?>
 							</label></td>
-					<td><label name="M<?=$x?>"  value="$row[1]">
-							<?print '<option value="' . $row[0] . '"> ' . $row[1] . '</option>' . "\n";//This is uses the datebase values?>
+					<td><label value="$row[1]">
+							<?print '<option value="' . $row[0] . '" name="M"' . $x . '"> ' . $row[1] . '</option>' . "\n";//This is uses the datebase values?>
 					<td><select name="Q<?=$x?>"  value="$row[1]">
 							<?for($i = 0; $i < 10; $i++){
 							print "<option value=$i>$i</option>";}//This uses the datebase values?>

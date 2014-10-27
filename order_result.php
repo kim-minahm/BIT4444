@@ -3,7 +3,6 @@
  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
-			<input type="hidden" name="page" value="home"/>
 			<title>Receipt</title>
 			<link rel="stylesheet" type="text/css" href="hw2.css"/>
 		</head>
@@ -70,6 +69,7 @@
 		</center>
 		<p/><p/>
 		<form method="post" action="hw2.php">
+		<input type="hidden" name="page" value="home"/>
 		<input type="hidden" name="acct" value="<?=$_POST['acct'];?>"/>
 		<input type="hidden" name="page" value="<?=$_POST['acct'];?>"/>
 		<table border = "1">
@@ -82,7 +82,7 @@
 				<tr>
 					<td><?php echo $_POST["P$x"]; ?></td>
 					<td><?php echo $_POST["Q$x"]; ?></td>
-					<td><?php echo (intval($_POST["M$x"])*$_POST["Q$x"]); //Since multiplication is just there to remind me what I was doing. I know it's not synatically correct.?></td>
+					<td><?php echo $_POST["Q$x"]; echo $_POST["M$x"]; //Since multiplication is just there to remind me what I was doing. I know it's not synatically correct.?></td>
 				</tr>
 			<?}?>
 		</table>
@@ -91,8 +91,6 @@
 			<!--<input type="reset" value="Reset"/>-->
 		</center>
 		</form>
-		<?php echo $_POST["Q$x"]; ?>
-		<?php echo $_POST["M$x"]; ?>
 		<h5>Last Modified: 9/26/2014</h5>
 		</body>
 </html>
