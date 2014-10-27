@@ -5,6 +5,7 @@
 <head>
     <title>New Customer Form</title>
 	<link rel="stylesheet" href="hw2.css"/>
+	<?session_start()?>
 </head>
 <body>
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
@@ -13,15 +14,17 @@
 
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
 <hr/>
-<h2> Order Submitted:</h2>
+<h2>New Customer Form:</h2>
 	<div id="nav">
-		<h3>Navigation</h3>
+		<h3>Navigation - Manager Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
+				<option value="home">Home</option>
 				<option value="order">New Order Form</option>
 				<option value="edit">Edit Order Form</option>
-				<option value="customer">New Customer Form/Edit Customer</option>
+				<option value="customer">New Customer Form</option>
+				<option value="edit_customer">Edit Customer</option>
 				<option value="manage">Management Access Only</option>
 				<option value="report">Itemized Sales Report</option>
 				<option value="performance">Performance Report</option>
@@ -43,14 +46,17 @@
 
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
 <hr/>
-<h2> Order Submitted:</h2>
+<h2>New Customer Form:</h2>
 	<div id="nav">
-		<h3>Navigation</h3>
+		<h3>Navigation - User Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
-				<option value="order">New Order Form/Edit Order Form</option>
-				<option value="customer">New Customer Form/Edit Customer</option>
+				<option value="home">Home</option>
+				<option value="order">New Order Form</option>
+				<option value="edit">Edit Order</option>
+				<option value="customer">New Customer Form</option>
+				<option value="edit_customer">Edit Customer</option>
 				<option value="item">Itemize sales report</option>
 			</select>
 			<input type="hidden" name="acct" value="user"/>
