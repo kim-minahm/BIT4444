@@ -73,20 +73,44 @@ $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_err
 			<td>Customer ID: </td>
 			<td><select name="custID"  value="$row[0]">
 					<?while($row = mysqli_fetch_array($rs)){?>
-					<?print '<option value="' . $row[0] . '">' . $row[0] .   '</option>' . "\n";}//This is uses the datebase values?>
+					<?print '<option value="' . $row[1] . '">' . $row[0] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
+			 <?
+// Establish a connection with the data source, and define the SQL
+$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
+
+$strSQL = "SELECT *FROM customer";
+
+$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+?>
 			<td>Region: </td>
 			<td><select name="region"  value="$row[1]">
 					<?while($row = mysqli_fetch_array($rs)){?>
-					<?print '<option value="' . $row[0] . '">' . $row[9] .   '</option>' . "\n";}//This is uses the datebase values?>
+					<?print '<option value="' . $row[0] . '">' . $row[8] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
+							 <?
+// Establish a connection with the data source, and define the SQL
+$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
+
+$strSQL = "SELECT *FROM customer";
+
+$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+?>
 		</tr>
 		<tr>
 			<td> Company Name: </td>
 			<td><select name="companyname"  value="$row[0]">
 					<?while($row = mysqli_fetch_array($rs)){?>
-					<?print '<option value="' . $row[1] . '">' . $row[2] .   '</option>' . "\n";}//This is uses the datebase values?>
+					<?print '<option value="' . $row[1] . '">' . $row[1] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
+							 <?
+// Establish a connection with the data source, and define the SQL
+$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
+
+$strSQL = "SELECT *FROM customer";
+
+$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+?>
 		</tr>
 		<tr>
 			<td> Contact Information:</td>
@@ -95,53 +119,110 @@ $rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_err
 			<td> Last Name: </td>
 			<td><select name="lastname"  value="$row[0]">
 					<?while($row = mysqli_fetch_array($rs)){?>
-					<?print '<option value="' . $row[1] . '">' . $row[3] .   '</option>' . "\n";}//This is uses the datebase values?>
+					<?print '<option value="' . $row[1] . '">' . $row[2] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
+							 <?
+// Establish a connection with the data source, and define the SQL
+$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
+
+$strSQL = "SELECT *FROM customer";
+
+$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+?>
 		</tr>
 		<tr>
 			<td> First Name: </td>
 			<td><select name="firstname"  value="$row[0]">
 					<?while($row = mysqli_fetch_array($rs)){?>
-					<?print '<option value="' . $row[1] . '">' . $row[4] .   '</option>' . "\n";}//This is uses the datebase values?>
+					<?print '<option value="' . $row[1] . '">' . $row[3] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
 		</tr>
 		<tr>
+					 <?
+// Establish a connection with the data source, and define the SQL
+$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
+
+$strSQL = "SELECT *FROM customer";
+
+$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+?>
 			<td> Street Address 1: </td>
 			<td><select name="address1"  value="$row[0]">
 					<?while($row = mysqli_fetch_array($rs)){?>
-					<?print '<option value="' . $row[1] . '">' . $row[5] .   '</option>' . "\n";}//This is uses the datebase values?>
+					<?print '<option value="' . $row[1] . '">' . $row[4] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
+							 <?
+// Establish a connection with the data source, and define the SQL
+$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
+
+$strSQL = "SELECT *FROM customer";
+
+$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+?>
 		</tr>
 		<tr>
 			<td> Street Address 2: </td>
 			<td><select name="address2"  value="$row[0]">
 					<?while($row = mysqli_fetch_array($rs)){?>
-					<?print '<option value="' . $row[1] . '">' . $row[5] .   '</option>' . "\n";}//This is uses the datebase values?>
+					<?print '<option value="' . $row[1] . '">' . $row[4] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
+							 <?
+// Establish a connection with the data source, and define the SQL
+$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
+
+$strSQL = "SELECT *FROM customer";
+
+$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+?>
 		</tr>
 		<tr>
 			<td> City: </td>
 			<td><select name="city"  value="$row[0]">
 					<?while($row = mysqli_fetch_array($rs)){?>
-					<?print '<option value="' . $row[1] . '">' . $row[6] .   '</option>' . "\n";}//This is uses the datebase values?>
+					<?print '<option value="' . $row[1] . '">' . $row[5] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
+							 <?
+// Establish a connection with the data source, and define the SQL
+$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
+
+$strSQL = "SELECT *FROM customer";
+
+$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+?>
 			<td> State: </td>
 			<td><select name="state"  value="$row[0]">
 					<?while($row = mysqli_fetch_array($rs)){?>
-					<?print '<option value="' . $row[1] . '">' . $row[7] .   '</option>' . "\n";}//This is uses the datebase values?>
+					<?print '<option value="' . $row[1] . '">' . $row[6] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
+							 <?
+// Establish a connection with the data source, and define the SQL
+$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
+
+$strSQL = "SELECT *FROM customer";
+
+$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+?>
 			<td> Zip: </td>
 			<td><select name="zip"  value="$row[0]">
 					<?while($row = mysqli_fetch_array($rs)){?>
-					<?print '<option value="' . $row[1] . '">' . $row[8] .   '</option>' . "\n";}//This is uses the datebase values?>
+					<?print '<option value="' . $row[1] . '">' . $row[7] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
 		</tr>
 		<tr>
+					 <?
+// Establish a connection with the data source, and define the SQL
+$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
+
+$strSQL = "SELECT *FROM customer";
+
+$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+?>
 			<td> Phone: </td>
 			<td><select name="address2"  value="$row[0]">
 					<?while($row = mysqli_fetch_array($rs)){?>
-					<?print '<option value="' . $row[1] . '">' . $row[10] .   '</option>' . "\n";}//This is uses the datebase values?>
+					<?print '<option value="' . $row[1] . '">' . $row[9] .   '</option>' . "\n";}//This is uses the datebase values?>
 				</select></td>
+				
 			<td> Fax: </td>
 			<td><input type="text" name="fax"/></td>
 			<td> Email: </td>
