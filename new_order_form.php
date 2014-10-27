@@ -15,7 +15,7 @@
 	<hr/>
 	<h2>New Order Form</h2>
 	<div id="nav">
-		<h3>Navigation</h3>
+		<h3>Navigation - Managers Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
@@ -43,7 +43,7 @@
 	<hr/>
 	<h2>New Order Form</h2>
 	<div id="nav">
-		<h3>Navigation</h3>
+		<h3>Navigation - User Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">

@@ -10,11 +10,13 @@
 </head>
 <body>
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
-	<hr/>
+	
 	<?if($_SESSION['account'] == "manager"){print '
-	<h4>Welcome '.$_SESSION['name'].'</h4>
+		<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
+	<hr/>
+	<h2>Edit Order</h2>
 	<div id="nav">
-		<h3>Navigation - Edit Order</h3>
+		<h3>Navigation - Manager Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
@@ -43,6 +45,7 @@
 
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
 	<hr/>
+	<h2>Edit Order</h2>
 	<div id="nav">
 		<h3>Navigation - User Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
@@ -162,6 +165,6 @@
 		</form></div><?
 	}
 	?>
-	<h5>Last Modified: 9/26/2014</h5>
+
 	</body>
 </html>
