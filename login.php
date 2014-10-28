@@ -12,7 +12,6 @@
 <h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
 <hr />
 </center>
-<p/><p/><p/>
 
 <? if (isset($_REQUEST['page1_submit'])) {
 // __________________________________________________ DISPLAY PAGE 2  
@@ -100,12 +99,13 @@
 <!-- This is the first pass for the user – page 1 -->
 
 <center><h3>Please enter your password to access this site!<br />
+<p>
 <form method="POST" action="login.php">
 Username: <input type="text" name="username"><br />
 Password: <input type="password" name="pword"><br /><br />
 <input type="submit" name="page1_submit" value="SUBMIT" />
 <input type="reset" value="RESET" /><br />
-</form>
+</form></p>
 </h3></center>
 
 <? }

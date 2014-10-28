@@ -11,7 +11,7 @@
 	
 	<?if($_SESSION['account'] == "manager"){print '
 	
-	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form></h4>
+	<h4>Welcome '.$_SESSION['name'].' <form method="post" action="signout.php"><input type="submit" value="Logout" /></form></h4>
 	<hr/>
 	<h2>Home Screen</h2>
 	<div id="nav">
@@ -43,7 +43,7 @@
 	</div>';}
 	else{print '
 
-	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
+	<h4>Welcome '.$_SESSION['name'].' <form method="post" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
 	<hr/>
 	<h2>Home Screen</h2>
 	<div id="nav">
