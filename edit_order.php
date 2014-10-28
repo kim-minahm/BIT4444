@@ -51,10 +51,11 @@
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
-				 <option value="home">Home</option>
+				<option value="home">Home</option>
 				<option value="order">New Order Form</option>
 				<option value="edit">Edit Order</option>
-				<option value="customer">New Customer Form/Edit Customer</option>
+				<option value="customer">New Customer Form</option>
+				<option value="edit_customer">Edit Customer</option>
 				<option value="item">Itemize sales report</option>
 			</select>
 			<input type="hidden" name="acct" value="user"/>

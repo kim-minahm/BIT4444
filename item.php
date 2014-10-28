@@ -13,15 +13,18 @@
 		<?if($_SESSION['account'] == "manager"){print '
 	
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
-<hr/>
+	<hr/>
+	<h2>Itemized Sales Reports</h2>
 	<div id="nav">
 		<h3>Navigation - Manager Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
+				<option value="home">Home</option>
 				<option value="order">New Order Form</option>
 				<option value="edit">Edit Order Form</option>
-				<option value="customer">New Customer Form/Edit Customer</option>
+				<option value="customer">New Customer Form</option>
+				<option value="edit_customer">Edit Customer</option>
 				<option value="manage">Management Access Only</option>
 				<option value="report">Itemized Sales Report</option>
 				<option value="performance">Performance Report</option>
@@ -36,21 +39,24 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Last Modified: 9/26/2014
+			Last Modified: 10/27/2014
 	
 	</div>';}
 	else{print '
 
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
 	<hr/>
+	<h2>Itemized Sales Reports</h2>
 	<div id="nav">
 		<h3>Navigation - User Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
+				<option value="home">Home</option>
 				<option value="order">New Order Form</option>
 				<option value="edit">Edit Order</option>
-				<option value="customer">New Customer Form/Edit Customer</option>
+				<option value="customer">New Customer Form</option>
+				<option value="edit_customer">Edit Customer</option>
 				<option value="item">Itemize sales report</option>
 			</select>
 			<input type="hidden" name="acct" value="user"/>
@@ -62,7 +68,7 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Last Modified: 9/26/2014
+			Last Modified: 10/27/2014
 	</div>';}?>
 			<p>Report goes here</p>
 	
