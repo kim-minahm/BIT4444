@@ -38,7 +38,7 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Last Modified: 9/26/2014
+			Last Modified: 10/27/2014
 	
 	</div>';}
 	else{print '
@@ -66,7 +66,7 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Last Modified: 9/26/2014
+			Last Modified: 10/27/2014
 	</div>';}
 	if(isset($_REQUEST['order_select'])){
 		$strItems = "SELECT product.product_name, product.product_cost,product.product_id,orderitem.item_quantity FROM product LEFT JOIN orderitem 
@@ -165,6 +165,5 @@
 		</form></div><?
 	}
 	?>
-
 	</body>
 </html>

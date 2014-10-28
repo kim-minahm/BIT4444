@@ -39,7 +39,7 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Last Modified: 9/26/2014
+			Last Modified: 10/27/2014
 			
 	</div>';}
 	else{print '
@@ -68,7 +68,7 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Last Modified: 9/26/2014
+			Last Modified: 10/27/2014
 	</div>';}?>
 	
 	 <?

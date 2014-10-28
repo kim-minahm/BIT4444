@@ -17,9 +17,11 @@
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
-				<option value="home">Home Page</option>
-				<option value="order">New Order Form/Edit Order Form</option>
-				<option value="customer">New Customer Form/Edit Customer</option>
+				<option value="home">Home</option>
+				<option value="order">New Order Form</option>
+				<option value="edit">Edit Order Form</option>
+				<option value="customer">New Customer Form</option>
+				<option value="edit_customer">Edit Customer</option>
 				<option value="manage">Management Access Only</option>
 				<option value="report">Itemized Sales Report</option>
 				<option value="performance">Performance Report</option>
@@ -33,7 +35,7 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Marcella Krzywicki
+			Last Modified: 10/27/14
 	</div>
 	';}
 	else if($_SESSION['account']=="user"){
@@ -43,9 +45,11 @@
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
-				<option value="home">Home Page</option>
-				<option value="order">New Order Form/Edit Order Form</option>
-				<option value="customer">New Customer Form/Edit Customer</option>
+				<option value="home">Home</option>
+				<option value="order">New Order Form</option>
+				<option value="edit">Edit Order</option>
+				<option value="customer">New Customer Form</option>
+				<option value="edit_customer">Edit Customer</option>
 				<option value="item">Itemize sales report</option>
 			</select>
 			</div>
@@ -56,7 +60,7 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Marcella Krzywicki
+			Last Modified: 10/27/14
 	</div>';}
 	// Establish a connection with the data source, and define the SQL
 	$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
@@ -122,6 +126,5 @@
 			<input type="reset" value="Reset"/>
 		</center>
     </form>
-	<h5>Last Modified: 9/26/2014</h5>
 </body>
 </html>

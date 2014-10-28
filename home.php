@@ -68,7 +68,6 @@
 			Last Modified: 10/27/2014
 	</div>';}?>
 	<div id="section">
-		
 		Building a web based decision support system (DSS) to assist managers and sales staff at Piedmont Furnishings with sale orders, customer forms, 
 		itemized sales report, and performance/business analysis reports. This web based DSS is designed to help the day-to-day activities at Piedmont 
 		Furnishings be more organized and streamline sales for the managers and sales staff to prevent errors and increase customer’s satisfaction. 

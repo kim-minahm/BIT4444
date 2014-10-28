@@ -35,7 +35,7 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Last Modified: 9/26/2014
+			Last Modified: 10/27/2014
 	
 	</div>';}
 	else{print '
@@ -63,7 +63,7 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Last Modified: 9/26/2014
+			Last Modified: 10/27/2014
 	</div>';}?>
 	// Establish a connection with the data source, and define the SQL
 	$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
@@ -73,9 +73,6 @@
 	$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
 	$row = mysqli_fetch_array($rs);
 	
-	
 			<p>Report goes here</p>
-			
-		<h5>Last Modified: 9/26/2014</h5>
 	</body>
 </html>
