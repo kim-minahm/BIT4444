@@ -15,7 +15,6 @@
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
 	<hr/>
 	<h2>Edit Customer</h2>
-	<h2>Edit Customer</h2>
 	<div id="nav">
 		<h3>Navigation - Managers Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
@@ -49,7 +48,7 @@
 	<hr/>
 	<h2>Edit Customer</h2>
 	<div id="nav">
-		<h3>Navigation - User Portal</h3>
+		<h3>Navigation - Employee Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">

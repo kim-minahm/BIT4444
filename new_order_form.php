@@ -10,11 +10,11 @@
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
 
 	<?if($_SESSION['account']=="manager"){
-	print '<h4>Welcome '.$_SESSION['name'].'</h4>
+	print '<h4>Welcome '.$_SESSION['name'].'<form method="POST" action="signout.php"><input type="submit" value="Logout" /></form></h4>
 	<hr/>
 	<h2>New Order Form</h2>
 	<div id="nav">
-		<h3>Navigation - Managers Portal</h3>
+		<h3>Navigation - Manager Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
@@ -28,6 +28,7 @@
 				<option value="performance">Performance Report</option>
 				<option value="business">Business Report</option>
 			</select>
+			<input type="hidden" name="acct" value="manager"/>
 			</div>
 			<p><input type="submit" value="Submit" /></p>
 		</form>
@@ -36,15 +37,16 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Last Modified: 10/27/14
-	</div>';}
+			Last Modified: 10/27/2014
 	
-	else if($_SESSION['account']=="user"){
-	print '<h4>Welcome '.$_SESSION['name'].'</h4>
+	</div>';}
+	else{print '
+
+	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
 	<hr/>
 	<h2>New Order Form</h2>
 	<div id="nav">
-		<h3>Navigation - User Portal</h3>
+		<h3>Navigation - Employee Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
@@ -55,6 +57,7 @@
 				<option value="edit_customer">Edit Customer</option>
 				<option value="item">Itemize sales report</option>
 			</select>
+			<input type="hidden" name="acct" value="user"/>
 			</div>
 			<p><input type="submit" value="Submit" /></p>
 		</form>
@@ -63,9 +66,8 @@
 			Minahm Kim<br/>
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
-			Last Modified: 10/27/14
+			Last Modified: 10/27/2014
 	</div>';}
-	
 	// Establish a connection with the data source, and define the SQL
 	$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
 

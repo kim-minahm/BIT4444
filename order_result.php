@@ -9,10 +9,11 @@
 		</head>
 		<body>
 		<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
-		<hr/>
-		<h2> Order Submitted:</h2>
 		<?if($_SESSION['account'] == "manager"){print '
-	<h4>Welcome '.$_SESSION['name'].'</h4>
+	
+	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form></h4>
+	<hr/>
+	<h2>Order Result</h2>
 	<div id="nav">
 		<h3>Navigation - Manager Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
@@ -44,8 +45,9 @@
 
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form><br /></h4>
 	<hr/>
+	<h2>Order Result</h2>
 	<div id="nav">
-		<h3>Navigation - User Portal</h3>
+		<h3>Navigation - Employee Portal</h3>
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
@@ -99,13 +101,12 @@
 					 $total = $total + ($_POST["M$x"]*$_POST["Q$x"]);
 		}
 		
-		echo print $total;
+		echo $total;
 		?>
 		</br>
 			<input type="submit" value="Return"/>
 			<!--<input type="reset" value="Reset"/>-->
 		</center>
 		</form>
-		<h5>Last Modified: 9/26/2014</h5>
 		</body>
 </html>
