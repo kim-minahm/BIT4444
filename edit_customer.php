@@ -21,7 +21,8 @@
 				<option value="home">Home</option>
 				<option value="order">New Order Form</option>
 				<option value="edit">Edit Order Form</option>
-				<option value="customer">New Customer Form/Edit Customer</option>
+				<option value="customer">New Customer Form</option>
+				<option value="edit_customer">Edit Customer</option>
 				<option value="manage">Management Access Only</option>
 				<option value="report">Itemized Sales Report</option>
 				<option value="performance">Performance Report</option>
@@ -48,10 +49,11 @@
 		<form name="form1" method="post" action="hw2.php">
 			<div>
 			<select name="page">
-				 <option value="home">Home</option>
+				<option value="home">Home</option>
 				<option value="order">New Order Form</option>
 				<option value="edit">Edit Order</option>
-				<option value="customer">New Customer Form/Edit Customer</option>
+				<option value="customer">New Customer Form</option>
+				<option value="edit_customer">Edit Customer</option>
 				<option value="item">Itemize sales report</option>
 			</select>
 			<input type="hidden" name="acct" value="user"/>
@@ -66,94 +68,85 @@
 			Last Modified: 9/26/2014
 	</div>';}
 	if(isset($_REQUEST['order_select'])){
-		$strItems = "SELECT product.product_name, product.product_cost,product.product_id,orderitem.item_quantity FROM product LEFT JOIN orderitem 
-		ON product.product_id=orderitem.product_id";
-		$strOrder = "SELECT * FROM salesorder WHERE order_id ='".$_POST['order']."'";
-		$ord = mysqli_query($db, $strOrder) or die("Error in SQL statement: " . mysqli_error());
-		$order = mysqli_fetch_array($ord);
-		?><form method="POST" action="order_result.php">
-		<table>
-			<tr>
-				<td>Order Number:</td>
-				<td><input type="text" name="ordernumber" value="<?=$_POST['order']?>"/>
-				</td>
-				<td>Order Date:</td>
-				<td><input type="text" name="orderdate" value="<?=$order['order_date']?>"/></td>
-			</tr>
-			<tr>
-				<td> Customer:</td>
-				<td><input type="text" name="customer" value="<?=$order['cust_id']?>"/></td>
-			</tr>
-			<tr>
-				<td>Sale Agent:</td>
-				<td><input type="text" name="salesagent" value="<?=$order['emp_id']?>"/></td>
-				<td>Order Status:</td>
-				<td><input type="text" name="orderstatus" value="<?=$order['status_id']?>""/></td>
-			</tr>
-		</table>
-        <table border = "1">
-			<tr>
-				<th>Product</th>
-				<th>Price</th>
-				<th>Quantity</th>
-			</tr>
-			<?$item = mysqli_query($db, $strItems)  or die("Error in SQL statement: " . mysqli_error());?>
-			<?for($x=0; $x <= 14; $x++)
-			//just needs to post quantity not which
-				{?>
-					<?$row = mysqli_fetch_array($item);?>
-					<tr>
-					<td><label ><?=$row[0]?></label>
-					<input type="hidden"name="P<?=$x?>" value="<?=$row[0]?>"></input>
-					<input type="hidden"name="M<?=$x?>" value="<?=$row[1]?>"></input></td>
-					<td><label value="<?=$row[1]?>">
-							<?print "<option value=$row[0]name=M$x >$row[1]</option>\n";//This is uses the datebase values?>
-					<td><select name="Q<?=$x?>"  value="<?=$row[1]?>">
-							<?
-							$orderQ = "SELECT * FROM orderitem WHERE order_id='".$_POST['order']."' AND product_id='".$row[2]."'";
-							#$orderQ = "SELECT * FROM orderitem WHERE order_id='".$_POST['order']."'";
-							$val = "0";
-							if($quantity = mysqli_query($db, $orderQ)){
-								$quan = mysqli_fetch_array($quantity);
-								$val = $quan['item_quantity'];
-							}
-							?><?
-							for($i = 0; $i < 20; $i++){
-								if($val==$i){
-									print "<option value=$i selected>$i</option>";
-								}else{
-							print "<option value=$i>$i</option>";}}//This uses the datebase values?>
-							
-							</select></td>
-					</tr>
-			  <?}?>
+		$strPerson = "SELECT * from customer WHERE cust_id=".$_POST['order'];
+		$cust = mysqli_query($db, $strPerson) or die("Error in SQL statement: " . mysqli_error());
+		$id = mysqli_fetch_array($cust);
+		?><form name="form1" method="post" action="customer_result.php">
+	<table>
+		<tr>
+			<td>Customer ID: </td>
+			<td><input type='text' name="custID"  value="<?=$id['cust_id']?>">
+			<td>Region: </td>
+			<td><input type='text' name="region"  value="<?=$id['region_id']?>">
+			</td>
+							 
+
+		</tr>
+		<tr>
+			<td> Company Name: </td>
+			<td><input type='text' name="companyname"  value="<?=$id['cust_company']?>"> </td>
+
+		</tr>
+		<tr>
+			<td> Contact Information:</td>
+		</tr>
+        <tr>
+			<td> Last Name: </td>
+			<td><input type='text' name="lastname"  value="<?=$id['cust_lname']?>">
+			</td>
+
+		</tr>
+		<tr>
+			<td> First Name: </td>
+			<td><input type='text' name="firstname"  value="<?=$id['cust_fname']?>">
+					</td>
+		</tr>
+		<tr>
+		
+			<td> Street Address 1: </td>
+			<td><input type='text' name="address1"  value="<?=$id['cust_address']?>"></td>
 			
-		</table> 
+		</tr>
+		<tr>
+			<td> Street Address 2: </td>
+			<td><input type='text' name="address2"  value="address2"></td>
+		</tr>
+		<tr>
+			<td> City: </td>
+			<td><input type='text' name="city"  value="<?=$id['cust_city']?>"></td>
+			<td> State: </td>
+			<td><input type='text' name="state"  value="<?=$id['cust_state']?>">
+					</td>
+							
+			<td> Zip: </td>
+			<td><input type='text' name="zip"  value="<?=$id['cust_zip']?>"></td>
+		</tr>
+		<tr>
+			<td> Phone: </td>
+			<td><input type='text' name="phone"  value="<?=$id['cust_phone']?>"></td>
+				
+			<td> Fax: </td>
+			<td><input type="text" name="fax" value="<?=$id['cust_fax']?>"/></td>
+			<td> Email: </td>
+			<td><input type="text" name="email" value="<?=$id['cust_email']?>"/></td>
+		</tr>
+    </table>
 		<center>
-			<input type="submit" value="Submit"/>
-			<input type="reset" value="Reset"/>
+			<p/><input type="submit" value="Submit"/>
+			<input type="reset" value="Reset"/><p/>
 		</center>
     </form><?
 	}else{
-		if($_SESSION['account']=="manager"){
-			$strSQL = "SELECT * FROM salesorder";
-			$rs = mysqli_query($db, $strSQL) or die("Error in SQL statement: " . mysqli_error());
-		}else{
-			$strSQL = "SELECT * FROM salesorder WHERE emp_id=".$_SESSION['id'];
-			$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());
-		}
+		$strSQL = "SELECT cust_id, cust_fname, cust_lname FROM customer";
+		$rs = mysqli_query($db, $strSQL) or die("Error in SQL statement: " . mysqli_error());
+		
 		?><div id="section">
 		<form method="POST" action"edit_order.php">
 		<?$row = mysqli_fetch_array($rs)?>
-		<input type="hidden" name="order_number" value="<?= $row['order_id']?>">
-		<input type="hidden" name="order_date" value="<?= $row['order_date']?>">
-		<input type="hidden" name="customer" value="<?= $row['cust_id']?>">
-		<input type="hidden" name="employee" value="<?= $row['emp_id']?>">
-		<input type="hidden" name="status" value="<?= $row['status_id']?>">
 		<select name="order">
-		<option value="<?= $row['order_id']?>"><? echo "Order Number: ".$row['order_id']." Placed: ".$row['order_date'];?></option><?
+		<option value="<?= $row[0]?>"><? echo "Customer ID ".$row[0]." ".$row[1]." ".$row[2];?></option><?
 		while($row = mysqli_fetch_array($rs)){?>
-			<option value="<?= $row['order_id']?>"><? echo "Order Number: ".$row['order_id']." Placed: ".$row['order_date'];?></option>
+			<option value="<?= $row[0]?>"><? echo "Customer ID: ".$row[0]." ".$row[1]." ".$row[2];?></option>
 		<?}?>
 		</select>
 		<br/>

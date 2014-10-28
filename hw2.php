@@ -26,6 +26,9 @@
 	case 'edit':
 		header("Location: edit_order.php");
 		break;
+	case 'edit_customer':
+		header("Location: edit_customer.php");
+		break;
 	case 'item':
 		header("Location: item.php?acct=");
 		break;
