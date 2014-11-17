@@ -130,19 +130,7 @@
 							print "<option value=$i>$i</option>";}//This uses the datebase values?>
 							</select></td>
 					</tr>
-					<?$sql = "INSERT INTO product (product_name, product_cost)
-					VALUES ('P<?=$x?>', 'M<?=$x?>')";
-					?>
-					<?if (mysqli_query($db, $sql)) 
-					{
-						echo "New record created successfully";
-					} 
-					else 
-					{
-						echo "Error: " . $sql . "<br>" . mysqli_error($db);
-					}?>
 			  <?}?>
-			
 		</table> 
 		<center>
 			<input type="submit" value="Submit"/>

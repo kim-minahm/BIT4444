@@ -2,10 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<?
+	connectDB();
+	session_start();?>
 		<head>
 			<title>Receipt</title>
 			<link rel="stylesheet" type="text/css" href="hw2.css"/>
-			<?session_start()?>
 		</head>
 		<body>
 		<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
@@ -33,6 +35,16 @@
 				<tr>
 					<td><?= $_POST["P$x"]; ?></td>
 					<td><?= $_POST["Q$x"]; ?></td>
+					<?$sql = "INSERT INTO orderitem (item_quantity, order_id, item_linenum, product_id, item_unitprice)
+					VALUES ('Q<?=$x?>', 'ordernumber', '2', BC502', 'P<?=$x?>')";
+					if (mysqli_query($db, $sql)) 
+					{
+						echo "New record created successfully";
+					} 
+					else 
+					{
+						echo "Error: " . $sql . "<br>" . mysqli_error($db);
+					}?>
 					<td><?= $_POST["M$x"]*$_POST["Q$x"];//Since multiplication is just there to remind me what I was doing. I know it's not synatically correct.?></td>
 				</tr>
 			<?}?>
