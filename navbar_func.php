@@ -1,7 +1,7 @@
 <?
 	function navbar()
 	{
-	<?if($_SESSION['account'] == "manager"){print '
+	if($_SESSION['account'] == "manager"){print '
 
 	<h4>Welcome '.$_SESSION['name'].' <form method="POST" action="signout.php"><input type="submit" value="Logout" /></form></h4>
 <hr/>
@@ -60,5 +60,5 @@
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
 			Last Modified: 10/27/2014
-	</div>';}
+	</div>';}}
 ?>
