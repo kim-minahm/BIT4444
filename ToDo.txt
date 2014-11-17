@@ -29,5 +29,7 @@ X	Order/Customer Number validation (avoid Duplicates)
 		Valid Types
 		
 	SQL Injection (Protect against attacks)
+
+Add nav function to new_order_form
 	
 BUGS:
