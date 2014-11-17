@@ -66,14 +66,14 @@
 			Andrew Knittle<br/>
 			Nathan Egbert<br/>
 			Last Modified: 10/27/2014
-	</div>';}?>
+	</div>';}
 	// Establish a connection with the data source, and define the SQL
 	$db = mysqli_connect("localhost", "student", "student", "furnish") or die("I cannot connect to the database because: " . mysqli_connect_error());  // connect to the database server   
 
 	$strSQL = "SELECT product_name, product_cost FROM product";
 
 	$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
-	$row = mysqli_fetch_array($rs);
+	$row = mysqli_fetch_array($rs);?>
 	
 			<p>Report goes here</p>
 	</body>

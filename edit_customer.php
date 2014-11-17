@@ -72,6 +72,7 @@
 	</div>';}
 	if(isset($_REQUEST['order_select'])){
 		$strPerson = "SELECT * from customer WHERE cust_id=".$_POST['order'];
+		
 		$cust = mysqli_query($db, $strPerson) or die("Error in SQL statement: " . mysqli_error());
 		$id = mysqli_fetch_array($cust);
 		?><form name="form1" method="post" action="customer_result.php">
@@ -139,8 +140,10 @@
 			<input type="reset" value="Reset"/><p/>
 		</center>
     </form><?
+		print $strPerson;
 	}else{
 		$strSQL = "SELECT cust_id, cust_fname, cust_lname FROM customer";
+		
 		$rs = mysqli_query($db, $strSQL) or die("Error in SQL statement: " . mysqli_error());
 		
 		?><div id="section">
@@ -156,6 +159,7 @@
 		<br/>
 		<input type="submit" value="Submit" name="order_select"></input>
 		</form></div><?
+			print $strSQL;
 	}
 	?>
 	</body>

@@ -23,7 +23,8 @@
 				<option value="home">Home</option>
 				<option value="order">New Order Form</option>
 				<option value="edit">Edit Order Form</option>
-				<option value="customer">New Customer Form/Edit Customer</option>
+				<option value="customer">New Customer Form</option>
+				<option value="edit_customer">Edit Customer</option>
 				<option value="manage">Management Access Only</option>
 				<option value="report">Itemized Sales Report</option>
 				<option value="performance">Performance Report</option>
@@ -70,29 +71,31 @@
 			Last Modified: 10/27/2014
 	</div>';}
 	if(isset($_REQUEST['order_select'])){
-		$strItems = "SELECT product.product_name, product.product_cost,product.product_id,orderitem.item_quantity FROM product LEFT JOIN orderitem 
-		ON product.product_id=orderitem.product_id";
+		$strItems = "SELECT product.product_name, product.product_cost,product.product_id,orderitem.item_quantity,salesorder.order_id, salesorder.cust_id,salesorder.emp_id,salesorder.status_id,salesorder.order_date FROM product 
+			LEFT JOIN orderitem ON orderitem.order_id=".$_POST['order']." AND orderitem.product_id=product.product_id
+			LEFT JOIN salesorder ON salesorder.order_id=".$_POST['order'];
 		$strOrder = "SELECT * FROM salesorder WHERE order_id ='".$_POST['order']."'";
-		$ord = mysqli_query($db, $strOrder) or die("Error in SQL statement: " . mysqli_error());
+		
+		$ord = mysqli_query($db, $strItems) or die("Error in SQL statement: " . mysqli_error());
 		$order = mysqli_fetch_array($ord);
 		?><form method="POST" action="order_result.php">
 		<table>
 			<tr>
 				<td>Order Number:</td>
-				<td><input type="text" name="ordernumber" value="<?=$_POST['order']?>"/>
+				<td><input type="text" name="ordernumber" value="<?=$order[4]?>"/>
 				</td>
 				<td>Order Date:</td>
-				<td><input type="text" name="orderdate" value="<?=$order['order_date']?>"/></td>
+				<td><input type="text" name="orderdate" value="<?=$order[8]?>"/></td>
 			</tr>
 			<tr>
 				<td> Customer:</td>
-				<td><input type="text" name="customer" value="<?=$order['cust_id']?>"/></td>
+				<td><input type="text" name="customer" value="<?=$order[5]?>"/></td>
 			</tr>
 			<tr>
 				<td>Sale Agent:</td>
-				<td><input type="text" name="salesagent" value="<?=$order['emp_id']?>"/></td>
+				<td><input type="text" name="salesagent" value="<?=$order[6]?>"/></td>
 				<td>Order Status:</td>
-				<td><input type="text" name="orderstatus" value="<?=$order['status_id']?>""/></td>
+				<td><input type="text" name="orderstatus" value="<?=$order[7]?>"/></td>
 			</tr>
 		</table>
         <table border = "1">
@@ -101,35 +104,38 @@
 				<th>Price</th>
 				<th>Quantity</th>
 			</tr>
-			<?$item = mysqli_query($db, $strItems)  or die("Error in SQL statement: " . mysqli_error());?>
 			<?for($x=0; $x <= 14; $x++)
 			//just needs to post quantity not which
 				{?>
-					<?$row = mysqli_fetch_array($item);?>
 					<tr>
-					<td><label ><?=$row[0]?></label>
-					<input type="hidden"name="P<?=$x?>" value="<?=$row[0]?>"></input>
-					<input type="hidden"name="M<?=$x?>" value="<?=$row[1]?>"></input></td>
-					<td><label value="<?=$row[1]?>">
-							<?print "<option value=$row[0]name=M$x >$row[1]</option>\n";//This is uses the datebase values?>
-					<td><select name="Q<?=$x?>"  value="<?=$row[1]?>">
+					<td><label ><?=$order[0]?></label>
+					<input type="hidden"name="P<?=$x?>" value="<?=$order[0]?>"></input>
+					<input type="hidden"name="M<?=$x?>" value="<?=$order[1]?>"></input></td>
+					<td><label value="<?=$order[1]?>">
+							<?print "<option value=$order[0] name=M$x >$order[1]</option>\n";//This is uses the datebase values?>
+					<td><select name="Q<?=$x?>"  value="<?=$order[1]?>">
 							<?
-							$orderQ = "SELECT * FROM orderitem WHERE order_id='".$_POST['order']."' AND product_id='".$row[2]."'";
-							#$orderQ = "SELECT * FROM orderitem WHERE order_id='".$_POST['order']."'";
-							$val = "0";
-							if($quantity = mysqli_query($db, $orderQ)){
-								$quan = mysqli_fetch_array($quantity);
-								$val = $quan['item_quantity'];
-							}
+							$val = $order[3];
+							print "<option value=$val selected>$val</option>";
 							?><?
-							for($i = 0; $i < 20; $i++){
+							$choice=false;
+							for($i = 20; $i > 0; $i--){
 								if($val==$i){
-									print "<option value=$i selected>$i</option>";
+									print "<option value=$val selected>$val</option>";
+									$choice=true;
 								}else{
-							print "<option value=$i>$i</option>";}}//This uses the datebase values?>
+									print "<option value=$i>$i</option>";
+								}
+							}
+							if($choice==false){
+								print "<option value=0 selected>0</option>";
+							}else{
+								print "<option value=0>0</option>";
+							}?>
 							
 							</select></td>
 					</tr>
+					<?$order = mysqli_fetch_array($ord);?>
 			  <?}?>
 			
 		</table> 
@@ -138,6 +144,8 @@
 			<input type="reset" value="Reset"/>
 		</center>
     </form><?
+		print $strOrder;
+		print $strItems;
 	}else{
 		if($_SESSION['account']=="manager"){
 			$strSQL = "SELECT * FROM salesorder";
@@ -164,6 +172,7 @@
 		<br/>
 		<input type="submit" value="Submit" name="order_select"></input>
 		</form></div><?
+		print $strSQL;
 	}
 	?>
 	</body>

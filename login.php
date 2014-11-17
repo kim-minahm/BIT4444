@@ -18,6 +18,7 @@
 	$un = $_REQUEST['username'];
 	$pw = $_REQUEST['pword'];
 	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
+	print $strSQL;
 	$rs = mysqli_query($db, $strSQL);
 	//means that an entry was found in the database wither username & password
 	if($nm = mysqli_fetch_array($rs)) {
@@ -35,7 +36,7 @@
 		}
 	} else { ?>
 		<center><h3>Wrong Password! Try again.
-		<form method="POST" action="login.php">
+		<form method="post" action="login.php">
 			Username: <input type="text" name="username"><br />
 			Password: <input type="password" NAME="pword" /><br /><br />
 			<input type="submit" name="page2_submit" value="SUBMIT" />
@@ -48,6 +49,7 @@
 	$un = $_REQUEST['username'];
 	$pw = $_REQUEST['pword'];
 	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
+	print $strSQL;
 	$rs = mysqli_query($db, $strSQL);
 	//means that an entry was found in the database wither username & password
 	if($nm = mysqli_fetch_array($rs)) {
@@ -77,6 +79,7 @@
 	$un = $_REQUEST['username'];
 	$pw = $_REQUEST['pword'];
 	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
+	print $strSQL;
 	$rs = mysqli_query($db, $strSQL);
 	//means that an entry was found in the database wither username & password
 	if($nm = mysqli_fetch_array($rs)) {
