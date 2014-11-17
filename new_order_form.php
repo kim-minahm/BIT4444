@@ -74,7 +74,10 @@
 	// Establish a connection with the data source, and define the SQL
 
 	$strSQL = "SELECT product_name, product_cost FROM product";
+<<<<<<< HEAD
     
+=======
+>>>>>>> origin/master
 	$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
 	$row = mysqli_fetch_array($rs);
 	// Establish a connection with the data source, and define the SQL for the orders
@@ -124,6 +127,9 @@
 							<?for($i = 0; $i < 10; $i++){
 							print "<option value=$i>$i</option>";}//This uses the datebase values?>
 							</select></td>
+					<?$sql = "INSERT INTO product (product_name, product_cost)
+					VALUES ('P<?=$x?>', 'M<?=$x?>')";
+					?>
 					</tr>
 			  <?}?>
 			
