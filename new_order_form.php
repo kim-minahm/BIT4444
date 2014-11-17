@@ -76,30 +76,36 @@
 	$strSQL = "SELECT product_name, product_cost FROM product";
 	$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
 	$row = mysqli_fetch_array($rs);
+	
 	// Establish a connection with the data source, and define the SQL for the orders
-	$strSQL2 = "SELECT* FROM salesorder"; //WHERE emp_id == $username";
-
-	$rs2 = mysqli_query($db, $strSQL2)  or die("Error in SQL statement: " . mysqli_error());  
-	$row2 = mysqli_fetch_array($rs2);?>
+	
+	$newID = 101;
+	$rndSQL = "Select order_id FROM salesorder WHERE order_id = ".$newID;
+	while(mysqli_num_rows(mysqli_query($db, $rndSQL)) > 0){
+		echo "<script>console.log($newID)</script>";
+		$newID++;
+		$rndSQL = "Select order_id FROM salesorder WHERE order_id =". $newID;
+	}
+	?>
     <?$today = date("F j, Y");?>
     <form method="post" action="order_result.php">
 		<table>
 			<tr>
 				<td>Order Number:</td>
-				<td><input type="text" name="ordernumber" value="<?=$row2[0]?>"/>
+				<td><input type="text" name="ordernumber" value="<?=$newID?>"/>
 				</td>
 				<td>Order Date:</td>
 				<td><input type="text" name="orderdate" value="<?=$today?>"/></td>
 			</tr>
 			<tr>
 				<td> Customer:</td>
-				<td><input type="text" name="customer" value="<?=$row2[1]?>"/></td>
+				<td><input type="text" name="customer" value=""/></td>
 			</tr>
 			<tr>
 				<td>Sale Agent:</td>
-				<td><input type="text" name="salesagent" value="<?=$row2[3]?>"/></td>
+				<td><input type="text" name="salesagent" value=""/></td>
 				<td>Order Status:</td>
-				<td><input type="text" name="orderstatus" value="<?=$row2[4]?>""/></td>
+				<td><input type="text" name="orderstatus" value=""/></td>
 			</tr>
 		</table>
         <table border = "1">
@@ -144,7 +150,6 @@
 		</center>
     </form>
 	<?
-		print $strSQL2;
 		print $strSQL;?>
 </body>
 </html>
