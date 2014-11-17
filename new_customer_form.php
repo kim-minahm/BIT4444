@@ -1,3 +1,4 @@
+<? require_once("connect_to_DB.php");  // inserts contents of this file here  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
@@ -6,6 +7,7 @@
     <title>New Customer Form</title>
 	<link rel="stylesheet" href="hw2.css"/>
 	<?
+	connectDB();
 	session_start();?>
 </head>
 <body>
@@ -75,8 +77,17 @@
     <form name="form1" method="post" action="customer_result.php">
 	<table>
 		<tr>
+		<?
+			$newID = 1;
+			$rndSQL = "Select cust_id FROM customer WHERE cust_id = ".$newID;
+			while(mysqli_num_rows(mysqli_query($db, $rndSQL)) > 0){
+				echo "<script>console.log($newID)</script>";
+				$newID++;
+				$rndSQL = "Select cust_id FROM customer WHERE cust_id =". $newID;
+			}
+		?>
 			<td>Customer ID: </td>
-			<td><input type='text' name="custID"  value="ID">
+			<td><input type='text' name="custID"  value=<?=$newID?>>
 			<td>Region: </td>
 			<td><input type='text' name="region"  value="region">
 			</td>
