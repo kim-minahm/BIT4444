@@ -2,8 +2,8 @@ Homework 5
 
 TODO:
 	Submit New Customer
-	Submit New Order
-	Submit edit Customer
+A	Submit New Order
+MX	Submit edit Customer
 	Submit edit Order
 	Check Database
 		New Customer
@@ -18,7 +18,7 @@ TODO:
 		DTD File
 		XML Saved and Linked
 		
-X	Order/Customer Number validation (avoid Duplicates)
+MX	Order/Customer Number validation (avoid Duplicates)
 	
 	Order Form
 		Check Omitted Data

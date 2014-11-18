@@ -23,7 +23,7 @@
 		
 		$ord = mysqli_query($db, $strItems) or die("Error in SQL statement: " . mysqli_error());
 		$order = mysqli_fetch_array($ord);
-		?><form method="POST" action="order_result.php">
+		?><form method="POST" action="edit_order_result.php">
 		<table>
 			<tr>
 				<td>Order Number:</td>
@@ -49,7 +49,7 @@
 				<th>Price</th>
 				<th>Quantity</th>
 			</tr>
-			<?for($x=0; $x <= 14; $x++)
+			<?for($x=0; $x <= 19; $x++)
 			//just needs to post quantity not which
 				{?>
 					<tr>

@@ -59,7 +59,7 @@
 				<th>Quantity</th>
 			</tr>
 			<?$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());?>
-			<?for($x=0; $x <= 14; $x++)
+			<?for($x=0; $x <= 19; $x++)
 			//just needs to post quantity not which
 				{?>
 					<?$row = mysqli_fetch_array($rs)?>

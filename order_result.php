@@ -31,7 +31,7 @@
 				<th>Quantity</th>
 				<th>Total Price</th>
 			</tr>
-			<?for($x=0; $x <= 10; $x++){?>
+			<?for($x=0; $x <= 19; $x++){?>
 				<tr>
 					<td><?= $_POST["P$x"]; ?></td>
 					<td><?= $_POST["Q$x"]; ?></td>
