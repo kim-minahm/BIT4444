@@ -21,6 +21,18 @@
 	$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
 	$row = mysqli_fetch_array($rs);
 	
+	//Establish a connection with the data source, and define the SQL specific for sales
+	
+	$saleSQL = "SELECT order_id, cust_id, order_date FROM salesorder";
+	$rd = mysqli_query($db, $saleSQL)  or die("Error in SQL statement: " . mysqli_error());  
+	$row2 = mysqli_fetch_array($rd);
+	
+	//Establish a connection with the data source, and define the SQL specific for sales
+	
+	$orderSQL = "SELECT item_quantity FROM orderitem";
+	$rt = mysqli_query($db, $orderSQL)  or die("Error in SQL statement: " . mysqli_error());  
+	$row3 = mysqli_fetch_array($rt);
+	
 	// Establish a connection with the data source, and define the SQL for the orders
 	
 	$newID = 101;
@@ -65,9 +77,11 @@
 				<th>Price</th>
 				<th>Order#</th>
 				<th>CustomerID</th>
+				<th>AgentID</th>
 				<th>Date</th>
 				<th>Status</th>
 				<th>Item#</th>
+				<th>Quantity</th>
 				<th>Total</th>
 			</tr>
 			<?$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());?>
@@ -78,22 +92,28 @@
 					<tr>
 					<td><label ><?=$row[0]?></label>
 					<input type="hidden"name="Price<?=$x?>" value="<?=$row[0]?>"></input>
-					<input type="hidden"name="Order#<?=$x?>" value="<?=$row[0]?>"></input>
-					<input type="hidden"name="CustID<?=$x?>" value="<?=$row[0]?>"></input>
+					<input type="hidden"name="Order#<?=$x?>" value="<?=$row2[0]?>"></input>
+					<input type="hidden"name="CustID<?=$x?>" value="<?=$row2[0]?>"></input>
 					<input type="hidden"name="AgentID<?=$x?>" value="<?=$row[0]?>"></input>
-					<input type="hidden"name="Date<?=$x?>" value="<?=$row[0]?>"></input>
+					<input type="hidden"name="Date<?=$x?>" value="<?=$row2[0]?>"></input>
 					<input type="hidden"name="Status<?=$x?>" value="<?=$row[0]?>"></input>
 					<input type="hidden"name="Item#<?=$x?>" value="<?=$row[0]?>"></input>
-					<input type="hidden"name="Quantity<?=$x?>" value="<?=$row[0]?>"></input>
+					<input type="hidden"name="Quantity<?=$x?>" value="<?=$row3[0]?>"></input>
 					<input type="hidden"name="M<?=$x?>" value="<?=$row[1]?>"></input></td>
 					<td><label value="$row[1]">
 							<?print "<option value=$row[3]name=M$x >$row[3]</option>\n";//This is uses the datebase values?></td>
 					<td><label value="$row[2]">
-							<?print "<option value=$row[0]name=Order#$x >$row[2]</option>\n";//This is uses the datebase values?></td>
-					<td><select name="Quantity<?=$x?>"  value="$row[3]">
-							<?for($i = 0; $i < 10; $i++){
-							print "<option value=$i>$i</option>";}//This uses the datebase values?>
-							</select></td>
+							<?print "<option value=$row2[0]name=Order#$x >$row2[0]</option>\n";//This is uses the datebase values?></td>
+					<td><label value="$row[3]">
+							<?print "<option value=$row2[1]name=CustID#$x >$row2[1]</option>\n";//This is uses the datebase values?></td>
+					<td><label value="$row[4]">
+							<?print "<option value=$row2[1]name=AgentID#$x >$row2[1]</option>\n";//This is uses the datebase values?></td>
+					<td><label value="$row[5]">
+							<?print "<option value=$row2[2]name=Date#$x >$row2[2]</option>\n";//This is uses the datebase values?></td>
+					<td><label value="$row[6]">
+							<?print "<option value=$row2[1]name=AgentID#$x >$row2[1]</option>\n";//This is uses the datebase values?></td>
+					<td><label value="$row[7]">
+							<?print "<option value=$row3[0]name=Quantity#$x >$row3[0]</option>\n";//This is uses the datebase values?></td>
 					</tr>
 			  <?}?>
 		</table> 
