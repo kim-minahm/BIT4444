@@ -3,10 +3,35 @@
  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Report</title>
+    <title>New Order Form/Edit Order Form</title>
 	<link rel="stylesheet" href="hw2.css"/>
-	<?session_start()?>
+	<?
+	connectDB();
+	session_start();?>
 </head>
+<body>
+	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
+	<?
+		include ('navbar_func.php');
+		echo navbar();
+	
+	// Establish a connection with the data source, and define the SQL
+
+	$strSQL = "SELECT product_name, product_cost FROM product";
+	$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+	$row = mysqli_fetch_array($rs);
+	
+	// Establish a connection with the data source, and define the SQL for the orders
+	
+	$newID = 101;
+	$rndSQL = "Select order_id FROM salesorder WHERE order_id = ".$newID;
+	while(mysqli_num_rows(mysqli_query($db, $rndSQL)) > 0){
+		echo "<script>console.log($newID)</script>";
+		$newID++;
+		$rndSQL = "Select order_id FROM salesorder WHERE order_id =". $newID;
+	}
+	?>
+    <?$today = date("F j, Y");?>
 <?
 	connectDB();
 	session_start();?>
@@ -14,60 +39,60 @@
 			<title>Receipt</title>
 			<link rel="stylesheet" type="text/css" href="hw2.css"/>
 		</head>
-		<body>
-		<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
-	<?
-		include ('navbar_func.php');
-		echo navbar();
-	?>
-		<center>
-				Order Number: <? echo $_POST["ordernumber"]; ?><br/>
-				Order Date: <? echo $_POST["orderdate"]; ?><br/>
-				Customer: <? echo $_POST["customer"]; ?><br/>
-				Sales Agent: <? echo $_POST["salesagent"]; ?><br/>
-				Order Status: <? echo $_POST["orderstatus"]; ?><br/>
-		</center>
-		<p/><p/>
-		<form method="post" action="hw2.php">
-		<input type="hidden" name="page" value="home"/>
-		<table border = "1">
+		<form method="post" action="new_order_result.php">
+		<table>
+			<tr>
+				<td>Order Number:</td>
+				<td><input type="text" name="ordernumber" value="<?=$newID?>"/>
+				</td>
+				<td>Order Date:</td>
+				<td><input type="text" name="orderdate" value="<?=$today?>"/></td>
+			</tr>
+			<tr>
+				<td> Customer:</td>
+				<td><input type="text" name="customer" value=""/></td>
+			</tr>
+			<tr>
+				<td>Sale Agent:</td>
+				<td><input type="text" name="salesagent" value=""/></td>
+				<td>Order Status:</td>
+				<td><input type="text" name="orderstatus" value=""/></td>
+			</tr>
+		</table>
+        <table border = "1">
 			<tr>
 				<th>Product</th>
-				<th>Quantity</th>
-				<th>Total Price</th>
+				<th>Price</th>
+				<th>Order#</th>
+				<th>CustomerID</th>
+				<th>Date</th>
+				<th>Status</th>
+				<th>Item#</th>
+				<th>Total</th>
 			</tr>
-			<?for($x=0; $x <= 10; $x++){?>
-				<tr>
-					<td><?= $_POST["P$x"]; ?></td>
-					<td><?= $_POST["Q$x"]; ?></td>
-					<?$sql = "INSERT INTO orderitem (item_quantity, order_id, item_linenum, product_id, item_unitprice)
-					VALUES ('Q<?=$x?>', 'ordernumber', '2', BC502', 'P<?=$x?>')";
-					if (mysqli_query($db, $sql)) 
-					{
-						echo "New record created successfully";
-					} 
-					else 
-					{
-						echo "Error: " . $sql . "<br>" . mysqli_error($db);
-					}?>
-					<td><?= $_POST["M$x"]*$_POST["Q$x"];//Since multiplication is just there to remind me what I was doing. I know it's not synatically correct.?></td>
-				</tr>
-			<?}?>
-		</table>
-		<center>
-		Total Cost of Order: $
-		<?php
-		$total = 0;
-		for($x=0; $x <= 10; $x++){
-					 $total = $total + ($_POST["M$x"]*$_POST["Q$x"]);
-		}
-		
-		echo $total;
-		?>
-		</br>
-			<input type="submit" value="Return"/>
-			<!--<input type="reset" value="Reset"/>-->
-		</center>
-		</form>
+			<?$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());?>
+			<?for($x=0; $x <= 19; $x++)
+			//just needs to post quantity not which
+				{?>
+					<?$row = mysqli_fetch_array($rs)?>
+					<tr>
+					<td><label ><?=$row[0]?></label>
+					<input type="hidden"name="Price<?=$x?>" value="<?=$row[0]?>"></input>
+					<input type="hidden"name="Order#<?=$x?>" value="<?=$row[0]?>"></input>
+					<input type="hidden"name="CustID<?=$x?>" value="<?=$row[0]?>"></input>
+					<input type="hidden"name="AgentID<?=$x?>" value="<?=$row[0]?>"></input>
+					<input type="hidden"name="Date<?=$x?>" value="<?=$row[0]?>"></input>
+					<input type="hidden"name="Status<?=$x?>" value="<?=$row[0]?>"></input>
+					<input type="hidden"name="Item#<?=$x?>" value="<?=$row[0]?>"></input>
+					<input type="hidden"name="M<?=$x?>" value="<?=$row[1]?>"></input></td>
+					<td><label value="$row[1]">
+							<?print "<option value=$row[0]name=M$x >$row[1]</option>\n";//This is uses the datebase values?></td>
+					<td><select name="Quantity<?=$x?>"  value="$row[1]">
+							<?for($i = 0; $i < 10; $i++){
+							print "<option value=$i>$i</option>";}//This uses the datebase values?>
+							</select></td>
+					</tr>
+			  <?}?>
+		</table> 
 		</body>
 </html>
