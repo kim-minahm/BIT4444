@@ -75,6 +75,7 @@
 				<th>Quantity</th>
 				<th>$ Total</th>
 			</tr>
+			<?$grandTotal = 0?>
 			<?$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());?>
 			<?for($x=0; $x <= 19; $x++)
 			//just needs to post quantity not which
@@ -95,6 +96,7 @@
 					<input type="hidden"name="Quantity<?=$x?>" value="<?=$row3[0]?>"></input>
 					<input type="hidden"name="M<?=$x?>" value="<?=$row3[0]?>"></input></td>
 					<?$total = (int)$row3[0]*(int)$row[3]?>
+					<?$grandTotal += $total?> 
 					<td><label value="$row[1]">
 							<?print "<option value=$row[3]name=Price$x >$row[3]</option>\n";//This is uses the datebase values?></td>
 					<td><label value="$row[2]">
@@ -113,6 +115,9 @@
 							<?print "<option value=$total name=M$x >$total</option>\n";?></td>
 					</tr>
 			  <?}?>
-		</table> 
+		</table>
+		<center>
+			Total Sum:$<?print $grandTotal?>
+		</center>
 		</body>
 </html>
