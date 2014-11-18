@@ -17,7 +17,7 @@
 	
 	// Establish a connection with the data source, and define the SQL
 
-	$strSQL = "SELECT product_name, product_cost FROM product";
+	$strSQL = "SELECT product_id, category_id, product_name, product_cost FROM product";
 	$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
 	$row = mysqli_fetch_array($rs);
 	
@@ -84,10 +84,13 @@
 					<input type="hidden"name="Date<?=$x?>" value="<?=$row[0]?>"></input>
 					<input type="hidden"name="Status<?=$x?>" value="<?=$row[0]?>"></input>
 					<input type="hidden"name="Item#<?=$x?>" value="<?=$row[0]?>"></input>
+					<input type="hidden"name="Quantity<?=$x?>" value="<?=$row[0]?>"></input>
 					<input type="hidden"name="M<?=$x?>" value="<?=$row[1]?>"></input></td>
 					<td><label value="$row[1]">
-							<?print "<option value=$row[0]name=M$x >$row[1]</option>\n";//This is uses the datebase values?></td>
-					<td><select name="Quantity<?=$x?>"  value="$row[1]">
+							<?print "<option value=$row[3]name=M$x >$row[3]</option>\n";//This is uses the datebase values?></td>
+					<td><label value="$row[2]">
+							<?print "<option value=$row[0]name=Order#$x >$row[2]</option>\n";//This is uses the datebase values?></td>
+					<td><select name="Quantity<?=$x?>"  value="$row[3]">
 							<?for($i = 0; $i < 10; $i++){
 							print "<option value=$i>$i</option>";}//This uses the datebase values?>
 							</select></td>
