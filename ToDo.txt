@@ -2,14 +2,9 @@ Homework 5
 
 TODO:
 	Submit New Customer
-A	Submit New Order
-MX	Submit edit Customer
-	Submit edit Order
-	Check Database
-		New Customer
-		New Order
-		Edit Customer
-		Edit Order
+AMX	Submit New Order
+	Submit edit Customer
+MX	Submit edit Order
 	
 	Itemized Sales Report
 		Retreive from Database	
@@ -28,8 +23,7 @@ MX	Order/Customer Number validation (avoid Duplicates)
 		Check for Omitted Data
 		Valid Types
 		
-	SQL Injection (Protect against attacks)
+NX	SQL Injection (Protect against attacks)
 
-Add nav function to new_order_form
 	
 BUGS:

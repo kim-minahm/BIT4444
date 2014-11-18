@@ -32,7 +32,7 @@
 	}
 	?>
     <?$today = date("F j, Y");?>
-    <form method="post" action="order_result.php">
+    <form method="post" action="new_order_result.php">
 		<table>
 			<tr>
 				<td>Order Number:</td>

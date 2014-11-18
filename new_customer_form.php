@@ -17,7 +17,7 @@
 		echo navbar();
 	?>
 
-    <form name="form1" method="post" action="customer_result.php">
+    <form name="form1" method="post" action="new_customer_result.php">
 	<table>
 		<tr>
 		<?

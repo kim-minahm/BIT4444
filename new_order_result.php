@@ -22,6 +22,9 @@
 				Sales Agent: <? echo $_POST["salesagent"]; ?><br/>
 				Order Status: <? echo $_POST["orderstatus"]; ?><br/>
 		</center>
+		<p/><p/>
+		<form method="post" action="hw2.php">
+		<input type="hidden" name="page" value="home"/>
 		<?$strItems = "SELECT product.product_name, product.product_cost,product.product_id,orderitem.item_quantity,salesorder.order_id, salesorder.cust_id,salesorder.emp_id,salesorder.status_id,salesorder.order_date FROM product 
 			LEFT JOIN orderitem ON orderitem.order_id=".$_POST['ordernumber']." AND orderitem.product_id=product.product_id
 			LEFT JOIN salesorder ON salesorder.order_id=".$_POST['ordernumber'];
@@ -29,9 +32,6 @@
 		
 		$ord = mysqli_query($db, $strItems) or die("Error in SQL statement: " . mysqli_error());
 		$order = mysqli_fetch_array($ord);?>
-		<p/><p/>
-		<form method="post" action="hw2.php">
-		<input type="hidden" name="page" value="home"/>
 		<table border = "1">
 			<tr>
 				<th>Product</th>
@@ -70,9 +70,9 @@
 							}
 						}
 					}else{
-						echo "Not Found";
+//						echo "Not Found";
 						if($_POST["Q$x"] == 0){
-							echo "No Change needed<br/>
+						
 						}else{
 							$sql = "INSERT INTO orderitem (order_id, item_linenum, product_id, item_quantity, item_unitprice) VALUES ('".$_POST['ordernumber']."','".$x."','".$order[2]."','".$_POST['Q'.$x]."','".$order[1]."')";
 							if (mysqli_query($db, $sql)) 
