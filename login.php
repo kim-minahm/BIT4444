@@ -15,8 +15,8 @@
 
 <? if (isset($_REQUEST['page1_submit'])) {
 // __________________________________________________ DISPLAY PAGE 2  
-	$un = $_REQUEST['username'];
-	$pw = $_REQUEST['pword'];
+	$un = mysqli_real_escape_string($db,$_POST['username']);
+	$pw = mysqli_real_escape_string($db,$_POST['pword']);
 	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
 	print $strSQL;
 	$rs = mysqli_query($db, $strSQL);
@@ -46,8 +46,8 @@
 	<? } ?>
 <? } elseif (isset($_REQUEST['page2_submit'])) {
 // __________________________________________________ DISPLAY PAGE 3  
-	$un = $_REQUEST['username'];
-	$pw = $_REQUEST['pword'];
+	$un = mysqli_real_escape_string($db,$_POST['username']);
+	$pw = mysqli_real_escape_string($db,$_POST['pword']);
 	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
 	print $strSQL;
 	$rs = mysqli_query($db, $strSQL);
@@ -76,8 +76,8 @@
 
    } elseif (isset($_REQUEST['page3_submit'])) {
 // ________________________________________________ DISPLAY FINAL PAGE  
-	$un = $_REQUEST['username'];
-	$pw = $_REQUEST['pword'];
+	$un = mysqli_real_escape_string($db,$_POST['username']);
+	$pw = mysqli_real_escape_string($db,$_POST['pword']);
 	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
 	print $strSQL;
 	$rs = mysqli_query($db, $strSQL);

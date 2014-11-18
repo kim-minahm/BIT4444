@@ -28,7 +28,7 @@ MX	Order/Customer Number validation (avoid Duplicates)
 		Check for Omitted Data
 		Valid Types
 		
-	SQL Injection (Protect against attacks)
+X(I think)SQL Injection (Protect against attacks)
 
 Add nav function to new_order_form
 	
