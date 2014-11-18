@@ -56,9 +56,7 @@
 	}
 	?>
     <?$today = date("F j, Y");?>
-<?
-	connectDB();
-	session_start();?>
+
 		<head>
 			<title>Receipt</title>
 			<link rel="stylesheet" type="text/css" href="hw2.css"/>
