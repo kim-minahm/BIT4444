@@ -94,7 +94,12 @@
 					<td><label value="$row[5]">
 							<?print "<option value=$row2[2]name=Date$x >$row2[2]</option>\n";?></td>
 					<td><label value="$row[6]">
-							<?print "<option value=$row2[4]name=Status$x >$row2[4]</option>\n";?></td>
+							<?php
+							if($row2[4] == "2"){
+									echo "complete";
+								} else {
+									echo "on order";
+								}?></td>
 					<td><label value="$row[7]">
 							<?print "<option value=$row3[0]name=Quantity$x >$row3[0]</option>\n";?></td>
 					<td><label value="$row[8]">
