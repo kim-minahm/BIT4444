@@ -62,25 +62,7 @@
 			<link rel="stylesheet" type="text/css" href="hw2.css"/>
 		</head>
 		<form method="post" action="new_order_result.php">
-		<table>
-			<tr>
-				<td>Order Number:</td>
-				<td><input type="text" name="ordernumber" value="<?=$newID?>"/>
-				</td>
-				<td>Order Date:</td>
-				<td><input type="text" name="orderdate" value="<?=$today?>"/></td>
-			</tr>
-			<tr>
-				<td> Customer:</td>
-				<td><input type="text" name="customer" value=""/></td>
-			</tr>
-			<tr>
-				<td>Sale Agent:</td>
-				<td><input type="text" name="salesagent" value=""/></td>
-				<td>Order Status:</td>
-				<td><input type="text" name="orderstatus" value=""/></td>
-			</tr>
-		</table>
+	
         <table border = "1">
 			<tr>
 				<th>Product</th>
