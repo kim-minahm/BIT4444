@@ -12,7 +12,7 @@ TODO:
 		Edit Order
 	
 	Itemized Sales Report
-		Retreive from Database
+		Retreive from Database	
 		Set beginneng and End Dates for sales range
 		Formatting Functionality
 		DTD File
