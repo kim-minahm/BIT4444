@@ -23,7 +23,7 @@
 	
 	//Establish a connection with the data source, and define the SQL specific for sales
 	
-	$saleSQL = "SELECT order_id, cust_id, order_date, emp_id FROM salesorder";
+	$saleSQL = "SELECT order_id, cust_id, order_date, emp_id, status_id FROM salesorder";
 	$rd = mysqli_query($db, $saleSQL)  or die("Error in SQL statement: " . mysqli_error());  
 	$row2 = mysqli_fetch_array($rd);
 	
@@ -32,12 +32,6 @@
 	$orderSQL = "SELECT item_quantity, item_unitprice FROM orderitem";
 	$rt = mysqli_query($db, $orderSQL)  or die("Error in SQL statement: " . mysqli_error());  
 	$row3 = mysqli_fetch_array($rt);
-	
-	//Establish a connection with the data source, and define the SQL specific for status
-	
-	$statusSQL = "SELECT status_type FROM orderstatus";
-	$rg = mysqli_query($db, $statusSQL)  or die("Error in SQL statement: " . mysqli_error());  
-	$row4 = mysqli_fetch_array($rg);
 	
 	// Establish a connection with the data source, and define the SQL for the orders
 	
@@ -77,7 +71,6 @@
 					<?$row = mysqli_fetch_array($rs)?>
 					<?$row2 = mysqli_fetch_array($rd)?>
 					<?$row3 = mysqli_fetch_array($rt)?>
-					<?$row4 = mysqli_fetch_array($rg)?>
 					<tr>
 					<td><label ><?=$row[0]?></label>
 					<input type="hidden"name="Price<?=$x?>" value="<?=$row[0]?>"></input>
@@ -85,7 +78,7 @@
 					<input type="hidden"name="CustID<?=$x?>" value="<?=$row2[0]?>"></input>
 					<input type="hidden"name="AgentID<?=$x?>" value="<?=$row2[0]?>"></input>
 					<input type="hidden"name="Date<?=$x?>" value="<?=$row2[0]?>"></input>
-					<input type="hidden"name="Status<?=$x?>" value="<?=$row[0]?>"></input>
+					<input type="hidden"name="Status<?=$x?>" value="<?=$row2[0]?>"></input>
 					<input type="hidden"name="Quantity<?=$x?>" value="<?=$row3[0]?>"></input>
 					<input type="hidden"name="M<?=$x?>" value="<?=$row3[0]?>"></input></td>
 					<?$total = (int)$row3[0]*(int)$row[3]?>
@@ -101,7 +94,7 @@
 					<td><label value="$row[5]">
 							<?print "<option value=$row2[2]name=Date$x >$row2[2]</option>\n";?></td>
 					<td><label value="$row[6]">
-							<?print "<option value=$row4[0]name=Status$x >$row4[0]</option>\n";?></td>
+							<?print "<option value=$row2[4]name=Status$x >$row2[4]</option>\n";?></td>
 					<td><label value="$row[7]">
 							<?print "<option value=$row3[0]name=Quantity$x >$row3[0]</option>\n";?></td>
 					<td><label value="$row[8]">
