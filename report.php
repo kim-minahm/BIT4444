@@ -33,6 +33,12 @@
 	$rt = mysqli_query($db, $orderSQL)  or die("Error in SQL statement: " . mysqli_error());  
 	$row3 = mysqli_fetch_array($rt);
 	
+	//Establish a connection with the data source, and define the SQL specific for status
+	
+	$statusSQL = "SELECT status_type FROM orderstatus";
+	$rg = mysqli_query($db, $statusSQL)  or die("Error in SQL statement: " . mysqli_error());  
+	$row4 = mysqli_fetch_array($rg);
+	
 	// Establish a connection with the data source, and define the SQL for the orders
 	
 	$newID = 101;
@@ -80,9 +86,8 @@
 				<th>AgentID</th>
 				<th>Date</th>
 				<th>Status</th>
-				<th>Item#</th>
 				<th>Quantity</th>
-				<th>Total</th>
+				<th>$ Total</th>
 			</tr>
 			<?$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());?>
 			<?for($x=0; $x <= 19; $x++)
@@ -97,7 +102,6 @@
 					<input type="hidden"name="AgentID<?=$x?>" value="<?=$row[0]?>"></input>
 					<input type="hidden"name="Date<?=$x?>" value="<?=$row2[0]?>"></input>
 					<input type="hidden"name="Status<?=$x?>" value="<?=$row[0]?>"></input>
-					<input type="hidden"name="Item#<?=$x?>" value="<?=$row[0]?>"></input>
 					<input type="hidden"name="Quantity<?=$x?>" value="<?=$row3[0]?>"></input>
 					<input type="hidden"name="M<?=$x?>" value="<?=$row[1]?>"></input></td>
 					<td><label value="$row[1]">
@@ -111,7 +115,7 @@
 					<td><label value="$row[5]">
 							<?print "<option value=$row2[2]name=Date#$x >$row2[2]</option>\n";//This is uses the datebase values?></td>
 					<td><label value="$row[6]">
-							<?print "<option value=$row2[1]name=AgentID#$x >$row2[1]</option>\n";//This is uses the datebase values?></td>
+							<?print "<option value=$row4[0]name=Status#$x >$row4[0]</option>\n";//This is uses the datebase values?></td>
 					<td><label value="$row[7]">
 							<?print "<option value=$row3[0]name=Quantity#$x >$row3[0]</option>\n";//This is uses the datebase values?></td>
 					</tr>
