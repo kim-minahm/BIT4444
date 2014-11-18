@@ -1,9 +1,9 @@
 Homework 5
 
 TODO:
-	Submit New Customer
+MX	Submit New Customer
 AMX	Submit New Order
-	Submit edit Customer
+MX	Submit edit Customer
 MX	Submit edit Order
 	
 	Itemized Sales Report
@@ -28,3 +28,5 @@ NX	SQL Injection (Protect against attacks)
 
 	
 BUGS:
+EDIT CUSTOMER NEEDS NAVIGATION INSERT
+EDIT CUSTOMER RESULT NEEDS NAVIGATION INSERT

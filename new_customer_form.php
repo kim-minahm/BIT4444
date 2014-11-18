@@ -74,16 +74,16 @@
 					</td>
 							
 			<td> Zip: </td>
-			<td><input type='text' name="zip"  value="Zip"></td>
+			<td><input type='text' name="zip"  value="Zip" value="00000" ></td>
 		</tr>
 		<tr>
 			<td> Phone: </td>
 			<td><input type='text' name="phone"  value="phone"></td>
 				
 			<td> Fax: </td>
-			<td><input type="text" name="fax"/></td>
+			<td><input type="text" name="fax" value="000-000-0000"/></td>
 			<td> Email: </td>
-			<td><input type="text" name="email"/></td>
+			<td><input type="text" name="email" value="email@email.com"/></td>
 		</tr>
     </table>
 		<center>
