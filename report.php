@@ -100,6 +100,10 @@
 			//just needs to post quantity not which
 				{?>
 					<?$row = mysqli_fetch_array($rs)?>
+					<?$row2 = mysqli_fetch_array($rd)?>
+					<?$row3 = mysqli_fetch_array($rt)?>
+					<?$row4 = mysqli_fetch_array($rg)?>
+					<?$row5 = mysqli_fetch_array($rb)?>
 					<tr>
 					<td><label ><?=$row[0]?></label>
 					<input type="hidden"name="Price<?=$x?>" value="<?=$row[0]?>"></input>
@@ -113,19 +117,19 @@
 					<td><label value="$row[1]">
 							<?print "<option value=$row[3]name=M$x >$row[3]</option>\n";//This is uses the datebase values?></td>
 					<td><label value="$row[2]">
-							<?print "<option value=$row2[0]name=Order#$x >$row2[0]</option>\n";//This is uses the datebase values?></td>
+							<?print "<option value=$row2[0]name=Order#$x >$row2[0]</option>\n";?></td>
 					<td><label value="$row[3]">
-							<?print "<option value=$row2[1]name=CustID#$x >$row2[1]</option>\n";//This is uses the datebase values?></td>
+							<?print "<option value=$row2[1]name=CustID#$x >$row2[1]</option>\n";?></td>
 					<td><label value="$row[4]">
-							<?print "<option value=$row5[0]name=AgentID#$x >$row5[0]</option>\n";//This is uses the datebase values?></td>
+							<?print "<option value=$row5[0]name=AgentID#$x >$row5[0]</option>\n";?></td>
 					<td><label value="$row[5]">
-							<?print "<option value=$row2[2]name=Date#$x >$row2[2]</option>\n";//This is uses the datebase values?></td>
+							<?print "<option value=$row2[2]name=Date#$x >$row2[2]</option>\n";?></td>
 					<td><label value="$row[6]">
-							<?print "<option value=$row4[0]name=Status#$x >$row4[0]</option>\n";//This is uses the datebase values?></td>
+							<?print "<option value=$row4[0]name=Status#$x >$row4[0]</option>\n";?></td>
 					<td><label value="$row[7]">
-							<?print "<option value=$row3[0]name=Quantity#$x >$row3[0]</option>\n";//This is uses the datebase values?></td>
+							<?print "<option value=$row3[0]name=Quantity#$x >$row3[0]</option>\n";?></td>
 					<td><label value="$row[8]">
-							<?print "<option value=$row3[1]name=M#$x >$row3[1]</option>\n";//This is uses the datebase values?></td>
+							<?print "<option value=$row3[1]name=M#$x >$row3[1]</option>\n";?></td>
 					</tr>
 			  <?}?>
 		</table> 
