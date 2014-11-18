@@ -79,7 +79,7 @@
 	<table>
 		<tr>
 			<td>Customer ID: </td>
-			<td><input type='text' name="custID"  value="<?=$id['cust_id']?>">
+			<td><label type='text' name="custID"  value="<?=$id['cust_id']?>"><?=$id['cust_id']?></label>
 			<td>Region: </td>
 			<td><input type='text' name="region"  value="<?=$id['region_id']?>">
 			</td>

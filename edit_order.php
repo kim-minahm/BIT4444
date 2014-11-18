@@ -5,8 +5,9 @@
 <head>
 	<title>Edit Order</title>
 	<link rel="stylesheet" href="hw2.css"/>
-	<?connectDB();?>
-	<?session_start();?>
+	<?connectDB();
+	session_start();?>
+	<script src="validation.js"></script>
 </head>
 <body>
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
@@ -23,24 +24,24 @@
 		
 		$ord = mysqli_query($db, $strItems) or die("Error in SQL statement: " . mysqli_error());
 		$order = mysqli_fetch_array($ord);
-		?><form method="POST" action="edit_order_result.php">
+		?><form name="orderform" method="POST" action="edit_order_result.php" onsubmit="validate_order()">
 		<table>
 			<tr>
 				<td>Order Number:</td>
-				<td><input type="text" name="ordernumber" value="<?=$order[4]?>"/>
+				<td><label id="order" type="text" name="ordernumber" value="<?=$order[4]?>"><?=$order[4]?></label>
 				</td>
 				<td>Order Date:</td>
 				<td><input type="text" name="orderdate" value="<?=$order[8]?>"/></td>
 			</tr>
 			<tr>
 				<td> Customer:</td>
-				<td><input type="text" name="customer" value="<?=$order[5]?>"/></td>
+				<td><input id="customer" type="text" name="customer" value="<?=$order[5]?>"/></td>
 			</tr>
 			<tr>
 				<td>Sale Agent:</td>
-				<td><input type="text" name="salesagent" value="<?=$order[6]?>"/></td>
+				<td><input type="text" id="salesagent" name="salesagent" value="<?=$order[6]?>"/></td>
 				<td>Order Status:</td>
-				<td><input type="text" name="orderstatus" value="<?=$order[7]?>"/></td>
+				<td><input type="text" id="orderstatus" name="orderstatus" value="<?=$order[7]?>"/></td>
 			</tr>
 		</table>
         <table border = "1">
@@ -100,7 +101,7 @@
 			$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());
 		}
 		?><div id="section">
-		<form method="POST" action"edit_order.php">
+		<form method="POST" action="edit_order.php"">
 		<?$row = mysqli_fetch_array($rs)?>
 		<input type="hidden" name="order_number" value="<?= $row['order_id']?>">
 		<input type="hidden" name="order_date" value="<?= $row['order_date']?>">
@@ -115,7 +116,7 @@
 		</select>
 		<br/>
 		<br/>
-		<input type="submit" value="Submit" name="order_select"></input>
+		<input type="submit" value="Submit" name="order_select" "></input>
 		</form></div><?
 		print $strSQL;
 	}

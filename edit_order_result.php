@@ -72,7 +72,7 @@
 					}else{
 						echo "Not Found";
 						if($_POST["Q$x"] == 0){
-							echo "No Change needed<br/>
+							echo "No Change needed<br/>";
 						}else{
 							$sql = "INSERT INTO orderitem (order_id, item_linenum, product_id, item_quantity, item_unitprice) VALUES ('".$_POST['ordernumber']."','".$x."','".$order[2]."','".$_POST['Q'.$x]."','".$order[1]."')";
 							if (mysqli_query($db, $sql)) 

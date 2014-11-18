@@ -30,7 +30,7 @@
 			}
 		?>
 			<td>Customer ID: </td>
-			<td><input type='text' name="custID"  value=<?=$newID?>>
+			<td><label type='text' name="custID"  value=<?=$newID?>><?=$newID?></label>
 			<td>Region: </td>
 			<td><input type='text' name="region"  value="region">
 			</td>
