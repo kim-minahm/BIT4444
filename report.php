@@ -23,7 +23,7 @@
 	
 	//Establish a connection with the data source, and define the SQL specific for sales
 	
-	$saleSQL = "SELECT order_id, cust_id, order_date FROM salesorder";
+	$saleSQL = "SELECT order_id, cust_id, order_date, emp_id FROM salesorder";
 	$rd = mysqli_query($db, $saleSQL)  or die("Error in SQL statement: " . mysqli_error());  
 	$row2 = mysqli_fetch_array($rd);
 	
@@ -38,12 +38,6 @@
 	$statusSQL = "SELECT status_type FROM orderstatus";
 	$rg = mysqli_query($db, $statusSQL)  or die("Error in SQL statement: " . mysqli_error());  
 	$row4 = mysqli_fetch_array($rg);
-	
-	//Establish a connection with the data source, and define the SQL specific for agents
-	
-	$agentSQL = "SELECT emp_id FROM employee";
-	$rb = mysqli_query($db, $agentSQL)  or die("Error in SQL statement: " . mysqli_error());  
-	$row5 = mysqli_fetch_array($rb);
 	
 	// Establish a connection with the data source, and define the SQL for the orders
 	
@@ -84,13 +78,12 @@
 					<?$row2 = mysqli_fetch_array($rd)?>
 					<?$row3 = mysqli_fetch_array($rt)?>
 					<?$row4 = mysqli_fetch_array($rg)?>
-					<?$row5 = mysqli_fetch_array($rb)?>
 					<tr>
 					<td><label ><?=$row[0]?></label>
 					<input type="hidden"name="Price<?=$x?>" value="<?=$row[0]?>"></input>
 					<input type="hidden"name="Order#<?=$x?>" value="<?=$row2[0]?>"></input>
 					<input type="hidden"name="CustID<?=$x?>" value="<?=$row2[0]?>"></input>
-					<input type="hidden"name="AgentID<?=$x?>" value="<?=$row5[0]?>"></input>
+					<input type="hidden"name="AgentID<?=$x?>" value="<?=$row2[0]?>"></input>
 					<input type="hidden"name="Date<?=$x?>" value="<?=$row2[0]?>"></input>
 					<input type="hidden"name="Status<?=$x?>" value="<?=$row[0]?>"></input>
 					<input type="hidden"name="Quantity<?=$x?>" value="<?=$row3[0]?>"></input>
@@ -104,7 +97,7 @@
 					<td><label value="$row[3]">
 							<?print "<option value=$row2[1]name=CustID$x >$row2[1]</option>\n";?></td>
 					<td><label value="$row[4]">
-							<?print "<option value=$row5[0]name=AgentID$x >$row5[0]</option>\n";?></td>
+							<?print "<option value=$row2[3]name=AgentID$x >$row2[3]</option>\n";?></td>
 					<td><label value="$row[5]">
 							<?print "<option value=$row2[2]name=Date$x >$row2[2]</option>\n";?></td>
 					<td><label value="$row[6]">
