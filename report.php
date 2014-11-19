@@ -69,15 +69,15 @@
 					<?$row = mysqli_fetch_array($rs)?>
 					<?$row2 = mysqli_fetch_array($rd)?>
 					<?$row3 = mysqli_fetch_array($rt)?>
-						<tr>
-						<td><label ><?=$row2[0]?></label>
 					<?php 
 					//works for php 5.3
 					$today = date("F j, Y");
-					$start_date = '2011-07-17';
+					$start_date = '2011-07-21';
 					$end_date = $today;
 					$date_from_user = $row2[2];?>
 					<?if($today > $date_from_user && $date_from_user > $start_date){?>
+						<tr>
+						<td><label ><?=$row2[0]?></label>
 					<input type="hidden"name="Product<?=$x?>" value="<?=$row[0]?>"></input>
 					<input type="hidden"name="Price<?=$x?>" value="<?=$row[0]?>"></input>
 					<input type="hidden"name="CustID<?=$x?>" value="<?=$row2[0]?>"></input>
@@ -87,7 +87,7 @@
 					<input type="hidden"name="Quantity<?=$x?>" value="<?=$row3[0]?>"></input>
 					<input type="hidden"name="M<?=$x?>" value="<?=$row3[0]?>"></input></td>
 					<?$total = (int)$row3[0]*(int)$row[3]?>
-					<?$grandTotal += $total?> 
+					<?$grandTotal += $total?>
 					<td><label value="$row[9]">
 							<?print "<option value=$row[0]name=Product$x >$row[0]</option>\n";?></td>
 					<td><label value="$row[2]">
