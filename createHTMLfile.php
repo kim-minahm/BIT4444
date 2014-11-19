@@ -1,6 +1,6 @@
 <?  require_once("connect_to_DB.php");
 
-$outputFile = "testFile" . date("m-d-Y") . ".html";  // Dynamically names the new file
+$outputFile = "testFile" . date("m-d-Y") . ".xml";  // Dynamically names the new file
 
 // Opens a file with this name to which to write the HTML on the server
 $fh = fopen($outputFile, 'w') or die("can't open file");  // 'w' writes over any old data and creates a new file if the file doesn't already exist
