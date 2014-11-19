@@ -76,7 +76,7 @@
 		
 		$cust = mysqli_query($db, $strPerson) or die("Error in SQL statement: " . mysqli_error());
 		$id = mysqli_fetch_array($cust);
-		?><form name="form1" method="post" action="edit_customer_result.php" onsubmit="validate_customer()">
+		?><form name="form1" method="post" action="edit_customer_result.php" onsubmit="return validate_customer()">
 	<table>
 		<tr>
 			<td>Customer ID: </td>

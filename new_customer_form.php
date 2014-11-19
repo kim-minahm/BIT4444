@@ -18,7 +18,7 @@
 		echo navbar();
 	?>
 
-    <form name="form1" method="post" action="new_customer_result.php" onsubmit="validate_customer()">
+    <form name="form1" method="post" action="new_customer_result.php" onsubmit="return validate_customer()">
 	<table>
 		<tr>
 		<?

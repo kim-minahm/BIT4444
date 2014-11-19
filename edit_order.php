@@ -24,14 +24,14 @@
 		
 		$ord = mysqli_query($db, $strItems) or die("Error in SQL statement: " . mysqli_error());
 		$order = mysqli_fetch_array($ord);
-		?><form name="orderform" method="POST" action="edit_order_result.php" onsubmit="validate_order()">
+		?><form name="orderform" method="POST" action="edit_order_result.php" onsubmit="return validate_order()">
 		<table>
 			<tr>
 				<td>Order Number:</td>
 				<td><label id="order" type="text" name="ordernumber" value="<?=$order[4]?>"><?=$order[4]?></label>
 				</td>
 				<td>Order Date:</td>
-				<td><input type="text" name="orderdate" value="<?=$order[8]?>"/></td>
+				<td><label type="text" name="orderdate" value="<?=$order[8]?>"><?=$order[8]?></label></td>
 			</tr>
 			<tr>
 				<td> Customer:</td>

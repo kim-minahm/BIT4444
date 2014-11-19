@@ -33,24 +33,24 @@
 	}
 	?>
     <?$today = date("F j, Y");?>
-    <form name="orderform" method="post" action="new_order_result.php" onsubmit="validate_order()">
+    <form name="orderform" method="post" action="new_order_result.php" onsubmit="return validate_order()">
 		<table>
 			<tr>
 				<td>Order Number:</td>
-				<td><label type="text" name="ordernumber" value="<?=$newID?>"><?=$newID?></label>
+				<td><label id="order" type="text" name="ordernumber" value="<?=$newID?>"><?=$newID?></label>
 				</td>
 				<td>Order Date:</td>
-				<td><input type="text" name="orderdate" value="<?=$today?>"/></td>
+				<td><label type="text" name="orderdate" value="<?=$today?>"/><?=$today?></label></td>
 			</tr>
 			<tr>
 				<td> Customer:</td>
-				<td><input type="text" name="customer" value=""/></td>
+				<td><input id="customer"type="text" name="customer" value=""/></td>
 			</tr>
 			<tr>
 				<td>Sale Agent:</td>
-				<td><input type="text" name="salesagent" value=""/></td>
+				<td><input id="salesagent" type="text" name="salesagent" value=""/></td>
 				<td>Order Status:</td>
-				<td><input type="text" name="orderstatus" value=""/></td>
+				<td><input id="orderstatus" type="text" name="orderstatus" value=""/></td>
 			</tr>
 		</table>
         <table border = "1">
