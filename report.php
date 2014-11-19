@@ -54,7 +54,8 @@
 				<option value="2011-08-06">2011-08-06</option>
 				<option value="2011-08-12">2011-08-12</option>
 			</select>
-			<input type="submit" name="submit" value="Range">
+			</br>
+			<center><input type="submit" name="submit" value="Range"></center>
         </form>
 		<form method="post" action="new_order_result.php">
         <table border = "1">
