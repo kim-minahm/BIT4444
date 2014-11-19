@@ -53,9 +53,9 @@
 	
         <table border = "1">
 			<tr>
+				<th>Order#</th>
 				<th>Product</th>
 				<th>Price</th>
-				<th>Order#</th>
 				<th>CustomerID</th>
 				<th>AgentID</th>
 				<th>Date</th>
@@ -72,9 +72,9 @@
 					<?$row2 = mysqli_fetch_array($rd)?>
 					<?$row3 = mysqli_fetch_array($rt)?>
 					<tr>
-					<td><label ><?=$row[0]?></label>
+					<td><label ><?=$row2[0]?></label>
+					<input type="hidden"name="Product<?=$x?>" value="<?=$row[0]?>"></input>
 					<input type="hidden"name="Price<?=$x?>" value="<?=$row[0]?>"></input>
-					<input type="hidden"name="Order#<?=$x?>" value="<?=$row2[0]?>"></input>
 					<input type="hidden"name="CustID<?=$x?>" value="<?=$row2[0]?>"></input>
 					<input type="hidden"name="AgentID<?=$x?>" value="<?=$row2[0]?>"></input>
 					<input type="hidden"name="Date<?=$x?>" value="<?=$row2[0]?>"></input>
@@ -83,10 +83,10 @@
 					<input type="hidden"name="M<?=$x?>" value="<?=$row3[0]?>"></input></td>
 					<?$total = (int)$row3[0]*(int)$row[3]?>
 					<?$grandTotal += $total?> 
-					<td><label value="$row[1]">
-							<?print "<option value=$row[3]name=Price$x >$row[3]</option>\n";//This is uses the datebase values?></td>
+					<td><label value="$row[9]">
+							<?print "<option value=$row[0]name=Product$x >$row[0]</option>\n";?></td>
 					<td><label value="$row[2]">
-							<?print "<option value=$row2[0]name=Order#$x >$row2[0]</option>\n";?></td>
+							<?print "<option value=$row[3]name=Price$x >$row[3]</option>\n";?></td>
 					<td><label value="$row[3]">
 							<?print "<option value=$row2[1]name=CustID$x >$row2[1]</option>\n";?></td>
 					<td><label value="$row[4]">
