@@ -47,8 +47,16 @@
 			<title>Receipt</title>
 			<link rel="stylesheet" type="text/css" href="hw2.css"/>
 		</head>
+		<form action="#" method="post">
+            <select name="DateRange">
+				<option value="2011-07-21">2011-07-21</option>
+				<option value="2011-07-31">2011-07-31</option>
+				<option value="2011-08-06">2011-08-06</option>
+				<option value="2011-08-12">2011-08-12</option>
+			</select>
+			<input type="submit" name="submit" value="Range">
+        </form>
 		<form method="post" action="new_order_result.php">
-	
         <table border = "1">
 			<tr>
 				<th>Order#</th>
@@ -72,7 +80,14 @@
 					<?php 
 					//works for php 5.3
 					$today = date("F j, Y");
-					$start_date = '2011-07-21';
+					if(isset($_POST['submit']))
+					{
+						$start_date = $_POST['DateRange'];
+					}
+					else
+					{
+						$start_date = '2011-07-01';
+					}
 					$end_date = $today;
 					$date_from_user = $row2[2];?>
 					<?if($today > $date_from_user && $date_from_user > $start_date){?>
