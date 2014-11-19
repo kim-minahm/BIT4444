@@ -16,8 +16,13 @@ $strOut .= "\t<body>";
 
 // ** Get data from the database and load it into an HTML table, within the string you are building **
 connectDB();
-$sql = "SELECT order_id, cust_id, emp_id, order_date, status_id FROM salesorder";
-$result = mysqli_query($db, $sql) or die("SQL error: " . mysqli_error());  // create the appropriate recordset
+$salesOrder = "SELECT order_id, cust_id, emp_id, order_date, status_id FROM salesorder";
+$result = mysqli_query($db, $salesOrder) or die("SQL error: " . mysqli_error());  // create the appropriate recordset
+
+ 
+
+$orderSQL = "SELECT item_quantity, product_id, item_unitprice FROM orderitem";
+$rt = mysqli_query($db, $orderSQL)  or die("Error in SQL statement: " . mysqli_error());  
 
 $strOut .= "\n\t\t<table>";
 $strOut .= "\n\t\t\t<tr><td>" . "Order ID" . "</td><td>" . "Customer ID" . "</td><td>" . "Employee ID" . "</td><td>" . "Order Date" . "</td><td>" . "Status ID" . "</td></tr>";
@@ -25,6 +30,14 @@ while($row = mysqli_fetch_array($result)){  // retrieve each row of the recordse
 $strOut .= "\n\t\t\t<tr><td>" . $row["order_id"] . "</td><td>" . $row["cust_id"] . "</td><td>" . $row["emp_id"] . "</td><td>" . $row["order_date"] . "</td><td>" . $row["status_id"] . "</td></tr>";
 }
 $strOut .= "\n\t\t</table>";
+
+$strOut .= "\n\t\t<table>";
+$strOut .= "\n\t\t\t<tr><td>" . "Item Quantity" . "</td><td>" . "Product ID" . "</td><td>" . "Item Price" . "</td><td>" . "</td></tr>";
+while($row = mysqli_fetch_array($rt)){  // retrieve each row of the recordset in turn
+$strOut .= "\n\t\t\t<tr><td>" . $row["item_quantity"] . "</td><td>" . $row["product_id"] . "</td><td>" . $row["item_unitprice"] . "</td></tr>";
+}
+$strOut .= "\n\t\t</table>";
+
 mysqli_close($db);  // Always close the database connection
 //***************************************************************************
 $strOut .= "\n\t</body>\n</html>";
