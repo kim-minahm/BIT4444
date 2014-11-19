@@ -43,8 +43,6 @@
 		$rndSQL = "Select order_id FROM salesorder WHERE order_id =". $newID;
 	}
 	?>
-    <?$today = date("F j, Y");?>
-
 		<head>
 			<title>Receipt</title>
 			<link rel="stylesheet" type="text/css" href="hw2.css"/>
@@ -71,8 +69,15 @@
 					<?$row = mysqli_fetch_array($rs)?>
 					<?$row2 = mysqli_fetch_array($rd)?>
 					<?$row3 = mysqli_fetch_array($rt)?>
-					<tr>
-					<td><label ><?=$row2[0]?></label>
+						<tr>
+						<td><label ><?=$row2[0]?></label>
+					<?php 
+					//works for php 5.3
+					$today = date("F j, Y");
+					$start_date = '2011-07-17';
+					$end_date = $today;
+					$date_from_user = $row2[2];?>
+					<?if($today > $date_from_user && $date_from_user > $start_date){?>
 					<input type="hidden"name="Product<?=$x?>" value="<?=$row[0]?>"></input>
 					<input type="hidden"name="Price<?=$x?>" value="<?=$row[0]?>"></input>
 					<input type="hidden"name="CustID<?=$x?>" value="<?=$row2[0]?>"></input>
@@ -105,6 +110,7 @@
 					<td><label value="$row[8]">
 							<?print "<option value=$total name=M$x >$total</option>\n";?></td>
 					</tr>
+					<?}?>
 			  <?}?>
 		</table>
 		<center>
