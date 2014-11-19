@@ -8,6 +8,7 @@
 	<?
 	connectDB();
 	session_start();?>
+	<script src="validation.js"></script>
 </head>
 <body>
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
@@ -32,7 +33,7 @@
 	}
 	?>
     <?$today = date("F j, Y");?>
-    <form name="orderform" method="post" action="new_order_result.php">
+    <form name="orderform" method="post" action="new_order_result.php" onsubmit="validate_order()">
 		<table>
 			<tr>
 				<td>Order Number:</td>

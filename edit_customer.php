@@ -5,6 +5,7 @@
 <head>
 	<title>Edit Order</title>
 	<link rel="stylesheet" href="hw2.css"/>
+	<script src="validation.js"></script>
 	<?connectDB();?>
 	<?session_start();?>
 </head>
@@ -75,20 +76,20 @@
 		
 		$cust = mysqli_query($db, $strPerson) or die("Error in SQL statement: " . mysqli_error());
 		$id = mysqli_fetch_array($cust);
-		?><form name="form1" method="post" action="edit_customer_result.php">
+		?><form name="form1" method="post" action="edit_customer_result.php" onsubmit="validate_customer()">
 	<table>
 		<tr>
 			<td>Customer ID: </td>
 			<td><label type='text' name="custID"  value="<?=$id['cust_id']?>"><?=$id['cust_id']?></label>
 			<td>Region: </td>
-			<td><input type='text' name="region"  value="<?=$id['region_id']?>">
+			<td><input type='text' id="region"  name="region"  value="<?=$id['region_id']?>">
 			</td>
 							 
 
 		</tr>
 		<tr>
 			<td> Company Name: </td>
-			<td><input type='text' name="companyname"  value="<?=$id['cust_company']?>"> </td>
+			<td><input type='text' id="company" name="companyname"  value="<?=$id['cust_company']?>"> </td>
 
 		</tr>
 		<tr>
@@ -96,19 +97,19 @@
 		</tr>
         <tr>
 			<td> Last Name: </td>
-			<td><input type='text' name="lastname"  value="<?=$id['cust_lname']?>">
+			<td><input type='text' id="lname" name="lastname"  value="<?=$id['cust_lname']?>">
 			</td>
 
 		</tr>
 		<tr>
 			<td> First Name: </td>
-			<td><input type='text' name="firstname"  value="<?=$id['cust_fname']?>">
+			<td><input type='text' id="fname" name="firstname"  value="<?=$id['cust_fname']?>">
 					</td>
 		</tr>
 		<tr>
 		
 			<td> Street Address 1: </td>
-			<td><input type='text' name="address1"  value="<?=$id['cust_address']?>"></td>
+			<td><input type='text' id="addr" name="address1"  value="<?=$id['cust_address']?>"></td>
 			
 		</tr>
 		<tr>
@@ -117,22 +118,22 @@
 		</tr>
 		<tr>
 			<td> City: </td>
-			<td><input type='text' name="city"  value="<?=$id['cust_city']?>"></td>
+			<td><input type='text' id="city" name="city"  value="<?=$id['cust_city']?>"></td>
 			<td> State: </td>
-			<td><input type='text' name="state"  value="<?=$id['cust_state']?>">
+			<td><input type='text' id="state" name="state"  value="<?=$id['cust_state']?>">
 					</td>
 							
 			<td> Zip: </td>
-			<td><input type='text' name="zip"  value="<?=$id['cust_zip']?>"></td>
+			<td><input type='text' id="zip" name="zip"  value="<?=$id['cust_zip']?>"></td>
 		</tr>
 		<tr>
 			<td> Phone: </td>
-			<td><input type='text' name="phone"  value="<?=$id['cust_phone']?>"></td>
+			<td><input type='text' id="phone" name="phone"  value="<?=$id['cust_phone']?>"></td>
 				
 			<td> Fax: </td>
-			<td><input type="text" name="fax" value="<?=$id['cust_fax']?>"/></td>
+			<td><input type="text" id="fax" name="fax" value="<?=$id['cust_fax']?>"/></td>
 			<td> Email: </td>
-			<td><input type="text" name="email" value="<?=$id['cust_email']?>"/></td>
+			<td><input type="text" id="email" name="email" value="<?=$id['cust_email']?>"/></td>
 		</tr>
     </table>
 		<center>

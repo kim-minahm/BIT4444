@@ -35,7 +35,7 @@ function validate_order(){
 }
 
 function validate_customer(){
-	var region = document.getElementById("id").value;
+	var region = document.getElementById("region").value;
 	var company = document.getElementById("company").value;
 	var lname = document.getElementById("lname").value;
 	var fname = document.getElementById("fname").value;
@@ -46,4 +46,49 @@ function validate_customer(){
 	var phone = document.getElementById("phone").value;
 	var fax = document.getElementById("fax").value;
 	var email = document.getElementById("email").value;
+	
+	if(region == null || region== ""){
+		alert("Region is required");
+		return false;
+	}
+	if(company == null || company== ""){
+		alert("Company is required");
+		return false;
+	}  
+	if(lname == null || lname== ""){
+		alert("Last Name is required");
+		return false;
+	}
+	if(fname == null ||fname== ""){
+		alert("First Name is required");
+		return false;
+	}
+	if(address == null || address== ""){
+		alert("Address is required");
+		return false;
+	}
+	if(city == null || city== ""){
+		alert("City is required");
+		return false;
+	}
+	if(state == null || state== ""){
+		alert("State is required");
+		return false;
+	}
+	if(zip == null || zip== ""){
+		alert("Zip code is required");
+		return false;
+	}
+	if(phone == null || phone== ""){
+		alert("Phone Number is required");
+		return false;
+	}
+	if(fax === null || fax== ""){
+		alert("Fax Number is required. 000-000-0000 as default");
+		return false;
+	}
+	if(email === null || email== ""){
+		alert("Email is required. email@email as default");
+		return false;
+	}
 }
