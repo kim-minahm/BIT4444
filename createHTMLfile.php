@@ -15,15 +15,19 @@ $strOut .= "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"
 $strOut .= "\t<body>";
 
 // ** Get data from the database and load it into an HTML table, within the string you are building **
+try{
 connectDB();
 $salesOrder = "SELECT order_id, cust_id, emp_id, order_date, status_id FROM salesorder";
-$result = mysqli_query($db, $salesOrder) or die("SQL error: " . mysqli_error());  // create the appropriate recordset
+$result = @mysqli_query($db, $salesOrder) //or die("SQL error: " . mysqli_error());  // create the appropriate recordset
 
- 
 
 $orderSQL = "SELECT item_quantity, product_id, item_unitprice FROM orderitem";
-$rt = mysqli_query($db, $orderSQL)  or die("Error in SQL statement: " . mysqli_error());  
-
+$rt = @mysqli_query($db, $orderSQL)  //or die("Error in SQL statement: " . mysqli_error());
+  
+} catch (Exception $e){
+	// redirect to a custom error page (PHP or ASP.NET or …)
+	header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+}
 $strOut .= "\n\t\t<table>";
 $strOut .= "\n\t\t\t<tr><td>" . "Order ID" . "</td><td>" . "Customer ID" . "</td><td>" . "Employee ID" . "</td><td>" . "Order Date" . "</td><td>" . "Status ID" . "</td></tr>";
 while($row = mysqli_fetch_array($result)){  // retrieve each row of the recordset in turn

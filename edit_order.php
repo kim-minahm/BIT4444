@@ -21,9 +21,16 @@
 			LEFT JOIN orderitem ON orderitem.order_id=".$_POST['order']." AND orderitem.product_id=product.product_id
 			LEFT JOIN salesorder ON salesorder.order_id=".$_POST['order'];
 		$strOrder = "SELECT * FROM salesorder WHERE order_id ='".$_POST['order']."'";
-		
-		$ord = mysqli_query($db, $strItems) or die("Error in SQL statement: " . mysqli_error());
-		$order = mysqli_fetch_array($ord);
+		try{
+		$ord = @mysqli_query($db, $strItems); //or die("Error in SQL statement: " . mysqli_error());
+		$order = @mysqli_fetch_array($ord);
+		if(!$order){
+		throw new Exception("Could not fetch data from (Orders) database");}  
+		}
+		catch (Exception $e){
+		// redirect to a custom error page (PHP or ASP.NET or …)
+		header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+		}
 		?><form name="orderform" method="POST" action="edit_order_result.php" onsubmit="return validate_order()">
 		<table>
 			<tr>
@@ -90,18 +97,24 @@
 			<input type="reset" value="Reset"/>
 		</center>
     </form><?
-		print $strOrder;
-		print $strItems;
 	}else{
+		try{
 		if($_SESSION['account']=="manager"){
 			$strSQL = "SELECT * FROM salesorder";
-			$rs = mysqli_query($db, $strSQL) or die("Error in SQL statement: " . mysqli_error());
+			$rs = @mysqli_query($db, $strSQL); //or die("Error in SQL statement: " . mysqli_error());
+			if(!$rs){throw new Exception("Could not connect to Database. No sales orders found.");}  
 		}else{
 			$strSQL = "SELECT * FROM salesorder WHERE emp_id=".$_SESSION['id'];
-			$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());
+			$rs = @mysqli_query($db, $strSQL);  //or die("Error in SQL statement: " . mysqli_error());
+			if(!$rs){throw new Exception("Could not connect to Database. No sales orders found.");}
+		}
+		}
+		catch (Exception $e){
+		// redirect to a custom error page (PHP or ASP.NET or …)
+		header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
 		}
 		?><div id="section">
-		<form method="POST" action="edit_order.php"">
+		<form method="POST" action="edit_order.php">
 		<?$row = mysqli_fetch_array($rs)?>
 		<input type="hidden" name="order_number" value="<?= $row['order_id']?>">
 		<input type="hidden" name="order_date" value="<?= $row['order_date']?>">
@@ -116,9 +129,8 @@
 		</select>
 		<br/>
 		<br/>
-		<input type="submit" value="Submit" name="order_select" "></input>
+		<input type="submit" value="Submit" name="order_select"></input>
 		</form></div><?
-		print $strSQL;
 	}
 	?>
 	</body>

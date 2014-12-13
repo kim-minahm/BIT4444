@@ -14,12 +14,20 @@
 </center>
 
 <? if (isset($_REQUEST['page1_submit'])) {
-// __________________________________________________ DISPLAY PAGE 2  
+// __________________________________________________ DISPLAY PAGE 2
+try{  
 	$un = mysqli_real_escape_string($db,$_POST['username']);
 	$pw = mysqli_real_escape_string($db,$_POST['pword']);
 	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
-	print $strSQL;
-	$rs = mysqli_query($db, $strSQL);
+	$rs = @mysqli_query($db, $strSQL);
+	if(!$rs){throw new Exception("Could not connect to Database. Can not verify login.");}
+	}
+	catch (Exception $e){
+	
+		// redirect to a custom error page (PHP or ASP.NET or …)
+		header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+	
+	}
 	//means that an entry was found in the database wither username & password
 	if($nm = mysqli_fetch_array($rs)) {
 		print $nm['emp_fname'];
@@ -46,11 +54,19 @@
 	<? } ?>
 <? } elseif (isset($_REQUEST['page2_submit'])) {
 // __________________________________________________ DISPLAY PAGE 3  
+try{
 	$un = mysqli_real_escape_string($db,$_POST['username']);
 	$pw = mysqli_real_escape_string($db,$_POST['pword']);
 	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
-	print $strSQL;
-	$rs = mysqli_query($db, $strSQL);
+	$rs = @mysqli_query($db, $strSQL);
+	if(!$rs){throw new Exception("Could not connect to Database. Can not verify login.");}
+	}
+	catch (Exception $e){
+	
+		// redirect to a custom error page (PHP or ASP.NET or …)
+		header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+	
+	}
 	//means that an entry was found in the database wither username & password
 	if($nm = mysqli_fetch_array($rs)) {
 		session_start();
@@ -75,12 +91,20 @@
 <? } 
 
    } elseif (isset($_REQUEST['page3_submit'])) {
-// ________________________________________________ DISPLAY FINAL PAGE  
+// ________________________________________________ DISPLAY FINAL PAGE
+try{  
 	$un = mysqli_real_escape_string($db,$_POST['username']);
 	$pw = mysqli_real_escape_string($db,$_POST['pword']);
 	$strSQL = "SELECT * FROM employee WHERE emp_username='".$un."' AND emp_pword='".$pw."'";
-	print $strSQL;
-	$rs = mysqli_query($db, $strSQL);
+	$rs = @mysqli_query($db, $strSQL);
+	if(!$rs){throw new Exception("Could not connect to Database. Can not verify login.");}
+	}
+	catch (Exception $e){
+	
+		// redirect to a custom error page (PHP or ASP.NET or …)
+		header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+	
+	}
 	//means that an entry was found in the database wither username & password
 	if($nm = mysqli_fetch_array($rs)) {
 		session_start();

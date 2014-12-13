@@ -72,10 +72,19 @@
 			Last Modified: 10/27/2014
 	</div>';}
 	if(isset($_REQUEST['order_select'])){
+		try{
 		$strPerson = "SELECT * from customer WHERE cust_id=".$_POST['order'];
-		
-		$cust = mysqli_query($db, $strPerson) or die("Error in SQL statement: " . mysqli_error());
-		$id = mysqli_fetch_array($cust);
+		$cust = @mysqli_query($db, $strPerson); //or die("Error in SQL statement: " . mysqli_error());
+		$id = @mysqli_fetch_array($cust);
+		if(!$id)
+			{
+				throw new Exception("Could not connect to the database properly.");
+			}
+		}
+	catch (Exception $e){
+		// redirect to a custom error page (PHP or ASP.NET or …)
+		header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+		}
 		?><form name="form1" method="post" action="edit_customer_result.php" onsubmit="return validate_customer()">
 	<table>
 		<tr>
@@ -141,12 +150,17 @@
 			<input type="reset" value="Reset"/><p/>
 		</center>
     </form><?
-		print $strPerson;
 	}else{
+		try{
 		$strSQL = "SELECT cust_id, cust_fname, cust_lname FROM customer";
 		
-		$rs = mysqli_query($db, $strSQL) or die("Error in SQL statement: " . mysqli_error());
-		
+		$rs = @mysqli_query($db, $strSQL); //or die("Error in SQL statement: " . mysqli_error())
+		if(!$rs){throw new Exception("Could not connect to Database. No sales orders found.");}
+		}
+		catch (Exception $e){
+		// redirect to a custom error page (PHP or ASP.NET or …)
+		header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+		}
 		?><div id="section">
 		<form method="POST" action"edit_order.php">
 		<?$row = mysqli_fetch_array($rs)?>
@@ -160,7 +174,6 @@
 		<br/>
 		<input type="submit" value="Submit" name="order_select"></input>
 		</form></div><?
-			print $strSQL;
 	}
 	?>
 	</body>

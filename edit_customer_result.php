@@ -83,8 +83,17 @@
 		</tr>
     </table>
 	<?
+	try{
 	$check = "SELECT cust_id FROM customer WHERE cust_id=$customer";
-	$cresult = mysqli_query($db, $check);
+	$cresult = @mysqli_query($db, $check);
+	if(!$cresult)
+	{
+		throw new Exception("Could not connect to database");  
+	}
+	} catch (Exception $e){
+	// redirect to a custom error page (PHP or ASP.NET or …)
+	header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+	}
 	if(mysqli_num_rows($cresult)===1){
 		$sql = "UPDATE customer SET cust_company='".$company."' , cust_lname='".$lname."', cust_fname='".$fname."', cust_address='".$add1."', cust_city='".$city."', cust_state='".$state."', cust_zip='".$zip."'
 		, region_id='".$region."', cust_phone='".$phone."', cust_fax='".$fax."', cust_email='".$email."' WHERE cust_id='".$customer."'";
@@ -98,7 +107,8 @@
 		}
 	}else{
 		echo "Customer doesn't exist <br/>";
-	}?>
+	}	
+	?>
 	<form method="post" action="hw2.php">
 		<input type="hidden" name="page" value="home"/>
 		</br>

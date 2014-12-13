@@ -77,8 +77,17 @@
 		</tr>
     </table>
 	<?
+	try{
 	$check = "SELECT cust_id FROM customer WHERE cust_id=$customer";
-	$cresult = mysqli_query($db, $check);
+	$cresult = @mysqli_query($db, $check);
+	if(!$cresult){throw new Exception("Could not insert new customer into database.");}
+	}
+	catch (Exception $e){
+	
+		// redirect to a custom error page (PHP or ASP.NET or …)
+		header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+	
+	}
 	if(mysqli_num_rows($cresult)===0){
 		$sql = "INSERT INTO customer (cust_id, cust_company, cust_lname, cust_fname, cust_address, cust_city, cust_state, cust_zip
 		, region_id, cust_phone, cust_fax, cust_email) VALUES ('".$customer."', '".$company."', '".$lname."', '".$fname."', '".$add1."', '".$city."', '".$state."',

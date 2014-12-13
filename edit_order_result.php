@@ -26,9 +26,16 @@
 			LEFT JOIN orderitem ON orderitem.order_id=".$_POST['ordernumber']." AND orderitem.product_id=product.product_id
 			LEFT JOIN salesorder ON salesorder.order_id=".$_POST['ordernumber'];
 		$strOrder = "SELECT * FROM salesorder WHERE order_id ='".$_POST['ordernumber']."'";
-		
-		$ord = mysqli_query($db, $strItems) or die("Error in SQL statement: " . mysqli_error());
-		$order = mysqli_fetch_array($ord);?>
+		try{
+		$ord = @mysqli_query($db, $strItems);// or die("Error in SQL statement: " . mysqli_error());
+		$order = @mysqli_fetch_array($ord);
+		if(!$order){throw new Exception("Data could not be passed from edit_order.php to this one.");}
+		}
+		catch (Exception $e){
+		// redirect to a custom error page (PHP or ASP.NET or …)
+		header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+		}
+		?>
 		<p/><p/>
 		<form method="post" action="hw2.php">
 		<input type="hidden" name="page" value="home"/>
@@ -43,9 +50,11 @@
 					<td><?= $_POST["P$x"]; ?></td>
 					<td><?= $_POST["Q$x"]; ?></td>
 					<?
+					try{
 					$check = "SELECT * FROM orderitem WHERE order_id = '".$_POST['ordernumber']."' AND product_id = '".$order[2]."'";
 //					echo $check;
-					$found = mysqli_query($db,$check);
+					$found = @mysqli_query($db,$check);
+					if(!$found){throw new Exception("Could not connect to Database. No order items found.");}
 					if(mysqli_num_rows($found) > 0){
 //						echo "Found<br/>";
 						if($_POST["Q$x"] == 0){
@@ -84,6 +93,11 @@
 								echo "Error: " . $sql . "<br>" . mysqli_error($db);
 							}
 						}
+					}
+					}
+					catch (Exception $e){
+					// redirect to a custom error page (PHP or ASP.NET or …)
+					header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
 					}
 					?>
 					<td><?= $_POST["M$x"]*$_POST["Q$x"];//Since multiplication is just there to remind me what I was doing. I know it's not synatically correct.?></td>

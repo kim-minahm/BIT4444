@@ -21,7 +21,7 @@
     <form name="form1" method="post" action="new_customer_result.php" onsubmit="return validate_customer()">
 	<table>
 		<tr>
-		<?
+		<?try{
 			$newID = 1;
 			$rndSQL = "Select cust_id FROM customer WHERE cust_id = ".$newID;
 			while(mysqli_num_rows(mysqli_query($db, $rndSQL)) > 0){
@@ -29,6 +29,14 @@
 				$newID++;
 				$rndSQL = "Select cust_id FROM customer WHERE cust_id =". $newID;
 			}
+			if(!$rndSQL){throw new Exception("Could not get values from cust_id in the database.");}
+		}
+		catch (Exception $e){
+	
+			// redirect to a custom error page (PHP or ASP.NET or …)
+			header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+	
+		}
 		?>
 			<td>Customer ID: </td>
 			<td><label type='text' name="custID"  value=<?=$newID?>><?=$newID?></label>

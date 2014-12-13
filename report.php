@@ -49,10 +49,10 @@
 		</head>
 		<form action="#" method="post">
             <select name="DateRange">
-				<option value="2011-07-21">2011-07-21</option>
-				<option value="2011-07-31">2011-07-31</option>
-				<option value="2011-08-06">2011-08-06</option>
-				<option value="2011-08-12">2011-08-12</option>
+				<option value="2011-07-21">2011-07-21 to 2011-08-16</option>
+				<option value="2011-07-31">2011-07-31 to 2011-08-16</option>
+				<option value="2011-08-06">2011-08-06 to 2011-08-16</option>
+				<option value="2011-08-12">2011-08-12 to 2011-08-16</option>
 			</select>
 			</br>
 			<center><input type="submit" name="submit" value="Range"></center>
