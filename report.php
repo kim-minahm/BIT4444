@@ -47,13 +47,16 @@
 			<title>Receipt</title>
 			<link rel="stylesheet" type="text/css" href="hw2.css"/>
 		</head>
-		<form action="#" method="post">
+		<contained><form action="#" method="post"></br>
+		Select Start Date from the Following Options:
             <select name="DateRange">
 				<option value="2011-07-21">2011-07-21</option>
 				<option value="2011-07-31">2011-07-31</option>
 				<option value="2011-08-06">2011-08-06</option>
 				<option value="2011-08-12">2011-08-12</option>
 			</select>
+		Select End Date from the Following Options:
+			</br>
 			<select name="DateRangeEnd">
 				<option value="2011-08-16">2011-08-16</option>
 				<option value="2011-08-10">2011-08-10</option>
@@ -61,7 +64,8 @@
 				<option value="2011-07-26">2011-07-26</option>
 			</select>
 			</br>
-			<center><input type="submit" name="submit" value="Range"></center>
+			</contained>
+			<center><input type="submit" name="submit" value="Show Range"></center>
         </form>
 		<form method="post" action="new_order_result.php">
         <table border = "1">

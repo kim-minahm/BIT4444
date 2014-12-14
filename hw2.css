@@ -18,7 +18,16 @@ h2{
 h4{
 	text-align: right;
 }
-
+contained{
+	resize: both;
+	display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    padding: 10px;
+	text-align: center;
+    margin-left:15%; 
+    margin-right:15%;
+}
 span{
 	text-align: center;
 }
