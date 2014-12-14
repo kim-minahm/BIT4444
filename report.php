@@ -49,10 +49,16 @@
 		</head>
 		<form action="#" method="post">
             <select name="DateRange">
-				<option value="2011-07-21">2011-07-21 to 2011-08-16</option>
-				<option value="2011-07-31">2011-07-31 to 2011-08-16</option>
-				<option value="2011-08-06">2011-08-06 to 2011-08-16</option>
-				<option value="2011-08-12">2011-08-12 to 2011-08-16</option>
+				<option value="2011-07-21">2011-07-21</option>
+				<option value="2011-07-31">2011-07-31</option>
+				<option value="2011-08-06">2011-08-06</option>
+				<option value="2011-08-12">2011-08-12</option>
+			</select>
+			<select name="DateRangeEnd">
+				<option value="2011-08-16">2011-08-16</option>
+				<option value="2011-08-10">2011-08-10</option>
+				<option value="2011-07-30">2011-07-30</option>
+				<option value="2011-07-26">2011-07-26</option>
 			</select>
 			</br>
 			<center><input type="submit" name="submit" value="Range"></center>
@@ -80,18 +86,18 @@
 					<?$row3 = mysqli_fetch_array($rt)?>
 					<?php 
 					//works for php 5.3
-					$today = date("F j, Y");
 					if(isset($_POST['submit']))
 					{
 						$start_date = $_POST['DateRange'];
+						$end_date = $_POST['DateRangeEnd'];
 					}
 					else
 					{
 						$start_date = '2011-07-01';
+						$end_date = '2011-08-16';
 					}
-					$end_date = $today;
 					$date_from_user = $row2[2];?>
-					<?if($today > $date_from_user && $date_from_user > $start_date){?>
+					<?if($end_date > $date_from_user && $date_from_user > $start_date){?>
 						<tr>
 						<td><label ><?=$row2[0]?></label>
 					<input type="hidden"name="Product<?=$x?>" value="<?=$row[0]?>"></input>
