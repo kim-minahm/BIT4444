@@ -9,18 +9,6 @@
 	connectDB();
 	session_start();?>
 	<script src="validation.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript">
-		function showUser(str){
-			if(str==""){
-				$("#txtHint").html("");
-				return;
-			}else{
-				$("#txtHint").load("getemp.php?q="+str);
-		};
-	}
-</script>
-
 </head>
 <body>
 	<h1><a href="http://tinyurl.com/mstgdqk"><img src="http://tinyurl.com/on58dwh" alt=" photo Untitled_zps8bfcff57.jpg"/></a></h1>
@@ -77,13 +65,12 @@
 				{?>
 					<tr>
 					<td>
-					<select name="P<?=$x?>"  value="<?$row[0]?>" onchange="showUser(this.value)">
-						<option value="">Select Product:</option>
+					<select name="P<?=$x?>"  value="<?$row[0]?>">
 						<?while($row = mysqli_fetch_array($rs)){?>
 						<?print '<option value="' . $row[0] . '">' . $row[0] . '</option>' . "\n";}//This is uses the datebase values?>
 					</select>
 					</td>
-					<input id="txtHint"></input></td>
+					<input type="hidden"name="M<?=$x?>" value="<?=$row[1]?>"></input></td>
 					<td><label value="$row[1]">
 							<?print "<option value=$row[0]name=M$x >$row[1]</option>\n";//This is uses the datebase values?>
 					<td><select name="Q<?=$x?>"  value="$row[1]">
