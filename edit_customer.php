@@ -89,7 +89,8 @@
 	<table>
 		<tr>
 			<td>Customer ID: </td>
-			<td><label type='text' name="custID"  value="<?=$id['cust_id']?>"><?=$id['cust_id']?></label>
+			<td><label type='text' ><?=$id['cust_id']?></label>
+			<input type="hidden" name="custID" value="<?=$id['cust_id']?>"/>
 			<td>Region: </td>
 			<td><input type='text' id="region"  name="region"  value="<?=$id['region_id']?>">
 			</td>

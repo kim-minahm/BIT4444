@@ -85,7 +85,7 @@
 	<?
 	try{
 	$check = "SELECT cust_id FROM customer WHERE cust_id=$customer";
-	$cresult = @mysqli_query($db, $check);
+	$cresult = mysqli_query($db, $check);
 	if(!$cresult)
 	{
 		throw new Exception("Could not connect to database");  
