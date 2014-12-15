@@ -40,7 +40,7 @@ $(document).ready(function(){
 	
 	// Establish a connection with the data source, and define the SQL
 
-	$strSQL = "SELECT product_name, product_cost FROM product";
+	$strSQL = "SELECT product_id, product_name, product_cost FROM product";
 	$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
 	$row = mysqli_fetch_array($rs);
 	
@@ -90,7 +90,7 @@ $(document).ready(function(){
 					<select rel="P<?=$x?>" name="P<?=$x?>" onchange="showUser(this.value)">
 						<option value="">Choose the product you'd like to purchase:</option>
 						<?while($row = mysqli_fetch_array($rs)){?>
-						<?print '<option value="'.$row[0].'">' . $row[0] . '</option>' . "\n";}//This is uses the datebase values?>
+						<?print '<option value="'.$row[0].'">' . $row[1] . '</option>' . "\n";}//This is uses the datebase values?>
 					</select>
 					</td>
 					<td>
