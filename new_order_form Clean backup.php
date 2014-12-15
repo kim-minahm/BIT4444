@@ -68,11 +68,13 @@
 					<select name="P<?=$x?>"  value="<?$row[0]?>">
 						<?while($row = mysqli_fetch_array($rs)){?>
 						<?print '<option value="' . $row[0] . '">' . $row[0] . '</option>' . "\n";}//This is uses the datebase values?>
-					</select>
+					</select><?mysqli_data_seek($rs, 0);?>
 					</td>
-					<input type="hidden"name="M<?=$x?>" value="<?=$row[1]?>"></input></td>
-					<td><label value="$row[1]">
-							<?print "<option value=$row[0]name=M$x >$row[1]</option>\n";//This is uses the datebase values?>
+					<td>
+					<input type="hidden"name="M<?=$x?>" value="<?=$row[1]?>"></input>
+					<?while($row = mysqli_fetch_array($rs)){?>
+							<?print '<option value="' . $row[1] . '">' .$row[1] .'</option>' ."\n";}//This is uses the datebase values?>
+					</td>
 					<td><select name="Q<?=$x?>"  value="$row[1]">
 							<?for($i = 0; $i < 10; $i++){
 							print "<option value=$i>$i</option>";}//This uses the datebase values?>
