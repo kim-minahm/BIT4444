@@ -39,11 +39,16 @@ $(document).ready(function(){
 		echo navbar();
 	
 	// Establish a connection with the data source, and define the SQL
-
+try{
 	$strSQL = "SELECT product_id, product_name, product_cost FROM product";
-	$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());  
+	$rs = @mysqli_query($db, $strSQL);  //or die("Error in SQL statement: " . mysqli_error());  
+	if(!$rs){throw new Exception("Could not connect to Database.");}
 	$row = mysqli_fetch_array($rs);
-	
+	}
+	catch (Exception $e){
+		// redirect to a custom error page (PHP or ASP.NET or …)
+		header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+		}
 	// Establish a connection with the data source, and define the SQL for the orders
 	
 	$newID = 101;
@@ -82,7 +87,18 @@ $(document).ready(function(){
 				<th>Price</th>
 				<th>Quantity</th>
 			</tr>
-			<?$rs = mysqli_query($db, $strSQL)  or die("Error in SQL statement: " . mysqli_error());?>
+			<?
+			try{
+			$rs = @mysqli_query($db, $strSQL);  //or die("Error in SQL statement: " . mysqli_error());  
+			if(!$rs){throw new Exception("Could not connect to Database.");}
+			}
+			catch (Exception $e){
+				// redirect to a custom error page (PHP or ASP.NET or …)
+				header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+			}
+			?>
+			
+			
 			<?for($x=0; $x <= 19; $x++)
 			//just needs to post quantity not which
 				{?>
@@ -105,7 +121,14 @@ $(document).ready(function(){
 							</select></td>
 					</tr>
 					
-					<? $rs = mysqli_query($db, $strSQL); //resets pointer in database.?>
+					<? try{
+							$rs = @mysqli_query($db, $strSQL);  //or die("Error in SQL statement: " . mysqli_error());  
+							if(!$rs){throw new Exception("Could not connect to Database.");}
+						}
+					catch (Exception $e){
+							// redirect to a custom error page (PHP or ASP.NET or …)
+							header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+					}?>
 			  <?}?>
 		</table> 
 		<center>

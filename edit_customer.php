@@ -75,8 +75,8 @@
 		try{
 		$strPerson = "SELECT * from customer WHERE cust_id=".$_POST['order'];
 		$cust = @mysqli_query($db, $strPerson); //or die("Error in SQL statement: " . mysqli_error());
-		$id = @mysqli_fetch_array($cust);
-		if(!$id)
+		$id = mysqli_fetch_array($cust);
+		if(!$cust)
 			{
 				throw new Exception("Could not connect to the database properly.");
 			}

@@ -29,9 +29,16 @@
 			LEFT JOIN orderitem ON orderitem.order_id=".$_POST['ordernumber']." AND orderitem.product_id=product.product_id
 			LEFT JOIN salesorder ON salesorder.order_id=".$_POST['ordernumber'];
 		$strOrder = "SELECT * FROM salesorder WHERE order_id ='".$_POST['ordernumber']."'";
-		
-		$ord = mysqli_query($db, $strItems) or die("Error in SQL statement: " . mysqli_error());
-		$order = mysqli_fetch_array($ord);?>
+		try{
+		$ord = @mysqli_query($db, $strItems) or die("Error in SQL statement: " . mysqli_error()); 
+			if(!$ord){throw new Exception("Could not connect to Database.");}
+		$order = mysqli_fetch_array($ord);
+		}
+		catch (Exception $e){
+			// redirect to a custom error page (PHP or ASP.NET or …)
+			header("Location: error.php?msg=" . $e->getMessage() . "&line=" . $e->getLine());
+		}
+		?>
 		<table border = "1">
 			<tr>
 				<th>Product</th>

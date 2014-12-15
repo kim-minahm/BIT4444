@@ -23,8 +23,8 @@
 		$strOrder = "SELECT * FROM salesorder WHERE order_id ='".$_POST['order']."'";
 		try{
 		$ord = @mysqli_query($db, $strItems); //or die("Error in SQL statement: " . mysqli_error());
-		$order = @mysqli_fetch_array($ord);
-		if(!$order){
+		$order = mysqli_fetch_array($ord);
+		if(!$ord){
 		throw new Exception("Could not fetch data from (Orders) database");}  
 		}
 		catch (Exception $e){
