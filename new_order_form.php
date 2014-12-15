@@ -59,10 +59,11 @@ $(document).ready(function(){
 		<table>
 			<tr>
 				<td>Order Number:</td>
-				<td><label id="order" type="text" name="ordernumber" value="<?=$newID?>"><?=$newID?></label>
-				</td>
+				<td><label><?=$newID?></label>
+				<input type="hidden" id="order" type="text" name="ordernumber" value="<?=$newID?>"></td>
 				<td>Order Date:</td>
-				<td><label type="text" name="orderdate" value="<?=$today?>"/><?=$today?></label></td>
+				<td><label type="text" name="orderdate" value="<?=$today?>"><?=$today?></label></td>
+				<input type="hidden" name="orderdate" value="<?=$today?>"/>
 			</tr>
 			<tr>
 				<td> Customer:</td>
