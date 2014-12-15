@@ -10,16 +10,26 @@
 	session_start();?>
 	<script src="validation.js"></script>
 	<script src="jquery.js"></script>
-	<script type="text/javascript">
-	function showUser(str){
-		if(str==""){
-			$("#txtHint").html("");
-			return;
-		}else{
-			$("#txtHint").load("getemp.php?q="+str);
-		};
-	}
-	</script>
+<!-- Uses the "rel" attribute to identify a related HTML elt into which AJAX data can be loaded.... -->
+<script type="text/javascript">
+$(document).ready(function(){
+
+		$("select").change(function(){
+
+				var x = $("#"+$(this).attr("rel"));
+	
+				if ($(this).val()==""){
+					x.val("");
+				return;
+			}else{
+				x.load("getemp.php?q="+$(this).val(), function(responseTxt){
+					x.val(responseTxt);
+				});			
+			};
+			
+		});
+});
+</script>
 
 </head>
 <body>
@@ -77,14 +87,16 @@
 				{?>
 					<tr>
 					<td>
-					<select name="P<?=$x?>" onchange="showUser(this.value)">
+					<select rel="P<?=$x?>" name="P<?=$x?>" onchange="showUser(this.value)">
 						<option value="">Choose the product you'd like to purchase:</option>
 						<?while($row = mysqli_fetch_array($rs)){?>
 						<?print '<option value="'.$row[0].'">' . $row[0] . '</option>' . "\n";}//This is uses the datebase values?>
 					</select>
 					</td>
 					<td>
-					<div id="txtHint"><input type="text" name="M<?=$x?>" value="0"></input></div>
+					<input id="P<?=$x?>" type="text"name="M<?=$x?>" value="<?=$row[1]?>"></input>
+					<label value="$row[1]">
+							<?print "<option value=$row[0]name=M$x >$row[1]</option>\n";//This is uses the datebase values?>
 					</td>
 					<td><select name="Q<?=$x?>"  value="$row[1]">
 							<?for($i = 0; $i < 10; $i++){
