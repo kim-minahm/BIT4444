@@ -36,10 +36,11 @@
 			<tr>
 				<td>Order Number:</td>
 				<td><label type="text"  value="<?=$order[4]?>"><?=$order[4]?></label>
-				<input  id="ordernumber" name="ordernumber" type="hidden" value="<?=$order[4]?>></input>
+				<input  name="ordernumber" type="hidden" value="<?=$order[4]?>" />
 				</td>
 				<td>Order Date:</td>
-				<td><label id="orderdate" type="text" name="orderdate" value="<?=$order[8]?>"><?=$order[8]?></label></td>
+				<td><label type="text" value="<?=$order[8]?>"><?=$order[8]?></label>
+				<input  name="orderdate" type="hidden" value="<?=$order[8]?>" /></td>
 			</tr>
 			<tr>
 				<td> Customer:</td>

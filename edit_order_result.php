@@ -27,8 +27,8 @@
 			LEFT JOIN salesorder ON salesorder.order_id=".$_POST['ordernumber'];
 		$strOrder = "SELECT * FROM salesorder WHERE order_id ='".$_POST['ordernumber']."'";
 		try{
-		$ord = @mysqli_query($db, $strItems);// or die("Error in SQL statement: " . mysqli_error());
-		$order = @mysqli_fetch_array($ord);
+		$ord = mysqli_query($db, $strItems);// or die("Error in SQL statement: " . mysqli_error());
+		$order = mysqli_fetch_array($ord);
 		if(!$order){throw new Exception("Data could not be passed from edit_order.php to this one.");}
 		}
 		catch (Exception $e){
