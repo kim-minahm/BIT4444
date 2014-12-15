@@ -77,14 +77,15 @@
 				{?>
 					<tr>
 					<td>
-					<select name="P<?=$x?>"  value="<?$row[0]?>" onchange="showUser(this.value)">
+					<select name="P<?=$x?>" onchange="showUser(this.value)">
 						<option value="">Choose the product you'd like to purchase:</option>
 						<?while($row = mysqli_fetch_array($rs)){?>
 						<?print '<option value="' . $row[0] . '">' . $row[0] . '</option>' . "\n";}//This is uses the datebase values?>
 					</select>
 					</td>
+					<? $rs = mysqli_query($db, $strSQL); //resets pointer in database.?>
 					<td>
-					<input type="text" name="M<?=$x?>" id="txtHint"></input>
+					<input type="text" name="M<?=$x?>" value="0"></input>
 					</td>
 					<td><select name="Q<?=$x?>"  value="$row[1]">
 							<?for($i = 0; $i < 10; $i++){
@@ -99,5 +100,6 @@
 			<input type="reset" value="Reset"/>
 		</center>
     </form>
+	<div id="txtHint"><b>Person info will be listed here.</b></div>
 </body>
 </html>
