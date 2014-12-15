@@ -80,7 +80,7 @@
 					<select name="P<?=$x?>" onchange="showUser(this.value)">
 						<option value="">Choose the product you'd like to purchase:</option>
 						<?while($row = mysqli_fetch_array($rs)){?>
-						<?print '<option value="' . $row[0] . '">' . $row[0] . '</option>' . "\n";}//This is uses the datebase values?>
+						<?print '<option value="'.$row[0].'">' . $row[0] . '</option>' . "\n";}//This is uses the datebase values?>
 					</select>
 					</td>
 					<td>
