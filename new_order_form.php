@@ -9,7 +9,7 @@
 	connectDB();
 	session_start();?>
 	<script src="validation.js"></script>
-	<script src="jquerry.js"></script>
+	<script src="jquery.js"></script>
 	<script type="text/javascript">
 	function showUser(str){
 		if(str==""){
@@ -77,7 +77,7 @@
 				{?>
 					<tr>
 					<td>
-					<select id="txtHint" name="P<?=$x?>"  value="<?$row[0]?>" onchange="showUser(this.value)">
+					<select name="P<?=$x?>"  value="<?$row[0]?>" onchange="showUser(this.value)">
 						<option value="">Choose the product you'd like to purchase:</option>
 						<?while($row = mysqli_fetch_array($rs)){?>
 						<?print '<option value="' . $row[0] . '">' . $row[0] . '</option>' . "\n";}//This is uses the datebase values?>
@@ -99,6 +99,5 @@
 			<input type="reset" value="Reset"/>
 		</center>
     </form>
-	<div id ="txtHint"><b>TEST...</b></div>
 </body>
 </html>

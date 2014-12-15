@@ -2,7 +2,7 @@
 
 // ###################### retrieve data from database #################
 connectDB();  
-$sql = "SELECT * FROM product WHERE product_name = " . $_GET["q"];
+$sql = "SELECT product_cost FROM product WHERE product_name = " . $_GET["q"];
 $result = mysqli_query($db, $sql) or die("SQL error: " . mysqli_error());  
 // ###############################################################
 
